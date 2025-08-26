@@ -1,0 +1,12 @@
+com/mycompany/SistemaEscolarDeAutomacao/entities/Horario.class
+com/mycompany/SistemaEscolarDeAutomacao/entities/Sala.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$2.class
+com/mycompany/SistemaEscolarDeAutomacao/entities/Aluno.class
+com/mycompany/SistemaEscolarDeAutomacao/entities/User.class
+com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$1.class
+com/mycompany/SistemaEscolarDeAutomacao/dao/UserDAO.class
+com/mycompany/SistemaEscolarDeAutomacao/entities/Materia.class
+com/mycompany/SistemaEscolarDeAutomacao/SistemaEscolarDeAutomacao.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser.class
+com/mycompany/SistemaEscolarDeAutomacao/entities/Professor.class

@@ -1,0 +1,10 @@
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/SistemaEscolarDeAutomacao.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/dao/UserDAO.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/Aluno.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/Horario.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/Materia.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/Professor.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/Sala.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/entities/User.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser.java
+/home/daniel/NetBeansProjects/SistemaEscolarDeAutomacao/src/main/java/com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.java

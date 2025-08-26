@@ -1,0 +1,160 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.185 Electron/37.2.6 Safari/537.36" version="28.0.6">
+  <diagram name="Page-1" id="tPDgmPKb2ws2YGPDdYkN">
+    <mxGraphModel dx="543" dy="805" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="10000" pageHeight="10000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="9foclDvN9XZSsO1L-l8b-1" value="Aluno" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1670" y="920" width="290" height="360" as="geometry">
+            <mxRectangle x="400" y="170" width="70" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-2" value="&lt;div&gt;- id: int (PK)&lt;/div&gt;- nome: String&lt;div&gt;- idade: int&lt;/div&gt;&lt;div&gt;- cpf: String&lt;/div&gt;&lt;div&gt;- datanascimento: Date&lt;/div&gt;&lt;div&gt;- sala: Sala&lt;/div&gt;&lt;div&gt;- turno: String&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-1" vertex="1">
+          <mxGeometry y="26" width="290" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="9foclDvN9XZSsO1L-l8b-1" vertex="1">
+          <mxGeometry y="140" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-4" value="&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;div style=&quot;&quot;&gt;&lt;div&gt;+ getId(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setId(int id): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getNome(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setNome(String nome): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getIdade(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setIdade(int idade): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getCpf(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setCpf(String cpf): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getDatanascimento(): Date&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setDatanascimento(Date datanascimento): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getSala(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setSala(String sala): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getTurno(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setTurno(String turno): void&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-1" vertex="1">
+          <mxGeometry y="148" width="290" height="212" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-10" value="Professor&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2050" y="1450" width="320" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-11" value="- id: int (PK)&lt;div&gt;- nome: String&lt;/div&gt;&lt;div&gt;- idade: int&lt;/div&gt;&lt;div&gt;- urlCurriculo: String&lt;/div&gt;&lt;div&gt;- materias: List&amp;lt;Materia&amp;gt;&lt;/div&gt;&lt;div&gt;- horarios: List&amp;lt;Horario&amp;gt;&lt;/div&gt;&lt;div&gt;- salario: Double&lt;/div&gt;&lt;div&gt;- formacao: String&lt;/div&gt;&lt;div&gt;- datanascimento: LocalDate&lt;/div&gt;&lt;div&gt;- numero: String&lt;/div&gt;&lt;div&gt;- email: String&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-10" vertex="1">
+          <mxGeometry y="26" width="320" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="9foclDvN9XZSsO1L-l8b-10" vertex="1">
+          <mxGeometry y="200" width="320" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-13" value="&lt;div&gt;+ getId(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setId(int id): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getNome(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setNome(String nome): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getIdade(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setIdade(int idade): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getUrlCurriculo(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setUrlCurriculo(String urlCurriculo): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getMaterias(): List&amp;lt;Materia&amp;gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setMaterias(List&amp;lt;Materia&amp;gt; materias): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getHorarios(): List&amp;lt;Horario&amp;gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setHorarios(List&amp;lt;Horario&amp;gt; horarios): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getSalario(): Double&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setSalario(Double salario): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getFormacao(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setFormacao(String formacao): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getDatanascimento(): LocalDate&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setDatanascimento(LocalDate datanascimento): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getNumero(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setNumero(String numero): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getEmail(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setEmail(String email): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-10" vertex="1">
+          <mxGeometry y="208" width="320" height="342" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-14" value="User&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2400" y="1400" width="310" height="408" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-15" value="- id: int (PK)&lt;div&gt;- nome: String&lt;/div&gt;&lt;div&gt;- permissao: String&lt;/div&gt;&lt;div&gt;- dataCadastro: LocalDate&lt;/div&gt;&lt;div&gt;- horaCadastro: Local&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Time&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- login: String&lt;/div&gt;&lt;div&gt;- senha: String&lt;/div&gt;&lt;div&gt;- log: String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-14" vertex="1">
+          <mxGeometry y="26" width="310" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="9foclDvN9XZSsO1L-l8b-14" vertex="1">
+          <mxGeometry y="160" width="310" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-17" value="&lt;div&gt;+ getId(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setId(int id): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getNome(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setNome(String nome): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getPermissao(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setPermissao(String permissao): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getDataCadastro(): LocalDate&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setDataCadastro(LocalDate dataCadastro): void&lt;/div&gt;&lt;div&gt;+ getHoraCadastro(): LocalTime&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ setHoraCadastro(LocalTime horaCadastro): void&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getLogin(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setLogin(String login): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getSenha(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setSenha(String senha): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ getLog(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setLog(String log): void&amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-14" vertex="1">
+          <mxGeometry y="168" width="310" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-19" value="Materia" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2410" y="1120" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-20" value="- id: int (PK)&lt;div&gt;- nome: String&lt;/div&gt;&lt;div&gt;- professores: List&amp;lt;Professor&amp;gt;&lt;/div&gt;&lt;div&gt;- horarios: List&amp;lt;Horario&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-19" vertex="1">
+          <mxGeometry y="26" width="300" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-21" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="9foclDvN9XZSsO1L-l8b-19" vertex="1">
+          <mxGeometry y="100" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="9foclDvN9XZSsO1L-l8b-22" value="&lt;div&gt;+ getId(): int&lt;/div&gt;&lt;div&gt;+ setId(int id): void&lt;/div&gt;&lt;div&gt;+ getNome(): String&lt;/div&gt;&lt;div&gt;+ setNome(String nome): void&lt;/div&gt;&lt;div&gt;+ getProfessores(): List&amp;lt;Professor&amp;gt;&lt;/div&gt;&lt;div&gt;+ setProfessores(List&amp;lt;Professor&amp;gt; professores): void&lt;/div&gt;&lt;div&gt;+ getHorarios(): List&amp;lt;Horarios&amp;gt;&lt;/div&gt;&lt;div&gt;+ setHorarios(List&amp;lt;Horarios&amp;gt; horarios): void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="9foclDvN9XZSsO1L-l8b-19" vertex="1">
+          <mxGeometry y="108" width="300" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-1" value="Horario&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="2000" y="920" width="310" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-2" value="- id: int (PK)&lt;div&gt;- diaSemana: String&lt;/div&gt;&lt;div&gt;- professorDoHorario: Professor&lt;/div&gt;&lt;div&gt;- materiaDoHorario: Materia&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- horas: LocalTime&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1Z-fe4kz5Zah5RkVdi_G-1" vertex="1">
+          <mxGeometry y="26" width="310" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="1Z-fe4kz5Zah5RkVdi_G-1" vertex="1">
+          <mxGeometry y="110" width="310" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-4" value="&lt;div&gt;+ getId(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setId(int id): void&lt;/div&gt;&lt;div&gt;+ getDiaSemana(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setDiaSemana(String diaSemana): void&lt;/div&gt;&lt;div&gt;+ getProfessorDoHorario(): Professor&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setProfessorDoHorario(Professor professorDoHorario): void&lt;/div&gt;&lt;div&gt;+ getMateriaDoHorario(): Materia&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setMateriaDoHorario(Materia materiaDoHorario): void&lt;/div&gt;&lt;div&gt;+ getHoras(): LocalTime&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setHoras(LocalTime horas): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1Z-fe4kz5Zah5RkVdi_G-1" vertex="1">
+          <mxGeometry y="118" width="310" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-5" value="Sala&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1720" y="1480" width="240" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-6" value="- id: int&lt;div&gt;- nome: String&lt;/div&gt;&lt;div&gt;- turno: String&lt;br&gt;&lt;div&gt;- alunos: List&amp;lt;Aluno&amp;gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- horarios: List&amp;lt;Horario&amp;gt;&amp;nbsp;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1Z-fe4kz5Zah5RkVdi_G-5" vertex="1">
+          <mxGeometry y="26" width="240" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="1Z-fe4kz5Zah5RkVdi_G-5" vertex="1">
+          <mxGeometry y="110" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-8" value="&lt;div&gt;+ getId(): int&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setId(int id): void&lt;/div&gt;&lt;div&gt;+ getNome(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setNome(String nome): void&lt;/div&gt;&lt;div&gt;+ getTurno(): String&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setTurno(String turno): void&lt;/div&gt;&lt;div&gt;+ getAlunos(): List&amp;lt;Aluno&amp;gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setAlunos(List&amp;lt;Aluno&amp;gt; alunos): void&lt;/div&gt;&lt;div&gt;+ getHorarios(): List&amp;lt;Horario&amp;gt;&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ setHorarios(List&amp;lt;Horario&amp;gt; horarios): void&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="1Z-fe4kz5Zah5RkVdi_G-5" vertex="1">
+          <mxGeometry y="118" width="240" height="162" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-19" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1.01;exitY=0.378;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="1Z-fe4kz5Zah5RkVdi_G-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2250" y="1203" as="sourcePoint" />
+            <mxPoint x="2410" y="1202.58" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-20" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-19" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-21" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-19" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-23" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0.286;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.531;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="1Z-fe4kz5Zah5RkVdi_G-4" target="9foclDvN9XZSsO1L-l8b-10" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2140" y="1280" as="sourcePoint" />
+            <mxPoint x="2300" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-24" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-23" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-25" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-23" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="20" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-35" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.531;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.794;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="1Z-fe4kz5Zah5RkVdi_G-5" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1910" y="1280" as="sourcePoint" />
+            <mxPoint x="1910" y="1456" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-36" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-35" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-37" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-35" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="20" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-38" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.531;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.221;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="1Z-fe4kz5Zah5RkVdi_G-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2030" y="1230" as="sourcePoint" />
+            <mxPoint x="2031" y="1427" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-39" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-38" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-40" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-38" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="20" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-41" value="Relation" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=0.286;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.005;exitY=0.094;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="9foclDvN9XZSsO1L-l8b-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2400" y="1240" as="sourcePoint" />
+            <mxPoint x="2320" y="1450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-42" value="0..n" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-41" connectable="0" vertex="1">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-43" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=top;" parent="1Z-fe4kz5Zah5RkVdi_G-41" connectable="0" vertex="1">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="20" y="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-44" value="&lt;span style=&quot;color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;+ GetAluno(int id): List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;+ GetAluno(String nome):&amp;nbsp;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ GetAluno(int idade):&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ GetAluno(String cpf):&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ GetAluno(Date datanascimento):&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ GetAluno(String sala):&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;forced-color-adjust: none; box-shadow: none !important; color: rgb(255, 255, 255); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(27, 29, 30); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ GetAluno(String turno):&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; box-shadow: none !important; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Aluno&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;br class=&quot;Apple-interchange-newline&quot;&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="3100" y="1090" width="290" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="1Z-fe4kz5Zah5RkVdi_G-45" value="Deveria inserir as classes DAO?&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="3110" y="1070" width="200" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

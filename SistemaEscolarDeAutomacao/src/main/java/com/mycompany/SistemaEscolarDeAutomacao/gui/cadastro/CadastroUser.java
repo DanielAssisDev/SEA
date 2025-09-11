@@ -239,8 +239,7 @@ public class CadastroUser extends javax.swing.JFrame {
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
         String telefone = telefoneUsuario.getText();
-        
-        
+
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataCadastro.getText(), formatadorData);
 
@@ -296,8 +295,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void nomeUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusLost
         // TODO add your handling code here:
-        nomeUsuario.setText("Nome");
-        PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+        if (nomeUsuario.getText().isEmpty()) {
+            nomeUsuario.setText("Nome");
+            PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+        }
     }//GEN-LAST:event_nomeUsuarioFocusLost
 
     private void emailUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusGained
@@ -311,8 +312,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusLost
         // TODO add your handling code here:
-        emailUsuario.setText("Email");
-        PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
+        if (emailUsuario.getText().isEmpty()) {
+            emailUsuario.setText("Email");
+            PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
+        }
     }//GEN-LAST:event_emailUsuarioFocusLost
 
     private void telefoneUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusGained
@@ -326,8 +329,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void telefoneUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusLost
         // TODO add your handling code here:
-        telefoneUsuario.setText("Telefone");
-        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
+        if (telefoneUsuario.getText().isEmpty()) {
+            telefoneUsuario.setText("Telefone");
+            PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
+        }
     }//GEN-LAST:event_telefoneUsuarioFocusLost
 
     private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
@@ -342,8 +347,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
         // TODO add your handling code here:
-        dataCadastro.setText("--/--/----");
-        PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
+        if (dataCadastro.getText().isEmpty()) {
+            dataCadastro.setText("--/--/----");
+            PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
+        }
     }//GEN-LAST:event_dataCadastroFocusLost
 
     private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
@@ -357,8 +364,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
         // TODO add your handling code here:
-        horaCadastro.setText("HH:mm:ss");
-        PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+        if (horaCadastro.getText().isEmpty()) {
+            horaCadastro.setText("HH:mm:ss");
+            PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+        }
     }//GEN-LAST:event_horaCadastroFocusLost
 
     private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusGained
@@ -372,8 +381,10 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void loginUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusLost
         // TODO add your handling code here:
-        loginUsuario.setText("Login");
-        PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
+        if (loginUsuario.getText().isEmpty()) {
+            loginUsuario.setText("Login");
+            PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
+        }
     }//GEN-LAST:event_loginUsuarioFocusLost
 
     private void senhaUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusGained
@@ -387,9 +398,11 @@ public class CadastroUser extends javax.swing.JFrame {
     }//GEN-LAST:event_senhaUsuarioFocusGained
 
     private void senhaUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusLost
-        // TODO add your handling code here:
-        senhaUsuario.setText("Senha");
-        PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
+        // TODO add your handling code here:       
+        if (!senhaUsuario.getText().isEmpty()) {
+            senhaUsuario.setText("Senha");
+            PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
+        }
     }//GEN-LAST:event_senhaUsuarioFocusLost
 
     /**

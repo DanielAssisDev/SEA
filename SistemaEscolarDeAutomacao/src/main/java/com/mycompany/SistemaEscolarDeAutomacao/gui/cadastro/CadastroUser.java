@@ -6,10 +6,11 @@ package com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.entities.User;
+import com.mycompany.SistemaEscolarDeAutomacao.gerais.PlaceHolder;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,6 +41,13 @@ public class CadastroUser extends javax.swing.JFrame {
      */
     public CadastroUser() {
         initComponents();
+        PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+        PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
+        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
+        PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
+        PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+        PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
+        PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
     }
 
     /**
@@ -52,28 +60,31 @@ public class CadastroUser extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         comboPermissoes = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
         dataCadastro = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         horaCadastro = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
         loginUsuario = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        senhaUsuario = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
+        senhaUsuario = new javax.swing.JPasswordField();
+        telefoneUsuario = new javax.swing.JTextField();
+        emailUsuario = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
         jLabel1.setText("Cadastro de usuários");
 
-        jLabel2.setText("Nome:");
-
-        jLabel3.setText("Permissão:");
+        nomeUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        nomeUsuario.setText("Nome");
+        nomeUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomeUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeUsuarioFocusLost(evt);
+            }
+        });
 
         comboPermissoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Diretor", "Secretário", "Professor" }));
         comboPermissoes.addActionListener(new java.awt.event.ActionListener() {
@@ -82,13 +93,43 @@ public class CadastroUser extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Data do cadastro:");
+        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        dataCadastro.setText("--/--/----");
+        dataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataCadastroFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dataCadastroFocusLost(evt);
+            }
+        });
 
-        jLabel5.setText("Hora do cadastro:");
+        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        horaCadastro.setText("HH:mm:ss");
+        horaCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                horaCadastroFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                horaCadastroFocusLost(evt);
+            }
+        });
+        horaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                horaCadastroActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setText("Log-in:");
-
-        jLabel7.setText("Senha:");
+        loginUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        loginUsuario.setText("Login");
+        loginUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                loginUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                loginUsuarioFocusLost(evt);
+            }
+        });
 
         Cadastrar.setText("Cadastrar");
         Cadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,72 +138,91 @@ public class CadastroUser extends javax.swing.JFrame {
             }
         });
 
+        senhaUsuario.setText("senha");
+        senhaUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                senhaUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                senhaUsuarioFocusLost(evt);
+            }
+        });
+
+        telefoneUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        telefoneUsuario.setText("Telefone");
+        telefoneUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                telefoneUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                telefoneUsuarioFocusLost(evt);
+            }
+        });
+        telefoneUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefoneUsuarioActionPerformed(evt);
+            }
+        });
+
+        emailUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        emailUsuario.setText("Email");
+        emailUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                emailUsuarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                emailUsuarioFocusLost(evt);
+            }
+        });
+        emailUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nomeUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(horaCadastro, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dataCadastro, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(comboPermissoes, javax.swing.GroupLayout.Alignment.TRAILING, 0, 187, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(80, 80, 80)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loginUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(senhaUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Cadastrar)
-                .addGap(245, 245, 245))
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Cadastrar)
+                    .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addComponent(comboPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(Cadastrar)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -177,7 +237,10 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
-
+        String email = emailUsuario.getText();
+        String telefone = telefoneUsuario.getText();
+        
+        
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataCadastro.getText(), formatadorData);
 
@@ -190,7 +253,7 @@ public class CadastroUser extends javax.swing.JFrame {
         try {
             if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
                     + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
-                User u = new User(nome, permissao, data, hora, login, senha);
+                User u = new User(nome, permissao, email, telefone, data, hora, login, senha);
                 UserDAO ud = new UserDAO();
                 ud.cadastrarJPA(u);
                 JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
@@ -209,6 +272,125 @@ public class CadastroUser extends javax.swing.JFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_CadastrarActionPerformed
+
+    private void telefoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_telefoneUsuarioActionPerformed
+
+    private void emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailUsuarioActionPerformed
+
+    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_horaCadastroActionPerformed
+
+    private void nomeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusGained
+        // TODO add your handling code here:
+        if (nomeUsuario.getText().equals("Nome")) {
+            nomeUsuario.setText(null);
+            nomeUsuario.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(nomeUsuario);
+        }
+    }//GEN-LAST:event_nomeUsuarioFocusGained
+
+    private void nomeUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusLost
+        // TODO add your handling code here:
+        nomeUsuario.setText("Nome");
+        PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+    }//GEN-LAST:event_nomeUsuarioFocusLost
+
+    private void emailUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusGained
+        // TODO add your handling code here:
+        if (emailUsuario.getText().equals("Email")) {
+            emailUsuario.setText(null);
+            emailUsuario.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(emailUsuario);
+        }
+    }//GEN-LAST:event_emailUsuarioFocusGained
+
+    private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusLost
+        // TODO add your handling code here:
+        emailUsuario.setText("Email");
+        PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
+    }//GEN-LAST:event_emailUsuarioFocusLost
+
+    private void telefoneUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusGained
+        // TODO add your handling code here:
+        if (telefoneUsuario.getText().equals("Telefone")) {
+            telefoneUsuario.setText(null);
+            telefoneUsuario.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(telefoneUsuario);
+        }
+    }//GEN-LAST:event_telefoneUsuarioFocusGained
+
+    private void telefoneUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusLost
+        // TODO add your handling code here:
+        telefoneUsuario.setText("Telefone");
+        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
+    }//GEN-LAST:event_telefoneUsuarioFocusLost
+
+    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
+        // TODO add your handling code here:
+        if (dataCadastro.getText().equals("--/--/----")) {
+            dataCadastro.setText(null);
+            dataCadastro.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(dataCadastro);
+        }
+
+    }//GEN-LAST:event_dataCadastroFocusGained
+
+    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
+        // TODO add your handling code here:
+        dataCadastro.setText("--/--/----");
+        PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
+    }//GEN-LAST:event_dataCadastroFocusLost
+
+    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
+        // TODO add your handling code here:
+        if (horaCadastro.getText().equals("HH:mm:ss")) {
+            horaCadastro.setText(null);
+            horaCadastro.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(horaCadastro);
+        }
+    }//GEN-LAST:event_horaCadastroFocusGained
+
+    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
+        // TODO add your handling code here:
+        horaCadastro.setText("HH:mm:ss");
+        PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+    }//GEN-LAST:event_horaCadastroFocusLost
+
+    private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusGained
+        // TODO add your handling code here:
+        if (loginUsuario.getText().equals("Login")) {
+            loginUsuario.setText(null);
+            loginUsuario.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(loginUsuario);
+        }
+    }//GEN-LAST:event_loginUsuarioFocusGained
+
+    private void loginUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusLost
+        // TODO add your handling code here:
+        loginUsuario.setText("Login");
+        PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
+    }//GEN-LAST:event_loginUsuarioFocusLost
+
+    private void senhaUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusGained
+        // TODO add your handling code here:
+        if (senhaUsuario.getText().equals("Senha")) {
+            senhaUsuario.setText(null);
+            senhaUsuario.requestFocus();
+            PlaceHolder.getInstance().removePlaceHolder(senhaUsuario);
+        }
+
+    }//GEN-LAST:event_senhaUsuarioFocusGained
+
+    private void senhaUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusLost
+        // TODO add your handling code here:
+        senhaUsuario.setText("Senha");
+        PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
+    }//GEN-LAST:event_senhaUsuarioFocusLost
 
     /**
      * @param args the command line arguments
@@ -239,16 +421,12 @@ public class CadastroUser extends javax.swing.JFrame {
     private javax.swing.JButton Cadastrar;
     private javax.swing.JComboBox<String> comboPermissoes;
     private javax.swing.JTextField dataCadastro;
+    private javax.swing.JTextField emailUsuario;
     private javax.swing.JTextField horaCadastro;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField loginUsuario;
     private javax.swing.JTextField nomeUsuario;
-    private javax.swing.JTextField senhaUsuario;
+    private javax.swing.JPasswordField senhaUsuario;
+    private javax.swing.JTextField telefoneUsuario;
     // End of variables declaration//GEN-END:variables
 }

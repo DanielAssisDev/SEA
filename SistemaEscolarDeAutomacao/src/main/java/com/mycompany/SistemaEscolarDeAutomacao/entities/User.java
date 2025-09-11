@@ -121,7 +121,7 @@ public class User {
         this.telefone = telefone;
     }
     
-    public User(String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha) {
+    public User(String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {
         this.nome = nome;
         this.permissao = permissao;
         this.email = email;
@@ -130,6 +130,7 @@ public class User {
         this.horaCadastro = horaCadastro;
         this.login = login;
         this.senha = senha;
+        this.log = log;
     }
     
     

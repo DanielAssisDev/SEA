@@ -17,6 +17,7 @@ com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$8.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$11.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/User.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/Aluno.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$13.class
 com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$1.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$5.class

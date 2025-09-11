@@ -155,11 +155,12 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="senha"/>
+        <Property name="text" type="java.lang.String" value="Senha"/>
       </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="senhaUsuarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="senhaUsuarioFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaUsuarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="telefoneUsuario">

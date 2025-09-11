@@ -10,7 +10,6 @@ import com.mycompany.SistemaEscolarDeAutomacao.gerais.PlaceHolder;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.awt.Font;
 import javax.swing.JOptionPane;
 
 /**
@@ -138,13 +137,18 @@ public class CadastroUser extends javax.swing.JFrame {
             }
         });
 
-        senhaUsuario.setText("senha");
+        senhaUsuario.setText("Senha");
         senhaUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 senhaUsuarioFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 senhaUsuarioFocusLost(evt);
+            }
+        });
+        senhaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaUsuarioActionPerformed(evt);
             }
         });
 
@@ -249,15 +253,19 @@ public class CadastroUser extends javax.swing.JFrame {
         String login = loginUsuario.getText();
         String senha = senhaUsuario.getText();
 
+        String log = "Início do log de: " + nome + " (" + permissao + ").";
+        
         try {
             if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
                     + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
-                User u = new User(nome, permissao, email, telefone, data, hora, login, senha);
+                User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
                 UserDAO ud = new UserDAO();
                 ud.cadastrarJPA(u);
                 JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
                 nomeUsuario.setText("");
                 comboPermissoes.setSelectedIndex(0);
+                emailUsuario.setText("");
+                telefoneUsuario.setText("");
                 dataCadastro.setText("");
                 horaCadastro.setText("");
                 loginUsuario.setText("");
@@ -399,11 +407,15 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void senhaUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusLost
         // TODO add your handling code here:       
-        if (!senhaUsuario.getText().isEmpty()) {
+        if (senhaUsuario.getText().isEmpty()) {
             senhaUsuario.setText("Senha");
             PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
         }
     }//GEN-LAST:event_senhaUsuarioFocusLost
+
+    private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

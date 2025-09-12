@@ -132,6 +132,4 @@ public class User {
         this.senha = senha;
         this.log = log;
     }
-    
-    
 }

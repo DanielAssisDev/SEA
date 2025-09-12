@@ -13,31 +13,36 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
-import org.hibernate.annotations.ManyToAny;
 
 /**
  *
  * @author daniel
  */
-
 @Entity
 @Table(name = "tb_aluno")
 public class Aluno {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     private String nome;
     private int idade;
     private String cpf;
-    
-    @Column(name="data_nascimento")
+
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
-    
+
+    @Column(name = "data_cadastro")
+    private LocalDate dataCadastro;
+
+    @Column(name = "hora_cadastro")
+    private LocalDate horaCadastro;
+
     @ManyToOne
     @JoinColumn(name = "sala_id")
     private Sala sala;
-    
+
     private String turno;
 
     public int getId() {
@@ -105,7 +110,5 @@ public class Aluno {
         this.sala = sala;
         this.turno = turno;
     }
-    
-    
 
 }

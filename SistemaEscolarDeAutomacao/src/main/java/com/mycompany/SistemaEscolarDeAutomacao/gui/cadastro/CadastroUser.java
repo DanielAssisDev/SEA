@@ -41,6 +41,7 @@ public class CadastroUser extends javax.swing.JFrame {
     public CadastroUser() {
         initComponents();
         PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+        PlaceHolder.getInstance().addPlaceHolderComboBox(comboPermissoes);
         PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
         PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
         PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
@@ -85,7 +86,16 @@ public class CadastroUser extends javax.swing.JFrame {
             }
         });
 
+        comboPermissoes.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         comboPermissoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Diretor", "Secretário", "Professor" }));
+        comboPermissoes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                comboPermissoesFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                comboPermissoesFocusLost(evt);
+            }
+        });
         comboPermissoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPermissoesActionPerformed(evt);
@@ -254,7 +264,7 @@ public class CadastroUser extends javax.swing.JFrame {
         String senha = senhaUsuario.getText();
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";
-        
+
         try {
             if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
                     + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
@@ -297,7 +307,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (nomeUsuario.getText().equals("Nome")) {
             nomeUsuario.setText(null);
             nomeUsuario.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(nomeUsuario);
+            PlaceHolder.removePlaceHolder(nomeUsuario);
         }
     }//GEN-LAST:event_nomeUsuarioFocusGained
 
@@ -305,7 +315,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (nomeUsuario.getText().isEmpty()) {
             nomeUsuario.setText("Nome");
-            PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
+            PlaceHolder.addPlaceHolder(nomeUsuario);
         }
     }//GEN-LAST:event_nomeUsuarioFocusLost
 
@@ -314,7 +324,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (emailUsuario.getText().equals("Email")) {
             emailUsuario.setText(null);
             emailUsuario.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(emailUsuario);
+            PlaceHolder.removePlaceHolder(emailUsuario);
         }
     }//GEN-LAST:event_emailUsuarioFocusGained
 
@@ -322,7 +332,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (emailUsuario.getText().isEmpty()) {
             emailUsuario.setText("Email");
-            PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
+            PlaceHolder.addPlaceHolder(emailUsuario);
         }
     }//GEN-LAST:event_emailUsuarioFocusLost
 
@@ -331,7 +341,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (telefoneUsuario.getText().equals("Telefone")) {
             telefoneUsuario.setText(null);
             telefoneUsuario.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(telefoneUsuario);
+            PlaceHolder.removePlaceHolder(telefoneUsuario);
         }
     }//GEN-LAST:event_telefoneUsuarioFocusGained
 
@@ -339,7 +349,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (telefoneUsuario.getText().isEmpty()) {
             telefoneUsuario.setText("Telefone");
-            PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
+            PlaceHolder.addPlaceHolder(telefoneUsuario);
         }
     }//GEN-LAST:event_telefoneUsuarioFocusLost
 
@@ -348,7 +358,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (dataCadastro.getText().equals("--/--/----")) {
             dataCadastro.setText(null);
             dataCadastro.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(dataCadastro);
+            PlaceHolder.removePlaceHolder(dataCadastro);
         }
 
     }//GEN-LAST:event_dataCadastroFocusGained
@@ -357,7 +367,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (dataCadastro.getText().isEmpty()) {
             dataCadastro.setText("--/--/----");
-            PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
+            PlaceHolder.addPlaceHolder(dataCadastro);
         }
     }//GEN-LAST:event_dataCadastroFocusLost
 
@@ -366,7 +376,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (horaCadastro.getText().equals("HH:mm:ss")) {
             horaCadastro.setText(null);
             horaCadastro.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(horaCadastro);
+            PlaceHolder.removePlaceHolder(horaCadastro);
         }
     }//GEN-LAST:event_horaCadastroFocusGained
 
@@ -374,7 +384,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (horaCadastro.getText().isEmpty()) {
             horaCadastro.setText("HH:mm:ss");
-            PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+            PlaceHolder.addPlaceHolder(horaCadastro);
         }
     }//GEN-LAST:event_horaCadastroFocusLost
 
@@ -383,7 +393,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (loginUsuario.getText().equals("Login")) {
             loginUsuario.setText(null);
             loginUsuario.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(loginUsuario);
+            PlaceHolder.removePlaceHolder(loginUsuario);
         }
     }//GEN-LAST:event_loginUsuarioFocusGained
 
@@ -391,7 +401,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (loginUsuario.getText().isEmpty()) {
             loginUsuario.setText("Login");
-            PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
+            PlaceHolder.addPlaceHolder(loginUsuario);
         }
     }//GEN-LAST:event_loginUsuarioFocusLost
 
@@ -400,7 +410,7 @@ public class CadastroUser extends javax.swing.JFrame {
         if (senhaUsuario.getText().equals("Senha")) {
             senhaUsuario.setText(null);
             senhaUsuario.requestFocus();
-            PlaceHolder.getInstance().removePlaceHolder(senhaUsuario);
+            PlaceHolder.removePlaceHolder(senhaUsuario);
         }
 
     }//GEN-LAST:event_senhaUsuarioFocusGained
@@ -409,13 +419,31 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:       
         if (senhaUsuario.getText().isEmpty()) {
             senhaUsuario.setText("Senha");
-            PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
+            PlaceHolder.addPlaceHolder(senhaUsuario);
         }
     }//GEN-LAST:event_senhaUsuarioFocusLost
 
     private void senhaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_senhaUsuarioActionPerformed
+
+    private void comboPermissoesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboPermissoesFocusGained
+        // TODO add your handling code here:
+        if (comboPermissoes.getSelectedItem().toString().equals("Selecione")) {
+            comboPermissoes.requestFocus();
+            PlaceHolder.removePlaceHolderComboBox(comboPermissoes);
+        }
+    }//GEN-LAST:event_comboPermissoesFocusGained
+
+    private void comboPermissoesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboPermissoesFocusLost
+        // TODO add your handling code here:
+        if (comboPermissoes.getSelectedItem().toString().equals("Selecione")) {
+            PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
+        } else {
+            PlaceHolder.removePlaceHolderComboBox(comboPermissoes);
+
+        }
+    }//GEN-LAST:event_comboPermissoesFocusLost
 
     /**
      * @param args the command line arguments

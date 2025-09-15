@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao;
 
 import com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro.CadastroUser;
+import com.mycompany.SistemaEscolarDeAutomacao.gui.inicio.Inicio;
 
 /**
  *
@@ -13,6 +14,6 @@ import com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro.CadastroUser;
 public class SistemaEscolarDeAutomacao {
 
     public static void main(String[] args) {
-        CadastroUser.getInstance().setVisible(true);
+        Inicio.getInstance().setVisible(true);
     }
 }

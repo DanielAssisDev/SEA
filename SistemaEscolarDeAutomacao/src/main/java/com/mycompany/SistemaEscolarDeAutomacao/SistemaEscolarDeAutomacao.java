@@ -4,8 +4,8 @@
 
 package com.mycompany.SistemaEscolarDeAutomacao;
 
-import com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro.CadastroUser;
-import com.mycompany.SistemaEscolarDeAutomacao.gui.inicio.Inicio;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Inicio;
 
 /**
  *

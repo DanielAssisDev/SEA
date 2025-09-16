@@ -2,7 +2,7 @@
 
 O projeto **SEA** trata-se de um protótipo desenvolvido em Java, com o auxílio de MySQL/MariaDB para armazenamento em bancos de dados, 
 que tem por objetivo agilizar o exercício de diretores, secretários e professores de escolas da rede privada.
-O projeto se encontra em sua fase inicial, na versão 1.3.4, ainda não apresentando grandes funcionalidades em função da fase de protótipo e teste,
+O projeto se encontra em sua fase inicial, na versão 1.4.4, ainda não apresentando grandes funcionalidades em função da fase de protótipo e teste,
 entretanto, já possui algumas telas sendo desenvolvidas.
 
 ## Protótipo de interface feito pela ferramenta figma:

@@ -11,9 +11,11 @@ com/mycompany/SistemaEscolarDeAutomacao/SistemaEscolarDeAutomacao.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/Professor.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$2.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/Consultas/Consultas.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$10.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$7.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$7.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/Cadastros.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$3.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/Sala.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/Horario.class
@@ -21,6 +23,8 @@ com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$8.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$11.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/User.class
 com/mycompany/SistemaEscolarDeAutomacao/entities/Aluno.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/Ops.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/Ops$2.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$13.class
 com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$1.class
@@ -29,7 +33,11 @@ com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$5.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/Inicio$1.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$1.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/Inicio.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/Cadastros$1.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$8.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$6.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$3.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/TelaLogin$6.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/inicio/Ops$1.class
+com/mycompany/SistemaEscolarDeAutomacao/gui/Consultas/Consultas$1.class
 com/mycompany/SistemaEscolarDeAutomacao/gui/cadastro/CadastroUser$14.class

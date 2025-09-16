@@ -2,38 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.SistemaEscolarDeAutomacao.gui.inicio;
+package com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro;
 
-import com.mycompany.SistemaEscolarDeAutomacao.gui.Consultas.Consultas;
-import com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro.Cadastros;
+import com.mycompany.SistemaEscolarDeAutomacao.gui.inicio.Inicio;
 
 /**
  *
  * @author mrdaniel
  */
-public class Ops extends javax.swing.JFrame {
+public class Cadastros extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Cadastros.class.getName());
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Ops.class.getName());
+    private static Cadastros instance;
 
-    private static Ops instance;
-
-    public static Ops getInstance() {
+    public static Cadastros getInstance() {
         if (instance == null) {
-            instance = new Ops();
+            instance = new Cadastros();
         } else {
-            Ops.setInstance(null);
+            Cadastros.setInstance(null);
         }
         return instance;
     }
 
-    public static void setInstance(Ops instance) {
-        Ops.instance = instance;
+    public static void setInstance(Cadastros instance) {
+        Cadastros.instance = instance;
     }
-
+    
     /**
-     * Creates new form Ops
+     * Creates new form Cadastros
      */
-    public Ops() {
+    public Cadastros() {
         initComponents();
     }
 
@@ -46,17 +45,18 @@ public class Ops extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        voltar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
-        jLabel1.setText("Quem somos");
+        cadastroProfs = new javax.swing.JButton();
+        cadastroAlunos = new javax.swing.JButton();
+        cadastroUsers = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        voltar.setText("Voltar");
+        voltar.setMaximumSize(new java.awt.Dimension(89, 24));
+        voltar.setMinimumSize(new java.awt.Dimension(160, 24));
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         jLabel2.setText("Sistema Escolar De Automação");
@@ -64,22 +64,20 @@ public class Ops extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel3.setText("Selecione uma das seguintes operações para prosseguir");
 
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cadastroProfs.setText("Cadastro de professores");
+        cadastroProfs.setMaximumSize(new java.awt.Dimension(175, 24));
+        cadastroProfs.setPreferredSize(new java.awt.Dimension(175, 24));
+
+        cadastroAlunos.setText("Cadastro de alunos");
+
+        cadastroUsers.setText("Cadastro de usuários");
+        cadastroUsers.setMaximumSize(new java.awt.Dimension(89, 24));
+        cadastroUsers.setMinimumSize(new java.awt.Dimension(160, 24));
+        cadastroUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cadastroUsersActionPerformed(evt);
             }
         });
-
-        jButton2.setText("Consultas");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Log-out");
-        jButton3.setMaximumSize(new java.awt.Dimension(89, 24));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,9 +88,10 @@ public class Ops extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cadastroProfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
@@ -103,31 +102,26 @@ public class Ops extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(cadastroProfs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(cadastroAlunos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addComponent(cadastroUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(voltar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cadastroUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroUsersActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Ops.setInstance(null);
-        Cadastros.getInstance().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        Ops.setInstance(null);
-        Consultas.getInstance().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Cadastros.setInstance(null);
+        CadastroUser.getInstance().setVisible(true);
+    }//GEN-LAST:event_cadastroUsersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,15 +145,15 @@ public class Ops extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Ops().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new Cadastros().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton cadastroAlunos;
+    private javax.swing.JButton cadastroProfs;
+    private javax.swing.JButton cadastroUsers;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

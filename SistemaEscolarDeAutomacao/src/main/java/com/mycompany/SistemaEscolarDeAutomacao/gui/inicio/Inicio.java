@@ -5,13 +5,14 @@
 package com.mycompany.SistemaEscolarDeAutomacao.gui.inicio;
 
 import com.mycompany.SistemaEscolarDeAutomacao.gui.cadastro.CadastroUser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author mrdaniel
  */
 public class Inicio extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Inicio.class.getName());
 
     private static Inicio instance;
@@ -28,7 +29,7 @@ public class Inicio extends javax.swing.JFrame {
     public static void setInstance(Inicio instance) {
         Inicio.instance = instance;
     }
-    
+
     /**
      * Creates new form Inicio
      */
@@ -167,6 +168,8 @@ public class Inicio extends javax.swing.JFrame {
         this.dispose();
         Inicio.setInstance(null);
         TelaLogin.getInstance().setVisible(true);
+        JOptionPane.showMessageDialog(null, "Pressione Alt+F4 caso deseje sair.");
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

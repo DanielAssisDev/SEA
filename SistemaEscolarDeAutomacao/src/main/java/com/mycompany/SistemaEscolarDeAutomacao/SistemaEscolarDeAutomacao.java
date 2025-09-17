@@ -4,7 +4,6 @@
 
 package com.mycompany.SistemaEscolarDeAutomacao;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Inicio;
 
 /**

@@ -229,8 +229,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagarActionPerformed
         // TODO add your handling code here:
-        loginUsuario.setText("");
-        senhaUsuario.setText("");
+        loginUsuario.setText("Log-in");
+        PlaceHolder.addPlaceHolder(loginUsuario);
+        senhaUsuario.setText("Senha");
+        PlaceHolder.addPlaceHolder(senhaUsuario);
+
     }//GEN-LAST:event_ApagarActionPerformed
 
     private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed

@@ -4,7 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
-import com.mycompany.SistemaEscolarDeAutomacao.entities.User;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
 import javax.swing.JOptionPane;

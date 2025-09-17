@@ -125,7 +125,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#xa;Para o in&#xed;cio da utiliza&#xe7;&#xe3;o do software, deve-se ter plena consci&#xea;ncia do uso seguindo as leis jur&#xed;dicas&#xa;do pa&#xed;s em quest&#xe3;o, e tamb&#xe9;m a disponibilidade de: ter um sistema de m&#xe1;quina virtual java iniciado localmente e tamb&#xe9;m um computador dedicado para servidor MySQL."/>
+            <Property name="text" type="java.lang.String" value="&#xa;Para o in&#xed;cio da utiliza&#xe7;&#xe3;o do software, deve-se ter plena consci&#xea;ncia do uso seguindo as leis jur&#xed;dicas&#xa;do pa&#xed;s em quest&#xe3;o, e tamb&#xe9;m a disponibilidade de: ter um sistema de m&#xe1;quina virtual java iniciado&#xa;localmente e tamb&#xe9;m um computador dedicado para servidor MySQL."/>
             <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>

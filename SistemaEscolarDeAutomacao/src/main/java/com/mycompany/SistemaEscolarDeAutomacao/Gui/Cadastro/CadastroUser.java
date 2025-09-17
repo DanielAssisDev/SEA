@@ -5,7 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
-import com.mycompany.SistemaEscolarDeAutomacao.entities.User;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import java.time.LocalDate;
 import java.time.LocalTime;

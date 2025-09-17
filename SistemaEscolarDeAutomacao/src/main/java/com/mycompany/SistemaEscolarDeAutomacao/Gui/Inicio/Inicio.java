@@ -78,10 +78,9 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("\nPara o início da utilização do software, deve-se ter plena consciência do uso seguindo as leis jurídicas\ndo país em questão, e também a disponibilidade de: ter um sistema de máquina virtual java iniciado localmente e também um computador dedicado para servidor MySQL.");
+        jTextArea1.setText("\nPara o início da utilização do software, deve-se ter plena consciência do uso seguindo as leis jurídicas\ndo país em questão, e também a disponibilidade de: ter um sistema de máquina virtual java iniciado\nlocalmente e também um computador dedicado para servidor MySQL.");
         jTextArea1.setFocusable(false);
         jScrollPane2.setViewportView(jTextArea1);
-        jTextArea1.getAccessibleContext().setAccessibleParent(null);
 
         jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
         jLabel4.setText("Nosso objetivo com este projeto?");

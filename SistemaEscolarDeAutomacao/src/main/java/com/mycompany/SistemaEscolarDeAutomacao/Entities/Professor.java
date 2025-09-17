@@ -35,6 +35,8 @@ public class Professor {
     private String nome;
     private int idade;
 
+    private String cpf;
+    
     @Column(name = "url_curriculo")
     private String urlCurriculo;
 
@@ -149,10 +151,11 @@ public class Professor {
         this.email = email;
     }
 
-    public Professor(String nome, int idade, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
+    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
+        this.cpf = cpf;
         this.urlCurriculo = urlCurriculo;
         this.materias = materias;
         this.horarios = horarios;

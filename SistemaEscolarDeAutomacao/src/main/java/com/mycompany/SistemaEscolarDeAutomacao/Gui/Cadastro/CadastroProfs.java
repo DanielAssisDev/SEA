@@ -49,7 +49,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         Cadastrar1 = new javax.swing.JButton();
         Cadastrar2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         dataNascimento.setText("--/--/---- (Data de nascimento)");
@@ -201,11 +201,12 @@ public class CadastroProfs extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(177, 177, 177))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
@@ -235,12 +236,11 @@ public class CadastroProfs extends javax.swing.JFrame {
                                 .addGap(14, 14, 14)
                                 .addComponent(Cadastrar2)
                                 .addGap(14, 14, 14)
-                                .addComponent(Cadastrar1)))))
+                                .addComponent(Cadastrar1))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel1)))
                 .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(177, 177, 177))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(193, 193, 193)
@@ -291,6 +291,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained

@@ -55,7 +55,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         salaAluno = new javax.swing.JComboBox<>();
         voltar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
         jLabel1.setText("Cadastro de alunos");
@@ -217,6 +217,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nomeAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeAlunoFocusGained

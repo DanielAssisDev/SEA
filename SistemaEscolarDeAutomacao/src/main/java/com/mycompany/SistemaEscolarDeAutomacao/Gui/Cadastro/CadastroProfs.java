@@ -14,6 +14,20 @@ public class CadastroProfs extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroProfs.class.getName());
 
+    private static CadastroProfs instance;
+
+    public static CadastroProfs getInstance() {
+        if (instance == null) {
+            instance = new CadastroProfs();
+        }
+        return instance;
+    }
+
+    public static void setInstance(CadastroProfs instance) {
+        CadastroProfs.instance = instance;
+    }
+    
+    
     /**
      * Creates new form CadastroProfs
      */

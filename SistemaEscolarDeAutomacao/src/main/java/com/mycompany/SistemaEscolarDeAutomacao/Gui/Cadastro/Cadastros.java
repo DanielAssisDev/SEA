@@ -71,6 +71,11 @@ public class Cadastros extends javax.swing.JFrame {
         jLabel3.setText("Selecione uma das seguintes operações para prosseguir");
 
         cadastroProfs.setText("Cadastro de professores");
+        cadastroProfs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroProfsActionPerformed(evt);
+            }
+        });
 
         cadastroAlunos.setText("Cadastro de alunos");
         cadastroAlunos.setPreferredSize(new java.awt.Dimension(190, 24));
@@ -146,6 +151,13 @@ public class Cadastros extends javax.swing.JFrame {
         Cadastros.setInstance(null);
         CadastroAluno.getInstance().setVisible(true);
     }//GEN-LAST:event_cadastroAlunosActionPerformed
+
+    private void cadastroProfsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroProfsActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Cadastros.setInstance(null);
+        CadastroProfs.getInstance().setVisible(true);
+    }//GEN-LAST:event_cadastroProfsActionPerformed
 
     /**
      * @param args the command line arguments

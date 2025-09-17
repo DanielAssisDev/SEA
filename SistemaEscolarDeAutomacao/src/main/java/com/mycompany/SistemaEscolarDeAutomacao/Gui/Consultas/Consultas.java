@@ -78,6 +78,11 @@ public class Consultas extends javax.swing.JFrame {
         });
 
         consultaAlunos.setText("Consulta de alunos");
+        consultaAlunos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaAlunosActionPerformed(evt);
+            }
+        });
 
         consultaUsuarios.setText("Consulta de usuários");
         consultaUsuarios.setMaximumSize(new java.awt.Dimension(89, 24));
@@ -145,6 +150,13 @@ public class Consultas extends javax.swing.JFrame {
         Consultas.setInstance(null);
         ConsultaProfessores.getInstance().setVisible(true);
     }//GEN-LAST:event_consultaProfessoresActionPerformed
+
+    private void consultaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaAlunosActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Consultas.setInstance(null);
+        ConsultasAlunos.getInstance().setVisible(true);
+    }//GEN-LAST:event_consultaAlunosActionPerformed
 
     /**
      * @param args the command line arguments

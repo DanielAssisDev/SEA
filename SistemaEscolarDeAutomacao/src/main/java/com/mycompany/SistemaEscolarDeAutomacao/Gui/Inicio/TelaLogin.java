@@ -171,7 +171,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(Cadastre_se))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
         pack();

@@ -25,7 +25,7 @@ public class CadastroUser extends javax.swing.JFrame {
     public static CadastroUser getInstance() {
         if (instance == null) {
             instance = new CadastroUser();
-        } 
+        }
         return instance;
     }
 
@@ -419,15 +419,12 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (comboPermissoes.getSelectedItem().toString().equals("Selecione")) {
             PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
-        } else {
-            PlaceHolder.removePlaceHolderComboBox(comboPermissoes);
-
         }
     }//GEN-LAST:event_comboPermissoesFocusLost
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-          String nome = nomeUsuario.getText();
+        String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
         String telefone = telefoneUsuario.getText();

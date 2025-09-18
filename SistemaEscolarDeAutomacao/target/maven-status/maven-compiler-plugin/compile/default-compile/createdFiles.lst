@@ -13,6 +13,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$11.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Materia.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$8.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasAlunos$1.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$14.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultaProfessores$4.class
@@ -32,6 +33,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$8.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/Consultas$3.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$14.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$17.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$9.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultaProfessores$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultaProfessores.class
@@ -46,6 +48,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$1.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$6.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$11.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$18.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$13.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$7.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$7.class
@@ -74,6 +77,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Entities/Horario.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasAlunos$5.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Professor.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$15.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$16.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$8.class
 com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/Ops.class
@@ -88,6 +92,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Dao/UserDAO.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$6.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$4.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$1.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$13.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$10.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$7.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultaProfessores$5.class

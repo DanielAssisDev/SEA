@@ -1,0 +1,121 @@
+Hibernate: 
+    
+    create table professor_materia (
+       professor_id integer not null,
+        materia_id integer not null
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_aluno (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        data_cadastro date,
+        data_nascimento date,
+        hora_cadastro date,
+        idade integer not null,
+        nome varchar(255),
+        turno varchar(255),
+        sala_id integer,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_horario (
+       id integer not null auto_increment,
+        dia_semana varchar(255),
+        horas time,
+        materia_id integer,
+        professor_id integer,
+        sala_id integer,
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_materia (
+       id integer not null auto_increment,
+        nome varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_professor (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        data_nascimento date,
+        email varchar(255),
+        formacao varchar(255),
+        idade integer not null,
+        nome varchar(255),
+        numero_telefone varchar(255),
+        salario float(53),
+        url_curriculo varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_sala (
+       id integer not null auto_increment,
+        nome varchar(255),
+        turno varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    create table tb_user (
+       id integer not null auto_increment,
+        data_cadastro date,
+        email varchar(255),
+        hora_cadastro time,
+        log LONGTEXT,
+        login varchar(255),
+        nome varchar(255),
+        permissao varchar(255),
+        senha varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    
+    alter table professor_materia 
+       add constraint FKf673f71tfon5u3xj0ibmegr0m 
+       foreign key (materia_id) 
+       references tb_materia (id)
+Hibernate: 
+    
+    alter table professor_materia 
+       add constraint FKnl2x386et7kmadx7k6oiog047 
+       foreign key (professor_id) 
+       references tb_professor (id)
+Hibernate: 
+    
+    alter table tb_aluno 
+       add constraint FKte8maep32a8mwwfh3k7fug7nu 
+       foreign key (sala_id) 
+       references tb_sala (id)
+Hibernate: 
+    
+    alter table tb_horario 
+       add constraint FK3ab25ccqhwbs1atfnincalfnq 
+       foreign key (materia_id) 
+       references tb_materia (id)
+Hibernate: 
+    
+    alter table tb_horario 
+       add constraint FKpvd6k73gy63vhcmmqy3h8ch30 
+       foreign key (professor_id) 
+       references tb_professor (id)
+Hibernate: 
+    
+    alter table tb_horario 
+       add constraint FK3kfikq1mj0qxtikyhjn31a9ux 
+       foreign key (sala_id) 
+       references tb_sala (id)
+Sep 19, 2025 7:57:29 AM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: 
+    insert 
+    into
+        tb_user
+        (data_cadastro, email, hora_cadastro, log, login, nome, permissao, senha, telefone) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?)

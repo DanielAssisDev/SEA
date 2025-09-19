@@ -37,8 +37,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(idadeProfessor);
         PlaceHolder.addPlaceHolder(cpfProfessor);
         PlaceHolder.addPlaceHolder(dataNascimento);
-        PlaceHolder.addPlaceHolder(dataCadastro);
-        PlaceHolder.addPlaceHolder(horaCadastro);
         PlaceHolder.addPlaceHolderComboBox(turnoProfessor);
         PlaceHolder.addPlaceHolderComboBox(salaProfessor);
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
@@ -60,9 +58,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nomeProfessor = new javax.swing.JTextField();
         turnoProfessor = new javax.swing.JComboBox<>();
-        dataCadastro = new javax.swing.JTextField();
         salaProfessor = new javax.swing.JComboBox<>();
-        horaCadastro = new javax.swing.JTextField();
         voltar = new javax.swing.JButton();
         Cadastrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -72,11 +68,14 @@ public class CadastroProfs extends javax.swing.JFrame {
         Cadastrar1 = new javax.swing.JButton();
         Cadastrar2 = new javax.swing.JButton();
         materiaProfessor = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        usuarioProfessor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         dataNascimento.setText("--/--/---- (Data de nascimento)");
+        dataNascimento.setNextFocusableComponent(turnoProfessor);
         dataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 dataNascimentoFocusGained(evt);
@@ -141,23 +140,13 @@ public class CadastroProfs extends javax.swing.JFrame {
 
         turnoProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         turnoProfessor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "Matutino", "Vespertino", "Noturno" }));
+        turnoProfessor.setNextFocusableComponent(salaProfessor);
         turnoProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 turnoProfessorFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 turnoProfessorFocusLost(evt);
-            }
-        });
-
-        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        dataCadastro.setText("--/--/---- (Data de cadastro)");
-        dataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusLost(evt);
             }
         });
 
@@ -170,22 +159,6 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 salaProfessorFocusLost(evt);
-            }
-        });
-
-        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
-        horaCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusLost(evt);
-            }
-        });
-        horaCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaCadastroActionPerformed(evt);
             }
         });
 
@@ -214,7 +187,7 @@ public class CadastroProfs extends javax.swing.JFrame {
 
         horarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         horarioProfessor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o horário" }));
-        horarioProfessor.setNextFocusableComponent(voltar);
+        horarioProfessor.setNextFocusableComponent(usuarioProfessor);
         horarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 horarioProfessorFocusGained(evt);
@@ -250,54 +223,57 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Adwaita Sans", 0, 18)); // NOI18N
+        jLabel5.setText("Selecionar o usuário");
+
+        usuarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        usuarioProfessor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o usuário correspondente" }));
+        usuarioProfessor.setNextFocusableComponent(voltar);
+        usuarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usuarioProfessorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usuarioProfessorFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(177, 177, 177))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(idadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(turnoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(salaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(97, 97, 97)
-                                        .addComponent(jLabel2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(voltar)
-                                .addGap(14, 14, 14)
-                                .addComponent(Cadastrar)
-                                .addGap(14, 14, 14)
-                                .addComponent(Cadastrar2)
-                                .addGap(14, 14, 14)
-                                .addComponent(Cadastrar1))
-                            .addComponent(materiaProfessor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jLabel1)))
-                .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(193, 193, 193)
-                    .addComponent(jLabel3)
-                    .addContainerGap(492, Short.MAX_VALUE)))
+                .addGap(100, 100, 100)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turnoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(133, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(voltar)
+                .addGap(6, 6, 6)
+                .addComponent(Cadastrar)
+                .addGap(6, 6, 6)
+                .addComponent(Cadastrar2)
+                .addGap(6, 6, 6)
+                .addComponent(Cadastrar1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
+                .addComponent(jLabel1)
+                .addGap(243, 243, 243))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +281,9 @@ public class CadastroProfs extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -318,28 +296,23 @@ public class CadastroProfs extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addGap(6, 6, 6)
-                .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(turnoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(turnoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
                     .addComponent(voltar)
                     .addComponent(Cadastrar1)
                     .addComponent(Cadastrar2))
-                .addContainerGap(43, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(74, 74, 74)
-                    .addComponent(jLabel3)
-                    .addContainerGap(322, Short.MAX_VALUE)))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -427,44 +400,6 @@ public class CadastroProfs extends javax.swing.JFrame {
             PlaceHolder.addPlaceHolder(nomeProfessor);
         }
     }//GEN-LAST:event_nomeProfessorFocusLost
-
-    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
-        // TODO add your handling code here:
-        if (dataCadastro.getText().equals("--/--/---- (Data de cadastro)")) {
-            dataCadastro.setText(null);
-            dataCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(dataCadastro);
-        }
-    }//GEN-LAST:event_dataCadastroFocusGained
-
-    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
-        // TODO add your handling code here:
-        if (dataCadastro.getText().isEmpty()) {
-            dataCadastro.setText("--/--/---- (Data de cadastro)");
-            PlaceHolder.addPlaceHolder(dataCadastro);
-        }
-    }//GEN-LAST:event_dataCadastroFocusLost
-
-    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
-        // TODO add your handling code here:
-        if (horaCadastro.getText().equals("HH:mm:ss (Hora do cadastro)")) {
-            horaCadastro.setText(null);
-            horaCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusGained
-
-    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
-        // TODO add your handling code here:
-        if (horaCadastro.getText().isEmpty()) {
-            horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
-            PlaceHolder.addPlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusLost
-
-    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_horaCadastroActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
@@ -585,6 +520,21 @@ public class CadastroProfs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_horarioProfessorFocusLost
 
+    private void usuarioProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioProfessorFocusGained
+        // TODO add your handling code here:
+        if (usuarioProfessor.getSelectedItem().toString().equals("Selecione o usuário correspondente")) {
+            usuarioProfessor.requestFocus();
+            PlaceHolder.removePlaceHolderComboBox(usuarioProfessor);
+        }
+    }//GEN-LAST:event_usuarioProfessorFocusGained
+
+    private void usuarioProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usuarioProfessorFocusLost
+        // TODO add your handling code here:
+         if (usuarioProfessor.getSelectedItem().toString().equals("Selecione o usuário correspondente")) {
+            PlaceHolder.addPlaceHolderComboBox(usuarioProfessor);
+        }
+    }//GEN-LAST:event_usuarioProfessorFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -615,19 +565,19 @@ public class CadastroProfs extends javax.swing.JFrame {
     private javax.swing.JButton Cadastrar1;
     private javax.swing.JButton Cadastrar2;
     private javax.swing.JTextField cpfProfessor;
-    private javax.swing.JTextField dataCadastro;
     private javax.swing.JTextField dataNascimento;
-    private javax.swing.JTextField horaCadastro;
     private javax.swing.JComboBox<String> horarioProfessor;
     private javax.swing.JTextField idadeProfessor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JComboBox<String> materiaProfessor;
     private javax.swing.JTextField nomeProfessor;
     private javax.swing.JComboBox<String> salaProfessor;
     private javax.swing.JComboBox<String> turnoProfessor;
+    private javax.swing.JComboBox<String> usuarioProfessor;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

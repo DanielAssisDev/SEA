@@ -120,7 +120,7 @@ public class User {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
+
     public User(String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {
         this.nome = nome;
         this.permissao = permissao;
@@ -132,4 +132,5 @@ public class User {
         this.senha = senha;
         this.log = log;
     }
+    
 }

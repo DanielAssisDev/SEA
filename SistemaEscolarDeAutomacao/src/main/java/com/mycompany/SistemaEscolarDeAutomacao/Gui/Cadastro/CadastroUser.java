@@ -42,8 +42,7 @@ public class CadastroUser extends javax.swing.JFrame {
         PlaceHolder.getInstance().addPlaceHolderComboBox(comboPermissoes);
         PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
         PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
-        PlaceHolder.getInstance().addPlaceHolder(dataCadastro);
-        PlaceHolder.getInstance().addPlaceHolder(horaCadastro);
+        
         PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
         PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
     }
@@ -60,14 +59,13 @@ public class CadastroUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         nomeUsuario = new javax.swing.JTextField();
         comboPermissoes = new javax.swing.JComboBox<>();
-        dataCadastro = new javax.swing.JTextField();
-        horaCadastro = new javax.swing.JTextField();
         loginUsuario = new javax.swing.JTextField();
         voltar = new javax.swing.JButton();
         senhaUsuario = new javax.swing.JPasswordField();
         telefoneUsuario = new javax.swing.JTextField();
         emailUsuario = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
+        visualizacao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -86,7 +84,7 @@ public class CadastroUser extends javax.swing.JFrame {
         });
 
         comboPermissoes.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        comboPermissoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Diretor", "Secretário", "Professor" }));
+        comboPermissoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a permissão", "Diretor", "Secretário", "Professor" }));
         comboPermissoes.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 comboPermissoesFocusGained(evt);
@@ -98,38 +96,6 @@ public class CadastroUser extends javax.swing.JFrame {
         comboPermissoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboPermissoesActionPerformed(evt);
-            }
-        });
-
-        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        dataCadastro.setText("--/--/---- (Data de cadastro)");
-        dataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusLost(evt);
-            }
-        });
-        dataCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataCadastroActionPerformed(evt);
-            }
-        });
-
-        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        horaCadastro.setText("HH:mm:ss (Hora do cadastro) ");
-        horaCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusLost(evt);
-            }
-        });
-        horaCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaCadastroActionPerformed(evt);
             }
         });
 
@@ -205,6 +171,13 @@ public class CadastroUser extends javax.swing.JFrame {
             }
         });
 
+        visualizacao.setText("👁");
+        visualizacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizacaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -212,19 +185,19 @@ public class CadastroUser extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboPermissoes, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(visualizacao)
+                        .addGap(6, 6, 6)
                         .addComponent(voltar)
-                        .addGap(12, 12, 12)
+                        .addGap(6, 6, 6)
                         .addComponent(Cadastrar))
-                    .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -240,19 +213,16 @@ public class CadastroUser extends javax.swing.JFrame {
                 .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(loginUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(senhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(voltar)
-                    .addComponent(Cadastrar))
-                .addGap(29, 29, 29))
+                    .addComponent(Cadastrar)
+                    .addComponent(visualizacao))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -277,10 +247,6 @@ public class CadastroUser extends javax.swing.JFrame {
     private void emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailUsuarioActionPerformed
-
-    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_horaCadastroActionPerformed
 
     private void nomeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusGained
         // TODO add your handling code here:
@@ -333,41 +299,6 @@ public class CadastroUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_telefoneUsuarioFocusLost
 
-    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
-        // TODO add your handling code here:
-        if (dataCadastro.getText().equals("--/--/----")) {
-            dataCadastro.setText(null);
-            dataCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(dataCadastro);
-        }
-
-    }//GEN-LAST:event_dataCadastroFocusGained
-
-    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
-        // TODO add your handling code here:
-        if (dataCadastro.getText().isEmpty()) {
-            dataCadastro.setText("--/--/----");
-            PlaceHolder.addPlaceHolder(dataCadastro);
-        }
-    }//GEN-LAST:event_dataCadastroFocusLost
-
-    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
-        // TODO add your handling code here:
-        if (horaCadastro.getText().equals("HH:mm:ss")) {
-            horaCadastro.setText(null);
-            horaCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusGained
-
-    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
-        // TODO add your handling code here:
-        if (horaCadastro.getText().isEmpty()) {
-            horaCadastro.setText("HH:mm:ss");
-            PlaceHolder.addPlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusLost
-
     private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusGained
         // TODO add your handling code here:
         if (loginUsuario.getText().equals("Login")) {
@@ -409,7 +340,7 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void comboPermissoesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboPermissoesFocusGained
         // TODO add your handling code here:
-        if (comboPermissoes.getSelectedItem().toString().equals("Selecione")) {
+        if (comboPermissoes.getSelectedItem().toString().equals("Selecione a permissão")) {
             comboPermissoes.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(comboPermissoes);
         }
@@ -417,7 +348,7 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void comboPermissoesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_comboPermissoesFocusLost
         // TODO add your handling code here:
-        if (comboPermissoes.getSelectedItem().toString().equals("Selecione")) {
+        if (comboPermissoes.getSelectedItem().toString().equals("Selecione a permissão")) {
             PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
         }
     }//GEN-LAST:event_comboPermissoesFocusLost
@@ -428,21 +359,15 @@ public class CadastroUser extends javax.swing.JFrame {
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
         String telefone = telefoneUsuario.getText();
-
-        DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate data = LocalDate.parse(dataCadastro.getText(), formatadorData);
-
-        DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime hora = LocalTime.parse(horaCadastro.getText(), formatadorHora);
-
+        LocalDate data = LocalDate.parse(LocalDate.now().toString());
+        LocalTime hora = LocalTime.parse(LocalTime.now().toString());
         String login = loginUsuario.getText();
         String senha = senhaUsuario.getText();
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";
 
         try {
-            if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
-                    + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
+            if (!nome.isEmpty() && !permissao.equalsIgnoreCase("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty()) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
                 UserDAO ud = new UserDAO();
                 ud.cadastrarJPA(u);
@@ -451,8 +376,6 @@ public class CadastroUser extends javax.swing.JFrame {
                 comboPermissoes.setSelectedIndex(0);
                 emailUsuario.setText("");
                 telefoneUsuario.setText("");
-                dataCadastro.setText("");
-                horaCadastro.setText("");
                 loginUsuario.setText("");
                 senhaUsuario.setText("");
 
@@ -465,9 +388,14 @@ public class CadastroUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CadastrarActionPerformed
 
-    private void dataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCadastroActionPerformed
+    private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dataCadastroActionPerformed
+        if (senhaUsuario.getEchoChar() == '\u2022') {
+            senhaUsuario.setEchoChar((char) 0);
+        } else {
+            senhaUsuario.setEchoChar('\u2022');
+        }
+    }//GEN-LAST:event_visualizacaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -497,14 +425,13 @@ public class CadastroUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
     private javax.swing.JComboBox<String> comboPermissoes;
-    private javax.swing.JTextField dataCadastro;
     private javax.swing.JTextField emailUsuario;
-    private javax.swing.JTextField horaCadastro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField loginUsuario;
     private javax.swing.JTextField nomeUsuario;
     private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JTextField telefoneUsuario;
+    private javax.swing.JButton visualizacao;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

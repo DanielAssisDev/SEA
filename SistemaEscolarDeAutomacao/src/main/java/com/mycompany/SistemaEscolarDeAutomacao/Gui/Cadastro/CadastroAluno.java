@@ -35,9 +35,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(nomeAluno);
         PlaceHolder.addPlaceHolder(idadeAluno);
         PlaceHolder.addPlaceHolder(cpfAluno);
-        PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(dataNascimento);
-        PlaceHolder.addPlaceHolder(horaCadastro);
         PlaceHolder.addPlaceHolderComboBox(turnoAluno);
         PlaceHolder.addPlaceHolderComboBox(salaAluno);
         
@@ -54,8 +52,6 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         nomeAluno = new javax.swing.JTextField();
-        dataCadastro = new javax.swing.JTextField();
-        horaCadastro = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
         dataNascimento = new javax.swing.JTextField();
         cpfAluno = new javax.swing.JTextField();
@@ -77,33 +73,6 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 nomeAlunoFocusLost(evt);
-            }
-        });
-
-        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        dataCadastro.setText("--/--/---- (Data de cadastro)");
-        dataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dataCadastroFocusLost(evt);
-            }
-        });
-
-        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
-        horaCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                horaCadastroFocusLost(evt);
-            }
-        });
-        horaCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                horaCadastroActionPerformed(evt);
             }
         });
 
@@ -198,19 +167,17 @@ public class CadastroAluno extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel1)
+                    .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(voltar)
+                        .addGap(6, 6, 6)
+                        .addComponent(Cadastrar))
                     .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(voltar)
-                        .addGap(11, 11, 11)
-                        .addComponent(Cadastrar)))
+                    .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -226,11 +193,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,7 +201,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
                     .addComponent(voltar))
-                .addGap(23, 23, 23))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -261,44 +224,6 @@ public class CadastroAluno extends javax.swing.JFrame {
             PlaceHolder.addPlaceHolder(nomeAluno);
         }
     }//GEN-LAST:event_nomeAlunoFocusLost
-
-    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
-        // TODO add your handling code here:
-        if (dataCadastro.getText().equals("--/--/---- (Data de cadastro)")) {
-            dataCadastro.setText(null);
-            dataCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(dataCadastro);
-        }
-    }//GEN-LAST:event_dataCadastroFocusGained
-
-    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
-        // TODO add your handling code here:
-        if (dataCadastro.getText().isEmpty()) {
-            dataCadastro.setText("--/--/---- (Data de cadastro)");
-            PlaceHolder.addPlaceHolder(dataCadastro);
-        }
-    }//GEN-LAST:event_dataCadastroFocusLost
-
-    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
-        // TODO add your handling code here:
-        if (horaCadastro.getText().equals("HH:mm:ss (Hora do cadastro)")) {
-            horaCadastro.setText(null);
-            horaCadastro.requestFocus();
-            PlaceHolder.removePlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusGained
-
-    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
-        // TODO add your handling code here:
-        if (horaCadastro.getText().isEmpty()) {
-            horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
-            PlaceHolder.addPlaceHolder(horaCadastro);
-        }
-    }//GEN-LAST:event_horaCadastroFocusLost
-
-    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_horaCadastroActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
@@ -471,9 +396,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField cpfAluno;
-    private javax.swing.JTextField dataCadastro;
     private javax.swing.JTextField dataNascimento;
-    private javax.swing.JTextField horaCadastro;
     private javax.swing.JTextField idadeAluno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeAluno;

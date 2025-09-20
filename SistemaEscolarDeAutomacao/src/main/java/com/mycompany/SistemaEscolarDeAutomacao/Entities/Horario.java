@@ -46,6 +46,8 @@ public class Horario {
     @JdbcTypeCode(SqlTypes.TIME)
     private LocalTime horas;
 
+    private String turno;
+    
     public int getId() {
         return id;
     }
@@ -85,8 +87,6 @@ public class Horario {
     public void setSala(Sala sala) {
         this.sala = sala;
     }
-
-    
     
     public LocalTime getHoras() {
         return horas;
@@ -96,12 +96,22 @@ public class Horario {
         this.horas = horas;
     }
 
-    public Horario(int id, String diaSemana, Professor professorDoHorario, Materia materiaDoHorario, LocalTime horas) {
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public Horario(int id, String diaSemana, Professor professor, Sala sala, Materia materia, LocalTime horas, String turno) {
         this.id = id;
         this.diaSemana = diaSemana;
-        this.professor = professorDoHorario;
-        this.materia = materiaDoHorario;
+        this.professor = professor;
+        this.sala = sala;
+        this.materia = materia;
         this.horas = horas;
+        this.turno = turno;
     }
     
 }

@@ -26,7 +26,6 @@ public class Sala {
     private int id;
 
     private String nome;
-    private String turno;
 
     @OneToMany(mappedBy = "sala", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Aluno> alunos;
@@ -50,14 +49,6 @@ public class Sala {
         this.nome = nome;
     }
 
-    public String getTurno() {
-        return turno;
-    }
-
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-
     public List<Aluno> getAlunos() {
         return alunos;
     }
@@ -74,10 +65,9 @@ public class Sala {
         this.horarios = horarios;
     }
 
-    public Sala(int id, String nome, String turno, List<Aluno> alunos, List<Horario> horarios) {
+    public Sala(int id, String nome, List<Aluno> alunos, List<Horario> horarios) {
         this.id = id;
         this.nome = nome;
-        this.turno = turno;
         this.alunos = alunos;
         this.horarios = horarios;
     }

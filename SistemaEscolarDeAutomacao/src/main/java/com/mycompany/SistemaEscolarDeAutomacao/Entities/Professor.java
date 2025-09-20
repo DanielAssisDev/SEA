@@ -34,7 +34,7 @@ public class Professor {
 
     private String nome;
     private int idade;
-
+    
     private String cpf;
     
     @Column(name = "url_curriculo")
@@ -54,14 +54,11 @@ public class Professor {
     private Double salario;
     private String formacao;
 
+    private User usuario;
+    
     @Column(name = "data_nascimento")    
     @JdbcTypeCode(SqlTypes.DATE)
     private LocalDate dataNascimento;
-
-    @Column(name = "numero_telefone")
-    private String numeroTelefone;
-
-    private String email;
 
     public int getId() {
         return id;
@@ -85,6 +82,14 @@ public class Professor {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getUrlCurriculo() {
@@ -127,6 +132,14 @@ public class Professor {
         this.formacao = formacao;
     }
 
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
@@ -135,23 +148,9 @@ public class Professor {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getNumeroTelefone() {
-        return numeroTelefone;
-    }
+   
 
-    public void setNumeroTelefone(String numeroTelefone) {
-        this.numeroTelefone = numeroTelefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
+    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email, User usuario) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
@@ -162,8 +161,7 @@ public class Professor {
         this.salario = salario;
         this.formacao = formacao;
         this.dataNascimento = dataNascimento;
-        this.numeroTelefone = numeroTelefone;
-        this.email = email;
+        this.usuario = usuario;
     }
 
     

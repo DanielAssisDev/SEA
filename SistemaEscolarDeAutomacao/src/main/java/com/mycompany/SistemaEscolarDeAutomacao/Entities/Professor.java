@@ -32,29 +32,28 @@ public class Professor {
 
     private String nome;
     private int idade;
-    
+
     private String cpf;
-    
+
     @Column(name = "url_curriculo")
     private String urlCurriculo;
 
     @ManyToMany
     @JoinTable(
-            name= "professor_materia",
+            name = "professor_materia",
             joinColumns = @JoinColumn(name = "professor_id"),
             inverseJoinColumns = @JoinColumn(name = "materia_id")
     )
     private List<Materia> materias;
-    
+
     @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Horario> horarios;
-    
+
     private Double salario;
     private String formacao;
 
- //   private User usuario;
-    
-    @Column(name = "data_nascimento")    
+    //   private User usuario;
+    @Column(name = "data_nascimento")
     @JdbcTypeCode(SqlTypes.DATE)
     private LocalDate dataNascimento;
 
@@ -130,8 +129,6 @@ public class Professor {
         this.formacao = formacao;
     }
 
-
-
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
@@ -139,8 +136,6 @@ public class Professor {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-
-   
 
     public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
         this.id = id;
@@ -153,8 +148,9 @@ public class Professor {
         this.salario = salario;
         this.formacao = formacao;
         this.dataNascimento = dataNascimento;
-     
     }
 
-    
+    public Professor() {
+    }
+
 }

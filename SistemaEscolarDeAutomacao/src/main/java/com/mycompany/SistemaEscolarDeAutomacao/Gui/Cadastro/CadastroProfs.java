@@ -42,6 +42,9 @@ public class CadastroProfs extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(idadeProfessor);
         PlaceHolder.addPlaceHolder(cpfProfessor);
         PlaceHolder.addPlaceHolder(dataNascimento);
+        PlaceHolder.addPlaceHolder(urlCurriculo);
+        PlaceHolder.addPlaceHolder(salarioProfessor);
+        PlaceHolder.addPlaceHolder(formacaoProfessor);
         PlaceHolder.addPlaceHolderComboBox(salaHorario);
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
         PlaceHolder.addPlaceHolderComboBox(usuarioProfessor);
@@ -77,6 +80,9 @@ public class CadastroProfs extends javax.swing.JFrame {
         usuarioProfessor = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         horarioProfessor = new javax.swing.JComboBox<>();
+        urlCurriculo = new javax.swing.JTextField();
+        salarioProfessor = new javax.swing.JTextField();
+        formacaoProfessor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,31 +96,16 @@ public class CadastroProfs extends javax.swing.JFrame {
                 dataNascimentoFocusLost(evt);
             }
         });
-        dataNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataNascimentoActionPerformed(evt);
-            }
-        });
 
         cpfProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         cpfProfessor.setText("CPF");
         cpfProfessor.setNextFocusableComponent(dataNascimento);
-        cpfProfessor.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cpfProfessorComponentRemoved(evt);
-            }
-        });
         cpfProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 cpfProfessorFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cpfProfessorFocusLost(evt);
-            }
-        });
-        cpfProfessor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cpfProfessorActionPerformed(evt);
             }
         });
 
@@ -239,6 +230,38 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
         });
 
+        urlCurriculo.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        urlCurriculo.setText("URL do currículo");
+        urlCurriculo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                urlCurriculoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                urlCurriculoFocusLost(evt);
+            }
+        });
+        salarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        salarioProfessor.setText("Salário");
+        salarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                salarioProfessorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                salarioProfessorFocusLost(evt);
+            }
+        });
+
+        formacaoProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        formacaoProfessor.setText("Formação");
+        formacaoProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                formacaoProfessorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formacaoProfessorFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,14 +269,20 @@ public class CadastroProfs extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4)
+                    .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(usuarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(salaHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel5)
                     .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(usuarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(voltar)
                         .addGap(6, 6, 6)
@@ -264,13 +293,10 @@ public class CadastroProfs extends javax.swing.JFrame {
                         .addComponent(Cadastrar1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(salaHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2)
+                    .addComponent(urlCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                    .addComponent(salarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -288,7 +314,13 @@ public class CadastroProfs extends javax.swing.JFrame {
                 .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(urlCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(salarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,15 +365,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_dataNascimentoFocusLost
 
-    private void dataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNascimentoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_dataNascimentoActionPerformed
-
-    private void cpfProfessorComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cpfProfessorComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfProfessorComponentRemoved
-
     private void cpfProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusGained
         // TODO add your handling code here:
         if (cpfProfessor.getText().equals("CPF")) {
@@ -359,10 +382,6 @@ public class CadastroProfs extends javax.swing.JFrame {
             PlaceHolder.addPlaceHolder(cpfProfessor);
         }
     }//GEN-LAST:event_cpfProfessorFocusLost
-
-    private void cpfProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfProfessorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfProfessorActionPerformed
 
     private void idadeProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeProfessorFocusGained
         // TODO add your handling code here:
@@ -520,6 +539,57 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     }//GEN-LAST:event_salaHorarioActionPerformed
 
+    private void urlCurriculoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusGained
+        // TODO add your handling code here:
+        if (urlCurriculo.getText().equals("URL do currículo")) {
+            urlCurriculo.setText(null);
+            urlCurriculo.requestFocus();
+            PlaceHolder.removePlaceHolder(urlCurriculo);
+        }
+    }//GEN-LAST:event_urlCurriculoFocusGained
+
+    private void urlCurriculoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusLost
+        // TODO add your handling code here:
+        if (urlCurriculo.getText().isEmpty()) {
+            urlCurriculo.setText("URL do currículo");
+            PlaceHolder.addPlaceHolder(urlCurriculo);
+        }
+    }//GEN-LAST:event_urlCurriculoFocusLost
+
+    private void salarioProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusGained
+        // TODO add your handling code here:
+        if (salarioProfessor.getText().equals("Salário")) {
+            salarioProfessor.setText(null);
+            salarioProfessor.requestFocus();
+            PlaceHolder.removePlaceHolder(salarioProfessor);
+        }
+    }//GEN-LAST:event_salarioProfessorFocusGained
+
+    private void salarioProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusLost
+        // TODO add your handling code here: 
+        if (salarioProfessor.getText().isEmpty()) {
+            salarioProfessor.setText("Salário");
+            PlaceHolder.addPlaceHolder(salarioProfessor);
+        }
+    }//GEN-LAST:event_salarioProfessorFocusLost
+
+    private void formacaoProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusGained
+        // TODO add your handling code here: 
+        if (formacaoProfessor.getText().equals("Formação")) {
+            formacaoProfessor.setText(null);
+            formacaoProfessor.requestFocus();
+            PlaceHolder.removePlaceHolder(formacaoProfessor);
+        }
+    }//GEN-LAST:event_formacaoProfessorFocusGained
+
+    private void formacaoProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusLost
+        // TODO add your handling code here:
+        if (formacaoProfessor.getText().isEmpty()) {
+            formacaoProfessor.setText("Formação");
+            PlaceHolder.addPlaceHolder(formacaoProfessor);
+        }
+    }//GEN-LAST:event_formacaoProfessorFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -551,6 +621,7 @@ public class CadastroProfs extends javax.swing.JFrame {
     private javax.swing.JButton Cadastrar2;
     private javax.swing.JTextField cpfProfessor;
     private javax.swing.JTextField dataNascimento;
+    private javax.swing.JTextField formacaoProfessor;
     private javax.swing.JComboBox<String> horarioProfessor;
     private javax.swing.JTextField idadeProfessor;
     private javax.swing.JButton jButton1;
@@ -562,6 +633,8 @@ public class CadastroProfs extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> materiaProfessor;
     private javax.swing.JTextField nomeProfessor;
     private javax.swing.JComboBox<String> salaHorario;
+    private javax.swing.JTextField salarioProfessor;
+    private javax.swing.JTextField urlCurriculo;
     private javax.swing.JComboBox<String> usuarioProfessor;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables

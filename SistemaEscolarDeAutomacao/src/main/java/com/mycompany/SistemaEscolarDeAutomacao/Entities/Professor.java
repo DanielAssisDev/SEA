@@ -25,7 +25,6 @@ import org.hibernate.type.SqlTypes;
  * @author daniel
  */
 @Entity
-@Table(name = "tb_professor")
 public class Professor {
 
     @Id

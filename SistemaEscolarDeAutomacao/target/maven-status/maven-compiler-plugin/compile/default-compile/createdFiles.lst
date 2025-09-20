@@ -9,7 +9,6 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/Cadastros$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Sala.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$12.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/User.class
-com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$11.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Materia.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$8.class
 com/mycompany/SistemaEscolarDeAutomacao/Gerais/PreencherTabelas.class
@@ -65,6 +64,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultaProfessores$3.clas
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$3.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/Cadastros.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$12.class
+com/mycompany/SistemaEscolarDeAutomacao/Gerais/PreencherComboBox.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$8.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/TelaLogin$6.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$1.class
@@ -112,3 +112,4 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$9.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasAlunos$7.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$11.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$9.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$15.class

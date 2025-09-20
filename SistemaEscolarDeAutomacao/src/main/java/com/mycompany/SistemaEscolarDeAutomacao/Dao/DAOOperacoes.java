@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -43,8 +44,8 @@ public class DAOOperacoes {
             JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro, tente novamente.");
         }
     }
-
-    public static List<User> buscarTudo() {
+       
+    public static List<User> buscarUsuarios() {
         List<User> usuarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT u from User u");
@@ -54,5 +55,17 @@ public class DAOOperacoes {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return usuarios;
+    }
+    
+    public static List<Sala> buscarSalas() {
+        List<Sala> salas = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT s from Sala s");
+            salas = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return salas;
     }
 }

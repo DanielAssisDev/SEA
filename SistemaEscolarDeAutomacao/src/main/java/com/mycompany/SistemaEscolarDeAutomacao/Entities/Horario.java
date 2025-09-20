@@ -21,7 +21,6 @@ import org.hibernate.type.SqlTypes;
  * @author daniel
  */
 @Entity
-@Table(name = "tb_horario")
 public class Horario {
 
     @Id
@@ -104,6 +103,9 @@ public class Horario {
         this.turno = turno;
     }
 
+    public Horario() {
+    }
+    
     public Horario(int id, String diaSemana, Professor professor, Sala sala, Materia materia, LocalTime horas, String turno) {
         this.id = id;
         this.diaSemana = diaSemana;

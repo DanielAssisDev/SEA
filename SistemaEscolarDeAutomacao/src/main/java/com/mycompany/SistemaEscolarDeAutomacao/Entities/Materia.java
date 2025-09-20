@@ -19,7 +19,6 @@ import java.util.List;
  * @author daniel
  */
 @Entity
-@Table(name = "tb_materia")
 public class Materia {
 
     @Id
@@ -29,9 +28,6 @@ public class Materia {
 
     @ManyToMany(mappedBy = "materias", cascade = CascadeType.ALL)
     private List<Professor> professores;
-
-    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Horario> horarios;
 
     public int getId() {
         return id;
@@ -57,19 +53,13 @@ public class Materia {
         this.professores = professores;
     }
 
-    public List<Horario> getHorarios() {
-        return horarios;
+    public Materia() {
     }
 
-    public void setHorarios(List<Horario> horarios) {
-        this.horarios = horarios;
-    }
-
-    public Materia(int id, String nome, List<Professor> professores, List<Horario> horarios) {
+    public Materia(int id, String nome, List<Professor> professores) {
         this.id = id;
         this.nome = nome;
         this.professores = professores;
-        this.horarios = horarios;
     }
 
 }

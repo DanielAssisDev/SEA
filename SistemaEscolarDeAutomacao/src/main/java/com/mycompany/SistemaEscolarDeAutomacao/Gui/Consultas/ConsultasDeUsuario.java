@@ -43,7 +43,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(horaCadastro);
         
-        List<User> lista = DAOOperacoes.buscarTudo();
+        List<User> lista = DAOOperacoes.buscarUsuarios();
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
         
     }

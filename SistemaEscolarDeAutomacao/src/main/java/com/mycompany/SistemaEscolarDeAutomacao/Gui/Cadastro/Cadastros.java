@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
-
-import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Inicio;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Ops;
 
 /**
@@ -14,7 +12,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Ops;
 public class Cadastros extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Cadastros.class.getName());
-
+     
     private static Cadastros instance;
 
     public static Cadastros getInstance() {

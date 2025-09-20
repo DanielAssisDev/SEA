@@ -5,13 +5,17 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
  * @author mrdaniel
  */
 public class CadastroAluno extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroAluno.class.getName());
 
     private static CadastroAluno instance;
@@ -19,14 +23,14 @@ public class CadastroAluno extends javax.swing.JFrame {
     public static CadastroAluno getInstance() {
         if (instance == null) {
             instance = new CadastroAluno();
-        } 
+        }
         return instance;
     }
 
     public static void setInstance(CadastroAluno instance) {
         CadastroAluno.instance = instance;
     }
-    
+
     /**
      * Creates new form CadastroAluno
      */
@@ -36,8 +40,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(idadeAluno);
         PlaceHolder.addPlaceHolder(cpfAluno);
         PlaceHolder.addPlaceHolder(dataNascimento);
-        PlaceHolder.addPlaceHolderComboBox(turnoAluno);
         PlaceHolder.addPlaceHolderComboBox(salaAluno);
+        
+        PreencherComboBox.PreencherComboBoxSalas(salaAluno);
         
     }
 
@@ -56,7 +61,6 @@ public class CadastroAluno extends javax.swing.JFrame {
         dataNascimento = new javax.swing.JTextField();
         cpfAluno = new javax.swing.JTextField();
         idadeAluno = new javax.swing.JTextField();
-        turnoAluno = new javax.swing.JComboBox<>();
         salaAluno = new javax.swing.JComboBox<>();
         voltar = new javax.swing.JButton();
 
@@ -131,17 +135,6 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "Matutino", "Vespertino", "Noturno" }));
-        turnoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                turnoAlunoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                turnoAlunoFocusLost(evt);
-            }
-        });
-
         salaAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         salaAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a sala" }));
         salaAluno.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -176,7 +169,6 @@ public class CadastroAluno extends javax.swing.JFrame {
                     .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
@@ -193,11 +185,9 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
                     .addComponent(voltar))
@@ -227,45 +217,41 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        /*String nome = nomeAluno.getText();
-        String permissao = idade.getSelectedItem().toString();
-        String email = cpfAluno.getText();
-        String telefone = dataNascimento.getText();
+        String nome = nomeAluno.getText();
+        int idade = Integer.parseInt(idadeAluno.getText());
+        String cpf = cpfAluno.getText();
+
+        LocalDate dataCad = LocalDate.now();
+        LocalTime hora = LocalTime.now();
 
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate data = LocalDate.parse(dataCadastro.getText(), formatadorData);
-
-        DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime hora = LocalTime.parse(horaCadastro.getText(), formatadorHora);
-
-        String login = loginUsuario.getText();
-        String senha = senhaUsuario.getText();
-
-        String log = "Início do log de: " + nome + " (" + permissao + ").";
+        LocalDate dataNas = LocalDate.parse(dataNascimento.getText(), formatadorData);
+        
+        /*
 
         try {
             if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
-                + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
-        User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-        UserDAO ud = new UserDAO();
-        ud.cadastrarJPA(u);
-        JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
-        nomeAluno.setText("");
-        idade.setSelectedIndex(0);
-        cpfAluno.setText("");
-        dataNascimento.setText("");
-        dataCadastro.setText("");
-        horaCadastro.setText("");
-        loginUsuario.setText("");
-        senhaUsuario.setText("");
+                    + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
+                User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
+                UserDAO ud = new UserDAO();
+                ud.cadastrarJPA(u);
+                JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
+                nomeAluno.setText("");
+                idade.setSelectedIndex(0);
+                cpfAluno.setText("");
+                dataNascimento.setText("");
+                dataCadastro.setText("");
+                horaCadastro.setText("");
+                loginUsuario.setText("");
+                senhaUsuario.setText("");
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro, verifique os campos e tente novamente!");
-        }
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro, verifique os campos e tente novamente!");
+            }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e);
-        }*/
+        }  */
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
@@ -338,24 +324,9 @@ public class CadastroAluno extends javax.swing.JFrame {
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusGained
-        // TODO add your handling code here:
-        if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
-            turnoAluno.requestFocus();
-            PlaceHolder.removePlaceHolderComboBox(turnoAluno);
-        }
-    }//GEN-LAST:event_turnoAlunoFocusGained
-
-    private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusLost
-        // TODO add your handling code here:
-        if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
-            PlaceHolder.addPlaceHolderComboBox(turnoAluno);
-        }
-    }//GEN-LAST:event_turnoAlunoFocusLost
-
     private void salaAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaAlunoFocusGained
         // TODO add your handling code here:
-       if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
+        if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             salaAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(salaAluno);
         }
@@ -363,7 +334,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void salaAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaAlunoFocusLost
         // TODO add your handling code here:
-         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
+        if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             PlaceHolder.addPlaceHolderComboBox(salaAluno);
         }
     }//GEN-LAST:event_salaAlunoFocusLost
@@ -401,7 +372,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeAluno;
     private javax.swing.JComboBox<String> salaAluno;
-    private javax.swing.JComboBox<String> turnoAluno;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

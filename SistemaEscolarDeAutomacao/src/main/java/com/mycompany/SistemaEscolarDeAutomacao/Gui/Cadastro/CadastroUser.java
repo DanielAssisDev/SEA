@@ -41,8 +41,7 @@ public class CadastroUser extends javax.swing.JFrame {
         PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
         PlaceHolder.getInstance().addPlaceHolderComboBox(comboPermissoes);
         PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
-        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
-        
+        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);    
         PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
         PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
     }
@@ -359,8 +358,8 @@ public class CadastroUser extends javax.swing.JFrame {
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
         String telefone = telefoneUsuario.getText();
-        LocalDate data = LocalDate.parse(LocalDate.now().toString());
-        LocalTime hora = LocalTime.parse(LocalTime.now().toString());
+        LocalDate data = LocalDate.now();
+        LocalTime hora = LocalTime.now();
         String login = loginUsuario.getText();
         String senha = senhaUsuario.getText();
 

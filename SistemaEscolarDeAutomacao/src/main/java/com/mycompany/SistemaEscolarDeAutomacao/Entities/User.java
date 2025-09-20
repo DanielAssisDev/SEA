@@ -9,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -121,19 +120,6 @@ public class User {
     }
 
     public User() {
-    }
-
-    public User(int id, String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {
-        this.id = id;
-        this.nome = nome;
-        this.permissao = permissao;
-        this.email = email;
-        this.telefone = telefone;
-        this.dataCadastro = dataCadastro;
-        this.horaCadastro = horaCadastro;
-        this.login = login;
-        this.senha = senha;
-        this.log = log;
     }
 
     public User(String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {

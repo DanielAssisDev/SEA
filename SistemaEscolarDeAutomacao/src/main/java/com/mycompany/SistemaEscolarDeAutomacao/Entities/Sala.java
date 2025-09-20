@@ -18,7 +18,6 @@ import java.util.List;
  * @author daniel
  */
 @Entity
-@Table(name = "tb_sala")
 public class Sala {
 
     @Id
@@ -65,6 +64,15 @@ public class Sala {
         this.horarios = horarios;
     }
 
+    public Sala() {
+    }
+
+    public Sala(String nome, List<Aluno> alunos, List<Horario> horarios) {
+        this.nome = nome;
+        this.alunos = alunos;
+        this.horarios = horarios;
+    }
+    
     public Sala(int id, String nome, List<Aluno> alunos, List<Horario> horarios) {
         this.id = id;
         this.nome = nome;

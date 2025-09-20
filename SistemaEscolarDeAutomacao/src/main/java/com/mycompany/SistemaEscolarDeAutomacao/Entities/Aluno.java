@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import java.time.LocalDate;
 
 /**
@@ -19,7 +18,6 @@ import java.time.LocalDate;
  * @author daniel
  */
 @Entity
-@Table(name = "tb_aluno")
 public class Aluno {
 
     @Id
@@ -101,14 +99,31 @@ public class Aluno {
         this.turno = turno;
     }
 
-    public Aluno(int id, String nome, int idade, String cpf, LocalDate dataNascimento, Sala sala, String turno) {
+    public Aluno(int id, String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalDate horaCadastro, Sala sala, String turno) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
+        this.dataCadastro = dataCadastro;
+        this.horaCadastro = horaCadastro;
         this.sala = sala;
         this.turno = turno;
     }
 
+    public Aluno() {
+    }
+
+    public Aluno(String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalDate horaCadastro, Sala sala, String turno) {
+        this.nome = nome;
+        this.idade = idade;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.dataCadastro = dataCadastro;
+        this.horaCadastro = horaCadastro;
+        this.sala = sala;
+        this.turno = turno;
+    }
+
+  
 }

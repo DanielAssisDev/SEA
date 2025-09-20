@@ -27,6 +27,8 @@ public class Horario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private int ordem;
+
     @Column(name = "dia_semana")
     private String diaSemana;
 
@@ -103,11 +105,20 @@ public class Horario {
         this.turno = turno;
     }
 
-    public Horario() {
+    public int getOrdem() {
+        return ordem;
+    }
+
+    public void setOrdem(int ordem) {
+        this.ordem = ordem;
     }
     
-    public Horario(int id, String diaSemana, Professor professor, Sala sala, Materia materia, LocalTime horas, String turno) {
+    public Horario() {
+    }
+
+    public Horario(int id, int ordem, String diaSemana, Professor professor, Sala sala, Materia materia, LocalTime horas, String turno) {
         this.id = id;
+        this.ordem = ordem;
         this.diaSemana = diaSemana;
         this.professor = professor;
         this.sala = sala;
@@ -115,5 +126,18 @@ public class Horario {
         this.horas = horas;
         this.turno = turno;
     }
+
+    public Horario(int ordem, String diaSemana, Professor professor, Sala sala, Materia materia, LocalTime horas, String turno) {
+        this.ordem = ordem;
+        this.diaSemana = diaSemana;
+        this.professor = professor;
+        this.sala = sala;
+        this.materia = materia;
+        this.horas = horas;
+        this.turno = turno;
+    }
+    
+
+    
     
 }

@@ -46,9 +46,9 @@
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="2" attributes="0">
-                      <Component id="salaHorario" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="salaHorario" min="-2" pref="230" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="horarioProfessor1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="horarioProfessor" min="-2" pref="260" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="2" min="-2" max="-2" attributes="0"/>
@@ -82,7 +82,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="salaHorario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="horarioProfessor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="horarioProfessor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -224,6 +224,7 @@
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="salaHorarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="salaHorarioFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salaHorarioActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -302,7 +303,7 @@
         <Property name="text" type="java.lang.String" value="Confirmar usu&#xe1;rio"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="horarioProfessor1">
+    <Component class="javax.swing.JComboBox" name="horarioProfessor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Noto Sans" size="13" style="2"/>
@@ -317,8 +318,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horarioProfessor1FocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horarioProfessor1FocusLost"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horarioProfessorFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horarioProfessorFocusLost"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

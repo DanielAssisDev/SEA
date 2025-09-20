@@ -5,9 +5,12 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gerais;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 /**
@@ -35,4 +38,26 @@ public class PreencherComboBox {
         }
     }
     
+    public static void PreencherComboBoxMaterias(JComboBox caixa) {
+        List<Materia> lista = DAOOperacoes.buscarMaterias();
+        for(Materia m : lista) {
+            caixa.addItem(m.getNome());
+        }
+    }
+   
+    public static void PreencherComboBoxHorarios(String nomeSala, JComboBox caixa) {
+        List<Sala> lista = DAOOperacoes.buscarSalasNome(nomeSala);
+        for(Sala s : lista) {
+            for(Horario h : s.getHorarios()) {
+                caixa.addItem(h.getOrdem() + " - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome());
+            }
+        }
+    }
+    
+    public static void EsvaziarComboBoxes(JComboBox caixa) {
+        List<String> listaVazia = new ArrayList<>();
+        listaVazia.add("Selecione o horário");
+        PlaceHolder.addPlaceHolderComboBox(caixa);
+        caixa.setModel(new DefaultComboBoxModel(listaVazia.toArray()));
+    }
 }

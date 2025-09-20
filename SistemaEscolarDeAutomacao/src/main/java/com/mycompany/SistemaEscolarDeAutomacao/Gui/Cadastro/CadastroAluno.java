@@ -61,6 +61,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         dataNascimento = new javax.swing.JTextField();
         cpfAluno = new javax.swing.JTextField();
         idadeAluno = new javax.swing.JTextField();
+        turnoAluno = new javax.swing.JComboBox<>();
         salaAluno = new javax.swing.JComboBox<>();
         voltar = new javax.swing.JButton();
 
@@ -135,6 +136,17 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
+        turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "Matutino", "Vespertino", "Noturno" }));
+        turnoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                turnoAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                turnoAlunoFocusLost(evt);
+            }
+        });
+
         salaAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         salaAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a sala" }));
         salaAluno.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -169,6 +181,7 @@ public class CadastroAluno extends javax.swing.JFrame {
                     .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
@@ -185,9 +198,11 @@ public class CadastroAluno extends javax.swing.JFrame {
                 .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastrar)
                     .addComponent(voltar))
@@ -339,6 +354,21 @@ public class CadastroAluno extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_salaAlunoFocusLost
 
+    private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusLost
+        // TODO add your handling code here:
+        if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
+            PlaceHolder.addPlaceHolderComboBox(turnoAluno);
+        }
+    }//GEN-LAST:event_turnoAlunoFocusLost
+
+    private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusGained
+        // TODO add your handling code here:
+        if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
+            turnoAluno.requestFocus();
+            PlaceHolder.removePlaceHolderComboBox(turnoAluno);
+        }
+    }//GEN-LAST:event_turnoAlunoFocusGained
+
     /**
      * @param args the command line arguments
      */
@@ -372,6 +402,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nomeAluno;
     private javax.swing.JComboBox<String> salaAluno;
+    private javax.swing.JComboBox<String> turnoAluno;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

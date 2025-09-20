@@ -9,6 +9,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/Cadastros$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Sala.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$12.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/User.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$11.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Materia.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$8.class
 com/mycompany/SistemaEscolarDeAutomacao/Gerais/PreencherTabelas.class
@@ -74,6 +75,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/Cadastros$3.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Horario.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasAlunos$5.class
 com/mycompany/SistemaEscolarDeAutomacao/Entities/Professor.class
+com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroProfs$16.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroUser$8.class
 com/mycompany/SistemaEscolarDeAutomacao/persistence/JPAUtil.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Inicio/Ops.class

@@ -54,7 +54,7 @@ public class Professor {
     private Double salario;
     private String formacao;
 
-    private User usuario;
+ //   private User usuario;
     
     @Column(name = "data_nascimento")    
     @JdbcTypeCode(SqlTypes.DATE)
@@ -132,13 +132,7 @@ public class Professor {
         this.formacao = formacao;
     }
 
-    public User getUsuario() {
-        return usuario;
-    }
 
-    public void setUsuario(User usuario) {
-        this.usuario = usuario;
-    }
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -150,7 +144,7 @@ public class Professor {
 
    
 
-    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email, User usuario) {
+    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
@@ -161,7 +155,7 @@ public class Professor {
         this.salario = salario;
         this.formacao = formacao;
         this.dataNascimento = dataNascimento;
-        this.usuario = usuario;
+     
     }
 
     

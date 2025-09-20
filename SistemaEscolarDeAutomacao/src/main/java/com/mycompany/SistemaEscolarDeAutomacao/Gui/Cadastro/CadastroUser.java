@@ -4,7 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import java.time.LocalDate;
@@ -369,8 +369,7 @@ public class CadastroUser extends javax.swing.JFrame {
         try {
             if (!nome.isEmpty() && !permissao.equalsIgnoreCase("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty()) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-                UserDAO ud = new UserDAO();
-                ud.cadastrarJPA(u);
+                DAOOperacoes.cadastrarJPA(u);
                 JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
                 nomeUsuario.setText("");
                 comboPermissoes.setSelectedIndex(0);

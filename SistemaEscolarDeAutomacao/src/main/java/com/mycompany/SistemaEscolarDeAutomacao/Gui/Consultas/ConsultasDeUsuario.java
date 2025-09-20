@@ -4,7 +4,11 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
+import java.util.List;
 
 /**
  *
@@ -38,6 +42,10 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(telefoneUsuario);
         PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(horaCadastro);
+        
+        List<User> lista = DAOOperacoes.buscarTudo();
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+        
     }
 
     /**
@@ -85,10 +93,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 

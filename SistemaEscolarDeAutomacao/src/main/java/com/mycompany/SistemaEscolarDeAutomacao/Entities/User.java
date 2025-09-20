@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Entities;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,11 +17,9 @@ import java.time.LocalTime;
  *
  * @author daniel
  */
-
 @Entity
-@Table(name="tb_user")
 public class User {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -28,16 +27,16 @@ public class User {
     private String permissao;
     private String email;
     private String telefone;
-    
+
     @Column(name = "data_cadastro")
     private LocalDate dataCadastro;
-    
+
     @Column(name = "hora_cadastro")
     private LocalTime horaCadastro;
-    
+
     private String login;
     private String senha;
-    
+
     @Column(columnDefinition = "LONGTEXT")
     private String log;
 
@@ -121,6 +120,22 @@ public class User {
         this.telefone = telefone;
     }
 
+    public User() {
+    }
+
+    public User(int id, String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {
+        this.id = id;
+        this.nome = nome;
+        this.permissao = permissao;
+        this.email = email;
+        this.telefone = telefone;
+        this.dataCadastro = dataCadastro;
+        this.horaCadastro = horaCadastro;
+        this.login = login;
+        this.senha = senha;
+        this.log = log;
+    }
+
     public User(String nome, String permissao, String email, String telefone, LocalDate dataCadastro, LocalTime horaCadastro, String login, String senha, String log) {
         this.nome = nome;
         this.permissao = permissao;
@@ -132,5 +147,5 @@ public class User {
         this.senha = senha;
         this.log = log;
     }
-    
+
 }

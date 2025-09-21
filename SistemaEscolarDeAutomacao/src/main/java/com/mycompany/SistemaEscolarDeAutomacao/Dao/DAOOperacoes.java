@@ -50,18 +50,6 @@ public class DAOOperacoes {
         }
     }
 
-    public List<User> buscarUsuarios() {
-        List<User> usuarios = new ArrayList<>();
-        try {
-            Query consulta = man.createQuery("SELECT u from User u");
-            usuarios = consulta.getResultList();
-        } catch (Exception e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
-        }
-        return usuarios;
-    }
-
     public List<Sala> buscarSalas() {
         List<Sala> salas = new ArrayList<>();
         try {
@@ -86,7 +74,7 @@ public class DAOOperacoes {
         }
         return sala;
     }
-    
+
     public List<Sala> buscarSalasNome(String nomeSala) {
         List<Sala> salas = new ArrayList<>();
         try {
@@ -99,8 +87,8 @@ public class DAOOperacoes {
         }
         return salas;
     }
-    
-     public Materia buscarMateriasNome(String nomeMateria) {
+
+    public Materia buscarMateriasNome(String nomeMateria) {
         Materia m = new Materia();
         try {
             TypedQuery<Materia> consulta = man.createQuery("SELECT m from Materia m where m.nome = :nome", Materia.class);
@@ -112,9 +100,8 @@ public class DAOOperacoes {
         }
         return m;
     }
-     
-     
-      public User buscarUsuarioNome(String nomeUser) {
+
+    public User buscarUsuarioNome(String nomeUser) {
         User u = new User();
         try {
             TypedQuery<User> consulta = man.createQuery("SELECT u from User u where u.nome = :nome", User.class);
@@ -126,8 +113,8 @@ public class DAOOperacoes {
         }
         return u;
     }
-     
-     public Horario buscarHorarioID(int id) {
+
+    public Horario buscarHorarioID(int id) {
         Horario h = new Horario();
         try {
             TypedQuery<Horario> consulta = man.createQuery("SELECT h from Horario h where h.id = :id", Horario.class);
@@ -140,8 +127,6 @@ public class DAOOperacoes {
         return h;
     }
 
-     
-     
     public List<Materia> buscarMaterias() {
         List<Materia> materias = new ArrayList<>();
         try {
@@ -153,7 +138,39 @@ public class DAOOperacoes {
         }
         return materias;
     }
-    
+
+    public List<User> buscarUsuarios() {
+        List<User> usuarios = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT u FROM User u");
+            usuarios = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return usuarios;
+    }
+
+    public List<User> buscarUsuariosParaTabela(String nome, String permissao, String email, String telefone, String dataCadastro, String horaCadastro) {
+        List<User> usuarios = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT u FROM User u "
+                    + " WHERE (:id is null OR CAST(u.id AS String) LIKE :id) "
+                    + " AND (:nome is null OR u.nome LIKE :nome) "
+                    + " AND (:permissao is null OR u.permissao LIKE :permissao) "
+                    + " AND (:email is null OR u.email LIKE :email) "
+                    + " AND (:telefone is null OR u.telefone LIKE :telefone) "
+                    + " AND (:dataCadastro is null OR CAST(u.dataCadastro AS String) LIKE :dataCadastro) "
+                    + " AND (:horaCadastro is null OR CAST(u.horaCadastro AS String) LIKE :horaCadastro) "
+            );
+            usuarios = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return usuarios;
+    }
+
     public List<Professor> buscarProfessores() {
         List<Professor> professores = new ArrayList<>();
         try {
@@ -165,11 +182,56 @@ public class DAOOperacoes {
         }
         return professores;
     }
+
+    public List<Professor> buscarProfessoresParaTabela(String id, String nome, String idade, String cpf, String urlCurriculo, String formacao, String dataNascimento, String dataCadastro, String horaCadastro, String usuario) {
+        List<Professor> professores = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT p from Professor p"
+                    + " WHERE (:id is null OR CAST(p.id AS String) LIKE :id) "
+                    + " AND (:nome is null OR p.nome LIKE :nome) "
+                    + " AND (:idade is null OR CAST(p.idade AS String) LIKE :idade) "
+                    + " AND (:cpf is null OR p.cpf LIKE :cpf) "
+                    + " AND (:urlCurriculo is null OR p.UrlCurriculo LIKE :UrlCurriculo) "
+                    + " AND (:formacao is null OR p.formacao LIKE :formacao) "
+                    + " AND (:dataNascimento is null OR CAST(p.dataNascimento AS String) LIKE :dataNascimento) "
+                    + " AND (:dataCadastro is null OR CAST(p.dataCadastro AS String) LIKE :dataCadastro) "
+                    + " AND (:horaCadastro is null OR CAST(p.horaCadastro AS String) LIKE :horaCadastro) "
+                    + " AND (:usuario is null OR p.usuario.nome LIKE :usuario) "
+            );
+            professores = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return professores;
+    }
     
-        public List<Aluno> buscarAlunos() {
+    public List<Aluno> buscarAlunos() {
         List<Aluno> alunos = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT a from Aluno a");
+            alunos = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return alunos;
+    }
+    
+    public List<Aluno> buscarAlunosParaTabela(String id, String nome, String idade, String cpf, String dataNascimento, String dataCadastro, String horaCadastro, String sala, String turno) {
+        List<Aluno> alunos = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT a from Aluno a"
+                    + " WHERE (:id is null OR CAST(a.id AS String) LIKE :id) "
+                    + " AND (:nome is null OR a.nome LIKE :nome) "
+                    + " AND (:idade is null OR CAST(a.idade AS String) LIKE :idade) "
+                    + " AND (:cpf is null OR a.cpf LIKE :cpf) "
+                    + " AND (:dataNascimento is null OR CAST(a.dataNascimento AS String) LIKE :dataNascimento) "
+                    + " AND (:dataCadastro is null OR CAST(a.dataCadastro AS String) LIKE :dataCadastro) "
+                    + " AND (:horaCadastro is null OR CAST(a.horaCadastro AS String) LIKE :horaCadastro) "
+                    + " AND (:sala is null OR a.sala.nome LIKE :sala) "
+                    + " AND (:turno is null OR a.turno LIKE :turno) "
+            );
             alunos = consulta.getResultList();
         } catch (Exception e) {
             System.out.println(e);
@@ -197,6 +259,5 @@ public class DAOOperacoes {
     public static void closeMan() {
         JPAUtil.closeMan();
     }
-    
-    
+
 }

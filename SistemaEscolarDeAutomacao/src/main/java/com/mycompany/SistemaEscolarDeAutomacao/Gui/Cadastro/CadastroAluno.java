@@ -6,6 +6,7 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -41,7 +42,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(cpfAluno);
         PlaceHolder.addPlaceHolder(dataNascimento);
         PlaceHolder.addPlaceHolderComboBox(salaAluno);
-        
+        PlaceHolder.addPlaceHolderComboBox(turnoAluno);
         PreencherComboBox.PreencherComboBoxSalas(salaAluno);
         
     }
@@ -137,7 +138,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         });
 
         turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "Matutino", "Vespertino", "Noturno" }));
+        turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "M", "V", "N" }));
         turnoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 turnoAlunoFocusGained(evt);

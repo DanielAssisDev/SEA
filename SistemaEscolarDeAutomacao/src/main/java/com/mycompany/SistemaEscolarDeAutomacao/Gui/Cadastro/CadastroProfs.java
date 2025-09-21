@@ -4,9 +4,12 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -51,6 +54,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
         PreencherComboBox.PreencherComboBoxMaterias(materiaProfessor);
         PreencherComboBox.PreencherComboBoxSalas(salaHorario);
+        PreencherComboBox.PreencherComboUsuarios(usuarioProfessor);
     }
 
     /**
@@ -108,7 +112,7 @@ public class CadastroProfs extends javax.swing.JFrame {
                 cpfProfessorFocusLost(evt);
             }
         });
-
+        
         idadeProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         idadeProfessor.setText("Idade");
         idadeProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -215,6 +219,11 @@ public class CadastroProfs extends javax.swing.JFrame {
                 usuarioProfessorFocusLost(evt);
             }
         });
+        usuarioProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioProfessorActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Confirmar usuário");
 
@@ -240,6 +249,7 @@ public class CadastroProfs extends javax.swing.JFrame {
                 urlCurriculoFocusLost(evt);
             }
         });
+
         salarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         salarioProfessor.setText("Salário");
         salarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -420,20 +430,30 @@ public class CadastroProfs extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-        CadastroAluno.setInstance(null);
+        CadastroProfs.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
         String nome = nomeProfessor.getText();
-        String idade = idadeProfessor.getText();
+        int idade = Integer.parseInt(idadeProfessor.getText());
         String cpf = cpfProfessor.getText();
 
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataNascimento.getText(), formatadorData);
 
         List<Materia> listaMaterias = new ArrayList<>();
+        
+        
+        Professor p = new Professor();
+        p.setNome(nome);
+        p.setIdade(idade);
+        p.setCpf(cpf);
+        p.setDataNascimento(data);
+        p.setMaterias(listaMaterias);
+        DAOOperacoes.cadastrarJPA(p);
+  
         /*
         listaMaterias.add(materiaProfessor.getSelectedItem());
          */
@@ -589,6 +609,10 @@ public class CadastroProfs extends javax.swing.JFrame {
             PlaceHolder.addPlaceHolder(formacaoProfessor);
         }
     }//GEN-LAST:event_formacaoProfessorFocusLost
+
+    private void usuarioProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioProfessorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioProfessorActionPerformed
 
     /**
      * @param args the command line arguments

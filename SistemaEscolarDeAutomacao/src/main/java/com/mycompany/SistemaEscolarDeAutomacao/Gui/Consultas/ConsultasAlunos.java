@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 
 /**
  *
@@ -40,6 +41,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataNascimentoAluno);
         PlaceHolder.addPlaceHolder(dataCadastroAluno);
         PlaceHolder.addPlaceHolder(horaCadastroAluno);
+        JPAUtil.getman();
     }
 
     /**

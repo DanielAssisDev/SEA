@@ -8,7 +8,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
-import com.mycompany.SistemaEscolarDeAutomacao.persistence.JPAUtil;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import java.util.ArrayList;
@@ -44,6 +44,9 @@ public class DAOOperacoes {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro, tente novamente.");
+        } finally {
+            
+            JPAUtil.getman();
         }
     }
 
@@ -108,4 +111,13 @@ public class DAOOperacoes {
         return horarios;
     }
 
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
+    }
+    
+    
 }

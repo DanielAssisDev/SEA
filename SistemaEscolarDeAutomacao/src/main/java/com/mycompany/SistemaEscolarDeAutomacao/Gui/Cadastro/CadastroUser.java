@@ -7,9 +7,9 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -41,7 +41,7 @@ public class CadastroUser extends javax.swing.JFrame {
         PlaceHolder.getInstance().addPlaceHolder(nomeUsuario);
         PlaceHolder.getInstance().addPlaceHolderComboBox(comboPermissoes);
         PlaceHolder.getInstance().addPlaceHolder(emailUsuario);
-        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);    
+        PlaceHolder.getInstance().addPlaceHolder(telefoneUsuario);
         PlaceHolder.getInstance().addPlaceHolder(loginUsuario);
         PlaceHolder.getInstance().addPlaceHolder(senhaUsuario);
     }
@@ -132,7 +132,7 @@ public class CadastroUser extends javax.swing.JFrame {
         });
 
         telefoneUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        telefoneUsuario.setText("Telefone");
+        telefoneUsuario.setText("Telefone (Exemplo: (27)981026479)");
         telefoneUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 telefoneUsuarioFocusGained(evt);
@@ -148,7 +148,7 @@ public class CadastroUser extends javax.swing.JFrame {
         });
 
         emailUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        emailUsuario.setText("Email");
+        emailUsuario.setText("Email (nome@exemplo.dominio)");
         emailUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 emailUsuarioFocusGained(evt);
@@ -266,7 +266,7 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void emailUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusGained
         // TODO add your handling code here:
-        if (emailUsuario.getText().equals("Email")) {
+        if (emailUsuario.getText().equals("Email (nome@exemplo.dominio)")) {
             emailUsuario.setText(null);
             emailUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(emailUsuario);
@@ -276,14 +276,14 @@ public class CadastroUser extends javax.swing.JFrame {
     private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusLost
         // TODO add your handling code here:
         if (emailUsuario.getText().isEmpty()) {
-            emailUsuario.setText("Email");
+            emailUsuario.setText("Email (nome@exemplo.dominio)");
             PlaceHolder.addPlaceHolder(emailUsuario);
         }
     }//GEN-LAST:event_emailUsuarioFocusLost
 
     private void telefoneUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusGained
         // TODO add your handling code here:
-        if (telefoneUsuario.getText().equals("Telefone")) {
+        if (telefoneUsuario.getText().equals("Telefone (Exemplo: (27)981026479)")) {
             telefoneUsuario.setText(null);
             telefoneUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(telefoneUsuario);
@@ -293,7 +293,7 @@ public class CadastroUser extends javax.swing.JFrame {
     private void telefoneUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusLost
         // TODO add your handling code here:
         if (telefoneUsuario.getText().isEmpty()) {
-            telefoneUsuario.setText("Telefone");
+            telefoneUsuario.setText("Telefone (Exemplo: (27)981026479)");
             PlaceHolder.addPlaceHolder(telefoneUsuario);
         }
     }//GEN-LAST:event_telefoneUsuarioFocusLost
@@ -354,6 +354,9 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        
+        JPAUtil.getman();
+        
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
@@ -366,24 +369,32 @@ public class CadastroUser extends javax.swing.JFrame {
         String log = "Início do log de: " + nome + " (" + permissao + ").";
 
         try {
-            if (!nome.isEmpty() && !permissao.equalsIgnoreCase("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty()) {
+            if (/*!nome.isEmpty() && !permissao.equals("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty() && login != nome*/true) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
                 DAOOperacoes.cadastrarJPA(u);
-                JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
-                nomeUsuario.setText("");
+                nomeUsuario.setText("Nome");
+                PlaceHolder.addPlaceHolder(nomeUsuario);
                 comboPermissoes.setSelectedIndex(0);
-                emailUsuario.setText("");
-                telefoneUsuario.setText("");
-                loginUsuario.setText("");
-                senhaUsuario.setText("");
+                PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
+                emailUsuario.setText("Email (nome@exemplo.dominio)");
+                PlaceHolder.addPlaceHolder(emailUsuario);
+                telefoneUsuario.setText("Telefone (Exemplo: (27)981026479)");
+                PlaceHolder.addPlaceHolder(telefoneUsuario);
+                loginUsuario.setText("Login");
+                PlaceHolder.addPlaceHolder(loginUsuario);
+                senhaUsuario.setText("Senha");
+                PlaceHolder.addPlaceHolder(senhaUsuario);
+                JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro, verifique os campos e tente novamente!");
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro no cadastro, garanta que: \n" + "Nenhum campo est");
+
             }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e);
         }
+        JPAUtil.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed

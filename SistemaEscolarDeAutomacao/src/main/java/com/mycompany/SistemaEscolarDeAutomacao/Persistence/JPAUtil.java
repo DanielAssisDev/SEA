@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.SistemaEscolarDeAutomacao.persistence;
+package com.mycompany.SistemaEscolarDeAutomacao.Persistence;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -25,7 +25,7 @@ public class JPAUtil {
     }
 
     public static void closeMan(){
-        if(man.isOpen()){
+        if(man.isOpen() && man != null){
             man.close();
             fac.close();
         }

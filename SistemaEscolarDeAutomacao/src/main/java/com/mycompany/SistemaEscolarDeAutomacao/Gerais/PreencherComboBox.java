@@ -8,6 +8,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -51,6 +52,13 @@ public class PreencherComboBox {
             for(Horario h : s.getHorarios()) {
                 caixa.addItem(h.getOrdem() + " - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome());
             }
+        }
+    }
+    
+    public static void PreencherComboUsuarios(JComboBox caixa) {
+        List<User> lista = DAOOperacoes.buscarUsuarios();
+        for(User u : lista) {
+            caixa.addItem(u.getNome() + " " + u.getPermissao());
         }
     }
     

@@ -72,6 +72,19 @@ public class DAOOperacoes {
         return salas;
     }
 
+    public Sala buscarSalaNome(String nomeSala) {
+        Sala sala = new Sala();
+        try {
+            TypedQuery<Sala> consulta = man.createQuery("SELECT s from Sala s where s.nome = :nome", Sala.class);
+            consulta.setParameter("nome", nomeSala);
+            sala = consulta.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return sala;
+    }
+    
     public List<Sala> buscarSalasNome(String nomeSala) {
         List<Sala> salas = new ArrayList<>();
         try {

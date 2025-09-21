@@ -147,7 +147,7 @@ public class CadastroProfs extends javax.swing.JFrame {
 
         salaHorario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         salaHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a sala" }));
-        salaHorario.setNextFocusableComponent(usuarioProfessor);
+        salaHorario.setNextFocusableComponent(horarioProfessor);
         salaHorario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 salaHorarioFocusGained(evt);
@@ -436,15 +436,38 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
 
             if (!comboBoxesSelecionadas) {
-                JOptionPane.showMessageDialog(null, "Todas as combo boxes devem estar com seleções válidas para que o cadastro ocorra");
+                JOptionPane.showMessageDialog(null, "Todas as combo boxes devem estar com seleções válidas para que o cadastro ocorra.");
             }
 
             if (camposPreenchidos && comboBoxesSelecionadas) {
                 Professor p = new Professor(nome, idade, cpf, url, listaMaterias, listaHorarios, salario, formacao, data, u);
                 dao.cadastrarJPA(p);
                 JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
+                nomeProfessor.setText("Nome");
+                PlaceHolder.addPlaceHolder(nomeProfessor);
+                idadeProfessor.setText("Idade");
+                PlaceHolder.addPlaceHolder(idadeProfessor);
+                cpfProfessor.setText("CPF");
+                PlaceHolder.addPlaceHolder(cpfProfessor);
+                dataNascimento.setText("--/--/---- (Data de nascimento)");
+                PlaceHolder.addPlaceHolder(dataNascimento);
+                urlCurriculo.setText("URL do currículo");
+                PlaceHolder.addPlaceHolder(urlCurriculo);
+                salarioProfessor.setText("Salário");
+                PlaceHolder.addPlaceHolder(salarioProfessor);
+                formacaoProfessor.setText("Formação");
+                PlaceHolder.addPlaceHolder(formacaoProfessor);
+                salaHorario.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(salaHorario);
+                materiaProfessor.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
+                usuarioProfessor.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(usuarioProfessor);
+                horarioProfessor.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
             }
         } catch (Exception e) {
+            System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e.getMessage());
         }
         DAOOperacoes.closeMan();

@@ -367,8 +367,19 @@ public class CadastroUser extends javax.swing.JFrame {
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";
 
+        boolean camposPreenchidos = !nome.equals("Nome") && !email.equals("Email (nome@exemplo.dominio)") && !telefone.equals("Telefone (Exemplo: (27)981026479)") && !login.equals("Login") && !senha.equals("Senha");
+        boolean comboBoxSelecionada = !permissao.equals("Selecione a permissão");
+
         try {
-            if (/*!nome.isEmpty() && !permissao.equals("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty() && login != nome*/true) {
+            if (!camposPreenchidos) {
+                JOptionPane.showMessageDialog(null, "Todos os campos de dados pessoais devem estar preenchidos.");
+            }
+
+            if (!comboBoxSelecionada) {
+                JOptionPane.showMessageDialog(null, "Todas as combo boxes devem estar com seleções válidas para que o cadastro ocorra.");
+            }
+
+            if (camposPreenchidos && comboBoxSelecionada) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
 
                 dao.cadastrarJPA(u);
@@ -385,11 +396,7 @@ public class CadastroUser extends javax.swing.JFrame {
                 PlaceHolder.addPlaceHolder(loginUsuario);
                 senhaUsuario.setText("Senha");
                 PlaceHolder.addPlaceHolder(senhaUsuario);
-                JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro no cadastro, garanta que: \n" + "Nenhum campo est");
-
+                JOptionPane.showMessageDialog(null, "Cadastro bem sucedido.");
             }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");

@@ -6,11 +6,13 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +36,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     }
 
     PreencherComboBox pcb = new PreencherComboBox();
+    DAOOperacoes dao = new DAOOperacoes();
 
     /**
      * Creates new form CadastroAluno
@@ -238,6 +241,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         String nome = nomeAluno.getText();
         int idade = Integer.parseInt(idadeAluno.getText());
         String cpf = cpfAluno.getText();
+        String turno = turnoAluno.getSelectedItem().toString();
 
         LocalDate dataCad = LocalDate.now();
         LocalTime hora = LocalTime.now();
@@ -245,44 +249,42 @@ public class CadastroAluno extends javax.swing.JFrame {
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNas = LocalDate.parse(dataNascimento.getText(), formatadorData);
 
-        Aluno aluno = new Aluno();
-        aluno.setNome(nome);
-        aluno.setIdade(idade);
-        aluno.setCpf(cpf);
-        aluno.setDataCadastro(dataCad);
-        aluno.setHoraCadastro(hora);
-        aluno.setDataNascimento(dataNas);
+        Sala sala = dao.buscarSalaNome(salaAluno.getSelectedItem().toString());
 
-        DAOOperacoes dao = new DAOOperacoes();
-        dao.cadastrarJPA(aluno);
-
-        /*
+        boolean camposPreenchidos = !nome.equals("Nome") && !idadeAluno.getText().equals("Idade") && !cpf.equals("CPF") && !dataNascimento.getText().equals("--/--/---- (Data de nascimento)");
+        boolean comboBoxesSelecionadas = !salaAluno.getSelectedItem().toString().equals("Selecione a sala") && !turno.equals("Selecione o turno");
 
         try {
-            if (!nome.isEmpty() && !permissao.equalsIgnoreCase("selecione") && (!data.toString().isEmpty() || data.toString().matches("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}")) && (!hora.toString().isEmpty() || !hora.toString().matches("\n"
-                    + "    (\"(0[1-9]|[1][0-9]|[2][0-3]):(0[1-9]|[12345][0-9]):(0[1-9]|[12345][0-9])")) && !login.isEmpty() && !senha.isEmpty()) {
-                User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-                UserDAO ud = new UserDAO();
-                ud.cadastrarJPA(u);
-                JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
-                nomeAluno.setText("");
-                idade.setSelectedIndex(0);
-                cpfAluno.setText("");
-                dataNascimento.setText("");
-                dataCadastro.setText("");
-                horaCadastro.setText("");
-                loginUsuario.setText("");
-                senhaUsuario.setText("");
+            if (!camposPreenchidos) {
+                JOptionPane.showMessageDialog(null, "Todos os campos de dados pessoais devem estar preenchidos.");
+            }
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro, verifique os campos e tente novamente!");
+            if (!comboBoxesSelecionadas) {
+                JOptionPane.showMessageDialog(null, "Todas as combo boxes devem estar com seleções válidas para que o cadastro ocorra.");
+            }
+
+            if (camposPreenchidos && comboBoxesSelecionadas) {
+                Aluno aluno = new Aluno(nome, idade, cpf, dataNas, dataCad, hora, sala, cpf);
+                dao.cadastrarJPA(aluno);
+                JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
+                nomeAluno.setText("Nome");
+                PlaceHolder.addPlaceHolder(nomeAluno);
+                idadeAluno.setText("Idade");
+                PlaceHolder.addPlaceHolder(idadeAluno);
+                cpfAluno.setText("CPF");
+                PlaceHolder.addPlaceHolder(cpfAluno);
+                dataNascimento.setText("--/--/---- (Data de nascimento)");
+                PlaceHolder.addPlaceHolder(dataNascimento);
+                salaAluno.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(salaAluno);
+                turnoAluno.setSelectedIndex(0);
+                PlaceHolder.addPlaceHolderComboBox(turnoAluno);
             }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
-            System.out.println(e);
-        }  */
-                DAOOperacoes.closeMan();
-
+            System.out.println(e.getMessage());
+        }
+        DAOOperacoes.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained

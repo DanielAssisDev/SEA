@@ -197,7 +197,7 @@
           </StringArray>
         </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-          <ComponentRef name="usuarioProfessor"/>
+          <ComponentRef name="horarioProfessor"/>
         </Property>
       </Properties>
       <Events>

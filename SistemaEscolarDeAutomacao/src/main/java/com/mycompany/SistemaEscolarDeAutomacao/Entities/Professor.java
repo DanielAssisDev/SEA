@@ -14,6 +14,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
 import java.util.List;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -56,6 +57,13 @@ public class Professor {
     @Column(name = "data_nascimento")
     @JdbcTypeCode(SqlTypes.DATE)
     private LocalDate dataNascimento;
+    
+    @OneToOne
+    private User usuario;
+
+    public Professor(String nome, int idade, String cpf, String url, Double salario, String formacao, LocalDate data) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     public int getId() {
         return id;
@@ -137,8 +145,7 @@ public class Professor {
         this.dataNascimento = dataNascimento;
     }
 
-    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, String numeroTelefone, String email) {
-        this.id = id;
+    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, User usuario) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
@@ -148,8 +155,11 @@ public class Professor {
         this.salario = salario;
         this.formacao = formacao;
         this.dataNascimento = dataNascimento;
+        this.usuario = usuario;
     }
 
+    
+    
     public Professor() {
     }
 

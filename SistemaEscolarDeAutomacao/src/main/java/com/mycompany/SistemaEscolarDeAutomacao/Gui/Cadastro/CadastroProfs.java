@@ -5,14 +5,17 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +26,8 @@ public class CadastroProfs extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroProfs.class.getName());
 
     PreencherComboBox pcb = new PreencherComboBox();
-    
+    DAOOperacoes dao = new DAOOperacoes();
+
     private static CadastroProfs instance;
 
     public static CadastroProfs getInstance() {
@@ -53,8 +57,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
         PlaceHolder.addPlaceHolderComboBox(usuarioProfessor);
         PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
-        
-        
+
         pcb.PreencherComboBoxMaterias(materiaProfessor);
         pcb.PreencherComboBoxSalas(salaHorario);
         pcb.PreencherComboUsuarios(usuarioProfessor);
@@ -245,7 +248,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         urlCurriculo.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        urlCurriculo.setText("URL");
+        urlCurriculo.setText("URL do currículo");
         urlCurriculo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 urlCurriculoFocusGained(evt);
@@ -400,6 +403,7 @@ public class CadastroProfs extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
+        DAOOperacoes.closeMan();
         CadastroProfs.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
@@ -413,46 +417,37 @@ public class CadastroProfs extends javax.swing.JFrame {
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataNascimento.getText(), formatadorData);
 
-        List<Materia> listaMaterias = new ArrayList<>();
-        
-        
-        Professor p = new Professor();
-        p.setNome(nome);
-        p.setIdade(idade);
-        p.setCpf(cpf);
-        p.setDataNascimento(data);
-        p.setMaterias(listaMaterias);
-       
-        DAOOperacoes dao = new DAOOperacoes();
-        dao.cadastrarJPA(p);
-        
-        /*
-        listaMaterias.add(materiaProfessor.getSelectedItem());
-         */
- /*
-        try {
-            if (true) {
-                
-        User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-        UserDAO ud = new UserDAO();
-        ud.cadastrarJPA(u);
-        JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso.");
-        nomeAluno.setText("");
-        idade.setSelectedIndex(0);
-        cpfAluno.setText("");
-        dataNascimento.setText("");
-        dataCadastro.setText("");
-        horaCadastro.setText("");
-        loginUsuario.setText("");
-        senhaUsuario.setText("");
+        String url = urlCurriculo.getText();
+        String formacao = formacaoProfessor.getText();
+        Double salario = Double.parseDouble(salarioProfessor.getText());
 
-        } else {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro, verifique os campos e tente novamente!");
-        }
+        List<Materia> listaMaterias = new ArrayList<>();
+        listaMaterias.add(dao.buscarMateriasNome(materiaProfessor.getSelectedItem().toString()));
+        List<Horario> listaHorarios = new ArrayList<>();
+        listaHorarios.add(dao.buscarHorarioID(Integer.parseInt(horarioProfessor.getSelectedItem().toString())));
+        User u = dao.buscarUsuarioNome(usuarioProfessor.getSelectedItem().toString());
+
+        boolean camposPreenchidos = !nome.equals("Nome") && !idadeProfessor.getText().equals("Idade") && !cpf.equals("CPF") && !dataNascimento.getText().equals("") && !url.isEmpty() && !formacao.isEmpty() && !salarioProfessor.getText().isEmpty();
+        boolean comboBoxesSelecionadas = !materiaProfessor.getSelectedItem().toString().equals("Selecione a matéria") && !salaHorario.getSelectedItem().toString().equals("Selecione a sala") && !horarioProfessor.getSelectedItem().toString().equals("Selecione o horário") && !usuarioProfessor.getSelectedItem().toString().equals("Selecione o usuário correspodente");
+
+        try {
+            if (!camposPreenchidos) {
+                JOptionPane.showMessageDialog(null, "Todos os campos de dados pessoais devem estar preenchidos.");
+            }
+
+            if (!comboBoxesSelecionadas) {
+                JOptionPane.showMessageDialog(null, "Todas as combo boxes devem estar com seleções válidas para que o cadastro ocorra");
+            }
+
+            if (camposPreenchidos && comboBoxesSelecionadas) {
+                Professor p = new Professor(nome, idade, cpf, url, listaMaterias, listaHorarios, salario, formacao, data, u);
+                dao.cadastrarJPA(p);
+                JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
+            }
         } catch (Exception e) {
-            System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
-            System.out.println(e);
-        }*/
+            System.out.println(e.getMessage());
+        }
+        DAOOperacoes.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void Cadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar1ActionPerformed
@@ -537,42 +532,87 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     private void cpfProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusGained
         // TODO add your handling code here:
+        if (cpfProfessor.getText().equals("CPF")) {
+            cpfProfessor.setText(null);
+            cpfProfessor.requestFocus();
+            PlaceHolder.removePlaceHolder(cpfProfessor);
+        }
     }//GEN-LAST:event_cpfProfessorFocusGained
 
     private void cpfProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusLost
         // TODO add your handling code here:
+        if (cpfProfessor.getText().isEmpty()) {
+            cpfProfessor.setText("CPF");
+            PlaceHolder.addPlaceHolder(cpfProfessor);
+        }
     }//GEN-LAST:event_cpfProfessorFocusLost
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
         // TODO add your handling code here:
+        if (dataNascimento.getText().equals("--/--/---- (Data de nascimento)")) {
+            dataNascimento.setText(null);
+            dataNascimento.requestFocus();
+            PlaceHolder.removePlaceHolder(dataNascimento);
+        }
     }//GEN-LAST:event_dataNascimentoFocusGained
 
     private void dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusLost
         // TODO add your handling code here:
+        if (dataNascimento.getText().isEmpty()) {
+            dataNascimento.setText("--/--/---- (Data de nascimento)");
+            PlaceHolder.addPlaceHolder(dataNascimento);
+        }
     }//GEN-LAST:event_dataNascimentoFocusLost
 
     private void urlCurriculoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusGained
         // TODO add your handling code here:
+        if (urlCurriculo.getText().equals("URL do currículo")) {
+            urlCurriculo.setText(null);
+            urlCurriculo.requestFocus();
+            PlaceHolder.removePlaceHolder(urlCurriculo);
+        }
     }//GEN-LAST:event_urlCurriculoFocusGained
 
     private void urlCurriculoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusLost
         // TODO add your handling code here:
+        if (urlCurriculo.getText().isEmpty()) {
+            urlCurriculo.setText("URL do currículo");
+            PlaceHolder.addPlaceHolder(urlCurriculo);
+        }
     }//GEN-LAST:event_urlCurriculoFocusLost
 
     private void formacaoProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusGained
         // TODO add your handling code here:
+        if (formacaoProfessor.getText().equals("Formação")) {
+            formacaoProfessor.setText(null);
+            formacaoProfessor.requestFocus();
+            PlaceHolder.removePlaceHolder(formacaoProfessor);
+        }
     }//GEN-LAST:event_formacaoProfessorFocusGained
 
     private void formacaoProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusLost
         // TODO add your handling code here:
+        if (formacaoProfessor.getText().isEmpty()) {
+            formacaoProfessor.setText("Formação");
+            PlaceHolder.addPlaceHolder(formacaoProfessor);
+        }
     }//GEN-LAST:event_formacaoProfessorFocusLost
 
     private void salarioProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusGained
         // TODO add your handling code here:
+        if (salarioProfessor.getText().equals("Salário")) {
+            salarioProfessor.setText(null);
+            salarioProfessor.requestFocus();
+            PlaceHolder.removePlaceHolder(salarioProfessor);
+        }
     }//GEN-LAST:event_salarioProfessorFocusGained
 
     private void salarioProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusLost
         // TODO add your handling code here:
+        if (salarioProfessor.getText().isEmpty()) {
+            salarioProfessor.setText("Salário");
+            PlaceHolder.addPlaceHolder(salarioProfessor);
+        }
     }//GEN-LAST:event_salarioProfessorFocusLost
 
     /**

@@ -52,7 +52,7 @@ public class PreencherComboBox {
         List<Sala> lista = dao.buscarSalasNome(nomeSala);
         for(Sala s : lista) {
             for(Horario h : s.getHorarios()) {
-                caixa.addItem(h.getOrdem() + " - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome());
+                caixa.addItem(h.getId()/* + "Ordem: " + h.getOrdem() + "° - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome()*/);
             }
         }
     }
@@ -60,7 +60,7 @@ public class PreencherComboBox {
     public void PreencherComboUsuarios(JComboBox caixa) {
         List<User> lista = dao.buscarUsuarios();
         for(User u : lista) {
-            caixa.addItem(u.getNome() + " " + u.getPermissao());
+            caixa.addItem(u.getNome() /* + " " + u.getPermissao() */);
         }
     }
     

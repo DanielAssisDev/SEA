@@ -11,6 +11,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -83,7 +84,49 @@ public class DAOOperacoes {
         }
         return salas;
     }
+    
+     public Materia buscarMateriasNome(String nomeMateria) {
+        Materia m = new Materia();
+        try {
+            TypedQuery<Materia> consulta = man.createQuery("SELECT m from Materia m where m.nome = :nome", Materia.class);
+            consulta.setParameter("nome", nomeMateria);
+            m = consulta.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return m;
+    }
+     
+     
+      public User buscarUsuarioNome(String nomeUser) {
+        User u = new User();
+        try {
+            TypedQuery<User> consulta = man.createQuery("SELECT u from User u where u.nome = :nome", User.class);
+            consulta.setParameter("nome", nomeUser);
+            u = consulta.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return u;
+    }
+     
+     public Horario buscarHorarioID(int id) {
+        Horario h = new Horario();
+        try {
+            TypedQuery<Horario> consulta = man.createQuery("SELECT h from Horario h where h.id = :id", Horario.class);
+            consulta.setParameter("id", id);
+            h = consulta.getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return h;
+    }
 
+     
+     
     public List<Materia> buscarMaterias() {
         List<Materia> materias = new ArrayList<>();
         try {

@@ -21,6 +21,8 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private static CadastroUser instance;
 
+    DAOOperacoes dao = new DAOOperacoes();
+
     public static CadastroUser getInstance() {
         if (instance == null) {
             instance = new CadastroUser();
@@ -234,6 +236,7 @@ public class CadastroUser extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
+        DAOOperacoes.closeMan();
         CadastroUser.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
@@ -367,10 +370,9 @@ public class CadastroUser extends javax.swing.JFrame {
         try {
             if (/*!nome.isEmpty() && !permissao.equals("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty() && login != nome*/true) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-                
-                DAOOperacoes dao = new DAOOperacoes();
+
                 dao.cadastrarJPA(u);
-                
+
                 nomeUsuario.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeUsuario);
                 comboPermissoes.setSelectedIndex(0);

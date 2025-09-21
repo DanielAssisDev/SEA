@@ -32,7 +32,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     public static void setInstance(CadastroAluno instance) {
         CadastroAluno.instance = instance;
     }
-    
+
     PreencherComboBox pcb = new PreencherComboBox();
 
     /**
@@ -244,7 +244,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNas = LocalDate.parse(dataNascimento.getText(), formatadorData);
-        
+
         Aluno aluno = new Aluno();
         aluno.setNome(nome);
         aluno.setIdade(idade);
@@ -252,10 +252,10 @@ public class CadastroAluno extends javax.swing.JFrame {
         aluno.setDataCadastro(dataCad);
         aluno.setHoraCadastro(hora);
         aluno.setDataNascimento(dataNas);
-        
+
         DAOOperacoes dao = new DAOOperacoes();
         dao.cadastrarJPA(aluno);
-        
+
         /*
 
         try {
@@ -281,6 +281,8 @@ public class CadastroAluno extends javax.swing.JFrame {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e);
         }  */
+                DAOOperacoes.closeMan();
+
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained

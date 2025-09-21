@@ -1,4 +1,4 @@
- /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  *
@@ -35,7 +36,7 @@ public class Aluno {
     private LocalDate dataCadastro;
 
     @Column(name = "hora_cadastro")
-    private LocalDate horaCadastro;
+    private LocalTime horaCadastro;
 
     @ManyToOne
     @JoinColumn(name = "sala_id")
@@ -75,6 +76,22 @@ public class Aluno {
         this.cpf = cpf;
     }
 
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public LocalTime getHoraCadastro() {
+        return horaCadastro;
+    }
+
+    public void setHoraCadastro(LocalTime horaCadastro) {
+        this.horaCadastro = horaCadastro;
+    }
+
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
@@ -99,7 +116,7 @@ public class Aluno {
         this.turno = turno;
     }
 
-    public Aluno(int id, String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalDate horaCadastro, Sala sala, String turno) {
+    public Aluno(int id, String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalTime horaCadastro, Sala sala, String turno) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
@@ -114,7 +131,7 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalDate horaCadastro, Sala sala, String turno) {
+    public Aluno(String nome, int idade, String cpf, LocalDate dataNascimento, LocalDate dataCadastro, LocalTime horaCadastro, Sala sala, String turno) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
@@ -125,5 +142,4 @@ public class Aluno {
         this.turno = turno;
     }
 
-  
 }

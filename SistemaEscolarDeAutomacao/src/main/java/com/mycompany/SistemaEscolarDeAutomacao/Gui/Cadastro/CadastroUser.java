@@ -7,7 +7,6 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
-import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
@@ -354,9 +353,6 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        
-        JPAUtil.getman();
-        
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
@@ -371,7 +367,10 @@ public class CadastroUser extends javax.swing.JFrame {
         try {
             if (/*!nome.isEmpty() && !permissao.equals("Selecione a permissão") && !login.isEmpty() && !senha.isEmpty() && login != nome*/true) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
-                DAOOperacoes.cadastrarJPA(u);
+                
+                DAOOperacoes dao = new DAOOperacoes();
+                dao.cadastrarJPA(u);
+                
                 nomeUsuario.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeUsuario);
                 comboPermissoes.setSelectedIndex(0);
@@ -394,7 +393,7 @@ public class CadastroUser extends javax.swing.JFrame {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e);
         }
-        JPAUtil.closeMan();
+        DAOOperacoes.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed

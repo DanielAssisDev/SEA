@@ -23,6 +23,8 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroProfs.class.getName());
 
+    PreencherComboBox pcb = new PreencherComboBox();
+    
     private static CadastroProfs instance;
 
     public static CadastroProfs getInstance() {
@@ -52,9 +54,11 @@ public class CadastroProfs extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
         PlaceHolder.addPlaceHolderComboBox(usuarioProfessor);
         PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
-        PreencherComboBox.PreencherComboBoxMaterias(materiaProfessor);
-        PreencherComboBox.PreencherComboBoxSalas(salaHorario);
-        PreencherComboBox.PreencherComboUsuarios(usuarioProfessor);
+        
+        
+        pcb.PreencherComboBoxMaterias(materiaProfessor);
+        pcb.PreencherComboBoxSalas(salaHorario);
+        pcb.PreencherComboUsuarios(usuarioProfessor);
     }
 
     /**
@@ -452,8 +456,10 @@ public class CadastroProfs extends javax.swing.JFrame {
         p.setCpf(cpf);
         p.setDataNascimento(data);
         p.setMaterias(listaMaterias);
-        DAOOperacoes.cadastrarJPA(p);
-  
+       
+        DAOOperacoes dao = new DAOOperacoes();
+        dao.cadastrarJPA(p);
+        
         /*
         listaMaterias.add(materiaProfessor.getSelectedItem());
          */
@@ -554,8 +560,8 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     private void salaHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaHorarioActionPerformed
         // TODO add your handling code here:
-        PreencherComboBox.EsvaziarComboBoxes(horarioProfessor);
-        PreencherComboBox.PreencherComboBoxHorarios(salaHorario.getSelectedItem().toString(), horarioProfessor);
+        pcb.EsvaziarComboBoxes(horarioProfessor);
+        pcb.PreencherComboBoxHorarios(salaHorario.getSelectedItem().toString(), horarioProfessor);
 
     }//GEN-LAST:event_salaHorarioActionPerformed
 

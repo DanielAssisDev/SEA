@@ -28,26 +28,28 @@ public class PreencherComboBox {
         return instance;
     }
 
+    DAOOperacoes dao = new DAOOperacoes();
+    
     public static void setInstance(PreencherComboBox instance) {
         PreencherComboBox.instance = instance;
     }
     
-    public static void PreencherComboBoxSalas(JComboBox caixa) {
-        List<Sala> lista = DAOOperacoes.buscarSalas();
+    public void PreencherComboBoxSalas(JComboBox caixa) {
+        List<Sala> lista = dao.buscarSalas();
         for(Sala s : lista) {
             caixa.addItem(s.getNome());
         }
     }
     
-    public static void PreencherComboBoxMaterias(JComboBox caixa) {
-        List<Materia> lista = DAOOperacoes.buscarMaterias();
+    public void PreencherComboBoxMaterias(JComboBox caixa) {
+        List<Materia> lista = dao.buscarMaterias();
         for(Materia m : lista) {
             caixa.addItem(m.getNome());
         }
     }
    
-    public static void PreencherComboBoxHorarios(String nomeSala, JComboBox caixa) {
-        List<Sala> lista = DAOOperacoes.buscarSalasNome(nomeSala);
+    public void PreencherComboBoxHorarios(String nomeSala, JComboBox caixa) {
+        List<Sala> lista = dao.buscarSalasNome(nomeSala);
         for(Sala s : lista) {
             for(Horario h : s.getHorarios()) {
                 caixa.addItem(h.getOrdem() + " - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome());
@@ -55,14 +57,14 @@ public class PreencherComboBox {
         }
     }
     
-    public static void PreencherComboUsuarios(JComboBox caixa) {
-        List<User> lista = DAOOperacoes.buscarUsuarios();
+    public void PreencherComboUsuarios(JComboBox caixa) {
+        List<User> lista = dao.buscarUsuarios();
         for(User u : lista) {
             caixa.addItem(u.getNome() + " " + u.getPermissao());
         }
     }
     
-    public static void EsvaziarComboBoxes(JComboBox caixa) {
+    public void EsvaziarComboBoxes(JComboBox caixa) {
         List<String> listaVazia = new ArrayList<>();
         listaVazia.add("Selecione o horário");
         PlaceHolder.addPlaceHolderComboBox(caixa);

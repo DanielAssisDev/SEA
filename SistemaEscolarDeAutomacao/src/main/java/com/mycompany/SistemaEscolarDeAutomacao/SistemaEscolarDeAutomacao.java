@@ -27,8 +27,10 @@ public class SistemaEscolarDeAutomacao {
         Sala sala1A = new Sala();
         sala1A.setNome("1A");
 
+        DAOOperacoes dao = new DAOOperacoes();
+
         // Cadastrando Sala:
-        DAOOperacoes.cadastrarJPA(sala1A);
+        dao.cadastrarJPA(sala1A);
 
         // Materia's:
         Materia matematica = new Materia();
@@ -53,13 +55,13 @@ public class SistemaEscolarDeAutomacao {
         historia.setNome("História");
 
         // Cadastrando Materia's:
-        DAOOperacoes.cadastrarJPA(matematica);
-        DAOOperacoes.cadastrarJPA(portugues);
-        DAOOperacoes.cadastrarJPA(quimica);
-        DAOOperacoes.cadastrarJPA(biologia);
-        DAOOperacoes.cadastrarJPA(fisica);
-        DAOOperacoes.cadastrarJPA(geografia);
-        DAOOperacoes.cadastrarJPA(historia);
+        dao.cadastrarJPA(matematica);
+        dao.cadastrarJPA(portugues);
+        dao.cadastrarJPA(quimica);
+        dao.cadastrarJPA(biologia);
+        dao.cadastrarJPA(fisica);
+        dao.cadastrarJPA(geografia);
+        dao.cadastrarJPA(historia);
 
         // Criando os horários:
         // Primeira hora da segunda:
@@ -75,7 +77,7 @@ public class SistemaEscolarDeAutomacao {
         Horario11A.setSala(sala1A);
         Horario11A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario11A);
+        dao.cadastrarJPA(Horario11A);
 
         // Segunda hora da segunda:
         Horario Horario21A = new Horario();
@@ -89,7 +91,7 @@ public class SistemaEscolarDeAutomacao {
         Horario21A.setSala(sala1A);
         Horario21A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario21A);
+        dao.cadastrarJPA(Horario21A);
 
         // Terceira hora da segunda:
         Horario Horario31A = new Horario();
@@ -103,7 +105,7 @@ public class SistemaEscolarDeAutomacao {
         Horario31A.setSala(sala1A);
         Horario31A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario31A);
+        dao.cadastrarJPA(Horario31A);
 
         // Quarta hora da segunda:
         Horario Horario41A = new Horario();
@@ -117,7 +119,7 @@ public class SistemaEscolarDeAutomacao {
         Horario41A.setSala(sala1A);
         Horario41A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario41A);
+        dao.cadastrarJPA(Horario41A);
 
         // Quinta hora da segunda:
         Horario Horario51A = new Horario();
@@ -131,7 +133,7 @@ public class SistemaEscolarDeAutomacao {
         Horario51A.setSala(sala1A);
         Horario51A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario51A);
+        dao.cadastrarJPA(Horario51A);
 
         // Primeira hora da terça:
         Horario Horario61A = new Horario();
@@ -145,7 +147,7 @@ public class SistemaEscolarDeAutomacao {
         Horario61A.setSala(sala1A);
         Horario61A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario61A);
+        dao.cadastrarJPA(Horario61A);
 
         // Segunda hora da terça:
         Horario Horario71A = new Horario();
@@ -159,7 +161,7 @@ public class SistemaEscolarDeAutomacao {
         Horario71A.setSala(sala1A);
         Horario71A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario71A);
+        dao.cadastrarJPA(Horario71A);
 
         // Terceira hora da terça:
         Horario Horario81A = new Horario();
@@ -173,7 +175,7 @@ public class SistemaEscolarDeAutomacao {
         Horario81A.setSala(sala1A);
         Horario81A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario81A);
+        dao.cadastrarJPA(Horario81A);
 
         // Quarta hora da terça:
         Horario Horario91A = new Horario();
@@ -187,7 +189,7 @@ public class SistemaEscolarDeAutomacao {
         Horario91A.setSala(sala1A);
         Horario91A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario91A);
+        dao.cadastrarJPA(Horario91A);
 
         // Quinta hora da terça:
         Horario Horario101A = new Horario();
@@ -201,7 +203,7 @@ public class SistemaEscolarDeAutomacao {
         Horario101A.setSala(sala1A);
         Horario101A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario101A);
+        dao.cadastrarJPA(Horario101A);
 
         // Primeira hora da quarta:
         Horario Horario111A = new Horario();
@@ -215,7 +217,7 @@ public class SistemaEscolarDeAutomacao {
         Horario111A.setSala(sala1A);
         Horario111A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario111A);
+        dao.cadastrarJPA(Horario111A);
 
         // Segunda hora da quarta:
         Horario Horario121A = new Horario();
@@ -229,7 +231,7 @@ public class SistemaEscolarDeAutomacao {
         Horario121A.setSala(sala1A);
         Horario121A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario121A);
+        dao.cadastrarJPA(Horario121A);
 
         // Terceira hora da quarta:
         Horario Horario131A = new Horario();
@@ -243,7 +245,7 @@ public class SistemaEscolarDeAutomacao {
         Horario131A.setSala(sala1A);
         Horario131A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario131A);
+        dao.cadastrarJPA(Horario131A);
 
         // Quarta hora da quarta:
         Horario Horario141A = new Horario();
@@ -257,7 +259,7 @@ public class SistemaEscolarDeAutomacao {
         Horario141A.setSala(sala1A);
         Horario141A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario141A);
+        dao.cadastrarJPA(Horario141A);
 
         // Quinta hora da quarta:
         Horario Horario151A = new Horario();
@@ -271,7 +273,7 @@ public class SistemaEscolarDeAutomacao {
         Horario151A.setSala(sala1A);
         Horario151A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario151A);
+        dao.cadastrarJPA(Horario151A);
 
         // Primeira hora da quinta:
         Horario Horario161A = new Horario();
@@ -285,7 +287,7 @@ public class SistemaEscolarDeAutomacao {
         Horario161A.setSala(sala1A);
         Horario161A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario161A);
+        dao.cadastrarJPA(Horario161A);
 
         // Segunda hora da quinta:
         Horario Horario171A = new Horario();
@@ -299,7 +301,7 @@ public class SistemaEscolarDeAutomacao {
         Horario171A.setSala(sala1A);
         Horario171A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario171A);
+        dao.cadastrarJPA(Horario171A);
 
         // Terceira hora da quinta:
         Horario Horario181A = new Horario();
@@ -313,7 +315,7 @@ public class SistemaEscolarDeAutomacao {
         Horario181A.setSala(sala1A);
         Horario181A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario181A);
+        dao.cadastrarJPA(Horario181A);
 
         // Quarta hora da quinta:
         Horario Horario191A = new Horario();
@@ -327,7 +329,7 @@ public class SistemaEscolarDeAutomacao {
         Horario191A.setSala(sala1A);
         Horario191A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario191A);
+        dao.cadastrarJPA(Horario191A);
 
         // Quinta hora da quinta:
         Horario Horario201A = new Horario();
@@ -341,7 +343,7 @@ public class SistemaEscolarDeAutomacao {
         Horario201A.setSala(sala1A);
         Horario201A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario201A);
+        dao.cadastrarJPA(Horario201A);
 
         // Primeira hora da sexta:
         Horario Horario211A = new Horario();
@@ -355,7 +357,7 @@ public class SistemaEscolarDeAutomacao {
         Horario211A.setSala(sala1A);
         Horario211A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario211A);
+        dao.cadastrarJPA(Horario211A);
 
         // Segunda hora da sexta:
         Horario Horario221A = new Horario();
@@ -369,7 +371,7 @@ public class SistemaEscolarDeAutomacao {
         Horario221A.setSala(sala1A);
         Horario221A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario221A);
+        dao.cadastrarJPA(Horario221A);
 
         // Terceira hora da sexta:
         Horario Horario231A = new Horario();
@@ -383,7 +385,7 @@ public class SistemaEscolarDeAutomacao {
         Horario231A.setSala(sala1A);
         Horario231A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario231A);
+        dao.cadastrarJPA(Horario231A);
 
         // Quarta hora da sexta:
         Horario Horario241A = new Horario();
@@ -397,7 +399,7 @@ public class SistemaEscolarDeAutomacao {
         Horario241A.setSala(sala1A);
         Horario241A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario241A);
+        dao.cadastrarJPA(Horario241A);
 
         // Quinta hora da Sexta:
         Horario Horario251A = new Horario();
@@ -411,7 +413,7 @@ public class SistemaEscolarDeAutomacao {
         Horario251A.setSala(sala1A);
         Horario251A.setTurno("M");
 
-        DAOOperacoes.cadastrarJPA(Horario251A);
+        dao.cadastrarJPA(Horario251A);
 
         // Adicionando a lista de Horario's em Sala (sala1A)
         List<Horario> listaHorarios = new ArrayList<>();
@@ -444,5 +446,6 @@ public class SistemaEscolarDeAutomacao {
         sala1A.setHorarios(listaHorarios);
 
         Inicio.getInstance().setVisible(true);
+
     }
 }

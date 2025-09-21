@@ -4,9 +4,10 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
-import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -31,6 +32,8 @@ public class CadastroAluno extends javax.swing.JFrame {
     public static void setInstance(CadastroAluno instance) {
         CadastroAluno.instance = instance;
     }
+    
+    PreencherComboBox pcb = new PreencherComboBox();
 
     /**
      * Creates new form CadastroAluno
@@ -43,8 +46,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataNascimento);
         PlaceHolder.addPlaceHolderComboBox(salaAluno);
         PlaceHolder.addPlaceHolderComboBox(turnoAluno);
-        PreencherComboBox.PreencherComboBoxSalas(salaAluno);
-        
+        pcb.PreencherComboBoxSalas(salaAluno);
     }
 
     /**
@@ -242,6 +244,17 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNas = LocalDate.parse(dataNascimento.getText(), formatadorData);
+        
+        Aluno aluno = new Aluno();
+        aluno.setNome(nome);
+        aluno.setIdade(idade);
+        aluno.setCpf(cpf);
+        aluno.setDataCadastro(dataCad);
+        aluno.setHoraCadastro(hora);
+        aluno.setDataNascimento(dataNas);
+        
+        DAOOperacoes dao = new DAOOperacoes();
+        dao.cadastrarJPA(aluno);
         
         /*
 

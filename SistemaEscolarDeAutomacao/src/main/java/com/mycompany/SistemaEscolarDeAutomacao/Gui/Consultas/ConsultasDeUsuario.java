@@ -30,6 +30,8 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     public static void setInstance(ConsultasDeUsuario instance) {
         ConsultasDeUsuario.instance = instance;
     }
+    
+    DAOOperacoes dao = new DAOOperacoes();
 
     /**
      * Creates new form ConsultasDeUsuario
@@ -43,7 +45,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(horaCadastro);
         
-        List<User> lista = DAOOperacoes.buscarUsuarios();
+        List<User> lista = dao.buscarUsuarios();
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
         
     }

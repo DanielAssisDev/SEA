@@ -34,9 +34,9 @@ public class DAOOperacoes {
         DAOOperacoes.instance = instance;
     }
 
-    static EntityManager man = JPAUtil.getman();
+    EntityManager man = JPAUtil.getman();
 
-    public static void cadastrarJPA(Object obj) {
+    public void cadastrarJPA(Object obj) {
         try {
             man.getTransaction().begin();
             man.persist(obj);
@@ -44,13 +44,10 @@ public class DAOOperacoes {
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro, tente novamente.");
-        } finally {
-            
-            JPAUtil.getman();
         }
     }
 
-    public static List<User> buscarUsuarios() {
+    public List<User> buscarUsuarios() {
         List<User> usuarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT u from User u");
@@ -62,7 +59,7 @@ public class DAOOperacoes {
         return usuarios;
     }
 
-    public static List<Sala> buscarSalas() {
+    public List<Sala> buscarSalas() {
         List<Sala> salas = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT s from Sala s");
@@ -74,7 +71,7 @@ public class DAOOperacoes {
         return salas;
     }
 
-    public static List<Sala> buscarSalasNome(String nomeSala) {
+    public List<Sala> buscarSalasNome(String nomeSala) {
         List<Sala> salas = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT s from Sala s where s.nome = :nome", Sala.class);
@@ -87,7 +84,7 @@ public class DAOOperacoes {
         return salas;
     }
 
-    public static List<Materia> buscarMaterias() {
+    public List<Materia> buscarMaterias() {
         List<Materia> materias = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT m from Materia m");
@@ -99,7 +96,7 @@ public class DAOOperacoes {
         return materias;
     }
 
-    public static List<Horario> buscarHorarios() {
+    public List<Horario> buscarHorarios() {
         List<Horario> horarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT h from Horario h");
@@ -111,7 +108,7 @@ public class DAOOperacoes {
         return horarios;
     }
 
-    public static void setMan() {
+    public void setMan() {
         man = JPAUtil.getman();
     }
 

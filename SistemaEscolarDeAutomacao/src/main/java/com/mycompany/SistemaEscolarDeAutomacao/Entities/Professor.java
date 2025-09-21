@@ -16,6 +16,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -57,13 +58,12 @@ public class Professor {
     @Column(name = "data_nascimento")
     @JdbcTypeCode(SqlTypes.DATE)
     private LocalDate dataNascimento;
+   
+    private LocalDate dataCadastro;
+    private LocalTime horaCadastro;
     
     @OneToOne
     private User usuario;
-
-    public Professor(String nome, int idade, String cpf, String url, Double salario, String formacao, LocalDate data) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     public int getId() {
         return id;
@@ -145,7 +145,31 @@ public class Professor {
         this.dataNascimento = dataNascimento;
     }
 
-    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, User usuario) {
+    public LocalDate getDataCadastro() {
+        return dataCadastro;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public LocalTime getHoraCadastro() {
+        return horaCadastro;
+    }
+
+    public void setHoraCadastro(LocalTime HoraCadastro) {
+        this.horaCadastro = HoraCadastro;
+    }
+
+    public User getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
+
+    public Professor(String nome, int idade, String cpf, String urlCurriculo, List<Materia> materias, List<Horario> horarios, Double salario, String formacao, LocalDate dataNascimento, LocalDate dataCadastro, LocalTime horaCadastro, User usuario) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
@@ -155,6 +179,8 @@ public class Professor {
         this.salario = salario;
         this.formacao = formacao;
         this.dataNascimento = dataNascimento;
+        this.dataCadastro = dataCadastro;
+        this.horaCadastro = horaCadastro;
         this.usuario = usuario;
     }
 

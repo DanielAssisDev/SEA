@@ -12,6 +12,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -417,6 +418,9 @@ public class CadastroProfs extends javax.swing.JFrame {
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate data = LocalDate.parse(dataNascimento.getText(), formatadorData);
 
+        LocalDate dataCad = LocalDate.now();
+        LocalTime hora = LocalTime.now();
+
         String url = urlCurriculo.getText();
         String formacao = formacaoProfessor.getText();
         Double salario = Double.parseDouble(salarioProfessor.getText());
@@ -440,7 +444,7 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
 
             if (camposPreenchidos && comboBoxesSelecionadas) {
-                Professor p = new Professor(nome, idade, cpf, url, listaMaterias, listaHorarios, salario, formacao, data, u);
+                Professor p = new Professor(nome, idade, cpf, url, listaMaterias, listaHorarios, salario, formacao, data, dataCad, hora, u);
                 dao.cadastrarJPA(p);
                 JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
                 nomeProfessor.setText("Nome");

@@ -264,7 +264,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
 
             if (camposPreenchidos && comboBoxesSelecionadas) {
-                Aluno aluno = new Aluno(nome, idade, cpf, dataNas, dataCad, hora, sala, cpf);
+                Aluno aluno = new Aluno(nome, idade, cpf, dataNas, dataCad, hora, sala, turno);
                 dao.cadastrarJPA(aluno);
                 JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
                 nomeAluno.setText("Nome");
@@ -353,6 +353,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
+        DAOOperacoes.closeMan();
         CadastroAluno.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed

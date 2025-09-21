@@ -445,6 +445,8 @@ public class SistemaEscolarDeAutomacao {
 
         sala1A.setHorarios(listaHorarios);
 
+        DAOOperacoes.closeMan();
+        
         Inicio.getInstance().setVisible(true);
 
     }

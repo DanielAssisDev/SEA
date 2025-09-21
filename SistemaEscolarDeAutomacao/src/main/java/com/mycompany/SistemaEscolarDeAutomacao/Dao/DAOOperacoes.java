@@ -4,8 +4,10 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
@@ -150,6 +152,30 @@ public class DAOOperacoes {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return materias;
+    }
+    
+    public List<Professor> buscarProfessores() {
+        List<Professor> professores = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT p from Professor p");
+            professores = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return professores;
+    }
+    
+        public List<Aluno> buscarAlunos() {
+        List<Aluno> alunos = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT a from Aluno a");
+            alunos = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return alunos;
     }
 
     public List<Horario> buscarHorarios() {

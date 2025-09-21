@@ -84,13 +84,13 @@ public class PreencherTabelas {
             dados[index] = new String[]{
                 String.valueOf(a.getId()),
                 a.getNome(),
+                String.valueOf(a.getIdade()),
                 a.getCpf(),
                 a.getDataNascimento().toString(),
                 a.getDataCadastro().toString(),
                 a.getHoraCadastro().toString(),
                 a.getSala().getNome(),
-                a.getTurno(),
-                
+                a.getTurno(),  
             };
             index++;
         }

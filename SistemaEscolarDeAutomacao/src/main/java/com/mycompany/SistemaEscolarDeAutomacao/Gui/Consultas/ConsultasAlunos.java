@@ -4,8 +4,12 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
+import java.util.List;
 
 /**
  *
@@ -28,6 +32,8 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         ConsultasAlunos.instance = instance;
     }
 
+    DAOOperacoes dao = new DAOOperacoes();
+    
     /**
      * Creates new form ConsultasAlunos
      */
@@ -41,7 +47,9 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataNascimentoAluno);
         PlaceHolder.addPlaceHolder(dataCadastroAluno);
         PlaceHolder.addPlaceHolder(horaCadastroAluno);
-        JPAUtil.getman();
+        
+        List<Aluno> lista = dao.buscarAlunos();
+        PreencherTabelas.PreencherTabelaDeAlunos(jTable1, lista);
     }
 
     /**

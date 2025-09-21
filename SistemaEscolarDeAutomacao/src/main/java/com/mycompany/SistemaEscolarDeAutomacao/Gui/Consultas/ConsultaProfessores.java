@@ -4,7 +4,11 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
+import java.util.List;
 
 /**
  *
@@ -26,6 +30,8 @@ public class ConsultaProfessores extends javax.swing.JFrame {
     public static void setInstance(ConsultaProfessores instance) {
         ConsultaProfessores.instance = instance;
     }
+    
+    DAOOperacoes dao = new DAOOperacoes();
 
     /**
      * Creates new form ConsultaProfessores
@@ -44,6 +50,9 @@ public class ConsultaProfessores extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(formacaoProfessor);
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
         PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
+        
+        List<Professor> lista = dao.buscarProfessores();
+        PreencherTabelas.PreencherTabelaDeProfessores(jTable1, lista);
     }
 
     /**

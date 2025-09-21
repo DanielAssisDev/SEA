@@ -9,7 +9,6 @@ import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherComboBox;
-import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -70,8 +69,6 @@ public class CadastroProfs extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dataNascimento = new javax.swing.JTextField();
-        cpfProfessor = new javax.swing.JTextField();
         idadeProfessor = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         nomeProfessor = new javax.swing.JTextField();
@@ -88,35 +85,14 @@ public class CadastroProfs extends javax.swing.JFrame {
         usuarioProfessor = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         horarioProfessor = new javax.swing.JComboBox<>();
+        cpfProfessor = new javax.swing.JTextField();
+        dataNascimento = new javax.swing.JTextField();
         urlCurriculo = new javax.swing.JTextField();
-        salarioProfessor = new javax.swing.JTextField();
         formacaoProfessor = new javax.swing.JTextField();
+        salarioProfessor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        dataNascimento.setText("--/--/---- (Data de nascimento)");
-        dataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                dataNascimentoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                dataNascimentoFocusLost(evt);
-            }
-        });
-
-        cpfProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        cpfProfessor.setText("CPF");
-        cpfProfessor.setNextFocusableComponent(dataNascimento);
-        cpfProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cpfProfessorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cpfProfessorFocusLost(evt);
-            }
-        });
-        
         idadeProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         idadeProfessor.setText("Idade");
         idadeProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -184,6 +160,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         Cadastrar1.setText("Confirmar horário");
+        Cadastrar1.setEnabled(false);
         Cadastrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cadastrar1ActionPerformed(evt);
@@ -191,6 +168,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         Cadastrar2.setText("Confirmar matéria");
+        Cadastrar2.setEnabled(false);
         Cadastrar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cadastrar2ActionPerformed(evt);
@@ -230,6 +208,7 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         jButton1.setText("Confirmar usuário");
+        jButton1.setEnabled(false);
 
         horarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         horarioProfessor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o horário" }));
@@ -243,25 +222,36 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
         });
 
+        cpfProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        cpfProfessor.setText("CPF");
+        cpfProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cpfProfessorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cpfProfessorFocusLost(evt);
+            }
+        });
+
+        dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        dataNascimento.setText("--/--/---- (Data de nascimento)");
+        dataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataNascimentoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dataNascimentoFocusLost(evt);
+            }
+        });
+
         urlCurriculo.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        urlCurriculo.setText("URL do currículo");
+        urlCurriculo.setText("URL");
         urlCurriculo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 urlCurriculoFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 urlCurriculoFocusLost(evt);
-            }
-        });
-
-        salarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
-        salarioProfessor.setText("Salário");
-        salarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                salarioProfessorFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                salarioProfessorFocusLost(evt);
             }
         });
 
@@ -276,6 +266,17 @@ public class CadastroProfs extends javax.swing.JFrame {
             }
         });
 
+        salarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        salarioProfessor.setText("Salário");
+        salarioProfessor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                salarioProfessorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                salarioProfessorFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,7 +285,6 @@ public class CadastroProfs extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
-                    .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(usuarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -292,8 +292,6 @@ public class CadastroProfs extends javax.swing.JFrame {
                         .addComponent(salaHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(horarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(nomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,8 +306,11 @@ public class CadastroProfs extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addComponent(jLabel2)
-                    .addComponent(urlCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
+                    .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(urlCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
         );
@@ -326,15 +327,15 @@ public class CadastroProfs extends javax.swing.JFrame {
                 .addComponent(idadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cpfProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(urlCurriculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(salarioProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(formacaoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(materiaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,41 +362,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
-        // TODO add your handling code here:
-        if (dataNascimento.getText().equals("--/--/---- (Data de nascimento)")) {
-            dataNascimento.setText(null);
-            dataNascimento.requestFocus();
-            PlaceHolder.removePlaceHolder(dataNascimento);
-        }
-    }//GEN-LAST:event_dataNascimentoFocusGained
-
-    private void dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusLost
-        // TODO add your handling code here:
-        if (dataNascimento.getText().isEmpty()) {
-            dataNascimento.setText("--/--/---- (Data de nascimento)");
-            PlaceHolder.addPlaceHolder(dataNascimento);
-        }
-    }//GEN-LAST:event_dataNascimentoFocusLost
-
-    private void cpfProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusGained
-        // TODO add your handling code here:
-        if (cpfProfessor.getText().equals("CPF")) {
-            cpfProfessor.setText(null);
-            cpfProfessor.requestFocus();
-            PlaceHolder.removePlaceHolder(cpfProfessor);
-        }
-    }//GEN-LAST:event_cpfProfessorFocusGained
-
-    private void cpfProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusLost
-        // TODO add your handling code here:
-        if (cpfProfessor.getText().isEmpty()) {
-            cpfProfessor.setText("CPF");
-            dataNascimento.requestFocus();
-            PlaceHolder.addPlaceHolder(cpfProfessor);
-        }
-    }//GEN-LAST:event_cpfProfessorFocusLost
 
     private void idadeProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeProfessorFocusGained
         // TODO add your handling code here:
@@ -565,60 +531,49 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     }//GEN-LAST:event_salaHorarioActionPerformed
 
+    private void usuarioProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioProfessorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioProfessorActionPerformed
+
+    private void cpfProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfProfessorFocusGained
+
+    private void cpfProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfProfessorFocusLost
+
+    private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNascimentoFocusGained
+
+    private void dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataNascimentoFocusLost
+
     private void urlCurriculoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusGained
         // TODO add your handling code here:
-        if (urlCurriculo.getText().equals("URL do currículo")) {
-            urlCurriculo.setText(null);
-            urlCurriculo.requestFocus();
-            PlaceHolder.removePlaceHolder(urlCurriculo);
-        }
     }//GEN-LAST:event_urlCurriculoFocusGained
 
     private void urlCurriculoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlCurriculoFocusLost
         // TODO add your handling code here:
-        if (urlCurriculo.getText().isEmpty()) {
-            urlCurriculo.setText("URL do currículo");
-            PlaceHolder.addPlaceHolder(urlCurriculo);
-        }
     }//GEN-LAST:event_urlCurriculoFocusLost
 
-    private void salarioProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusGained
-        // TODO add your handling code here:
-        if (salarioProfessor.getText().equals("Salário")) {
-            salarioProfessor.setText(null);
-            salarioProfessor.requestFocus();
-            PlaceHolder.removePlaceHolder(salarioProfessor);
-        }
-    }//GEN-LAST:event_salarioProfessorFocusGained
-
-    private void salarioProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusLost
-        // TODO add your handling code here: 
-        if (salarioProfessor.getText().isEmpty()) {
-            salarioProfessor.setText("Salário");
-            PlaceHolder.addPlaceHolder(salarioProfessor);
-        }
-    }//GEN-LAST:event_salarioProfessorFocusLost
-
     private void formacaoProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusGained
-        // TODO add your handling code here: 
-        if (formacaoProfessor.getText().equals("Formação")) {
-            formacaoProfessor.setText(null);
-            formacaoProfessor.requestFocus();
-            PlaceHolder.removePlaceHolder(formacaoProfessor);
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_formacaoProfessorFocusGained
 
     private void formacaoProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formacaoProfessorFocusLost
         // TODO add your handling code here:
-        if (formacaoProfessor.getText().isEmpty()) {
-            formacaoProfessor.setText("Formação");
-            PlaceHolder.addPlaceHolder(formacaoProfessor);
-        }
     }//GEN-LAST:event_formacaoProfessorFocusLost
 
-    private void usuarioProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioProfessorActionPerformed
+    private void salarioProfessorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioProfessorActionPerformed
+    }//GEN-LAST:event_salarioProfessorFocusGained
+
+    private void salarioProfessorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salarioProfessorFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salarioProfessorFocusLost
 
     /**
      * @param args the command line arguments

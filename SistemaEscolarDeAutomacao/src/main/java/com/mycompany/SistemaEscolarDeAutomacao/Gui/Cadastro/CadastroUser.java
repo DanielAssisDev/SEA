@@ -21,8 +21,6 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private static CadastroUser instance;
 
-    DAOOperacoes dao = new DAOOperacoes();
-
     public static CadastroUser getInstance() {
         if (instance == null) {
             instance = new CadastroUser();
@@ -356,6 +354,7 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();

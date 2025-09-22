@@ -30,7 +30,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     public static void setInstance(ConsultasDeUsuario instance) {
         ConsultasDeUsuario.instance = instance;
     }
-    
+
     DAOOperacoes dao = new DAOOperacoes();
 
     /**
@@ -38,16 +38,17 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
      */
     public ConsultasDeUsuario() {
         initComponents();
+        PlaceHolder.addPlaceHolder(nomeUsuario1);
         PlaceHolder.addPlaceHolder(nomeUsuario);
         PlaceHolder.addPlaceHolderComboBox(permissaoUsuario);
         PlaceHolder.addPlaceHolder(emailUsuario);
         PlaceHolder.addPlaceHolder(telefoneUsuario);
         PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(horaCadastro);
-        
+
         List<User> lista = dao.buscarUsuarios();
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-        
+
     }
 
     /**
@@ -71,11 +72,18 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         emailUsuario = new javax.swing.JTextField();
         voltar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        nomeUsuario1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
+        horaCadastro.setEnabled(false);
+        horaCadastro.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                horaCadastroCaretUpdate(evt);
+            }
+        });
         horaCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 horaCadastroFocusGained(evt);
@@ -107,6 +115,12 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         telefoneUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         telefoneUsuario.setText("Telefone");
+        telefoneUsuario.setEnabled(false);
+        telefoneUsuario.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                telefoneUsuarioCaretUpdate(evt);
+            }
+        });
         telefoneUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 telefoneUsuarioFocusGained(evt);
@@ -123,6 +137,12 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         dataCadastro.setText("--/--/---- (Data de cadastro)");
+        dataCadastro.setEnabled(false);
+        dataCadastro.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                dataCadastroCaretUpdate(evt);
+            }
+        });
         dataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 dataCadastroFocusGained(evt);
@@ -139,6 +159,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         permissaoUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         permissaoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a permissão", "Diretor", "Secretário", "Professor" }));
+        permissaoUsuario.setEnabled(false);
         permissaoUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 permissaoUsuarioFocusGained(evt);
@@ -147,8 +168,19 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                 permissaoUsuarioFocusLost(evt);
             }
         });
+        permissaoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                permissaoUsuarioActionPerformed(evt);
+            }
+        });
 
         nomeUsuario.setText("Nome");
+        nomeUsuario.setEnabled(false);
+        nomeUsuario.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                nomeUsuarioCaretUpdate(evt);
+            }
+        });
         nomeUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 nomeUsuarioFocusGained(evt);
@@ -165,6 +197,12 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         emailUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         emailUsuario.setText("Email");
+        emailUsuario.setEnabled(false);
+        emailUsuario.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                emailUsuarioCaretUpdate(evt);
+            }
+        });
         emailUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 emailUsuarioFocusGained(evt);
@@ -188,6 +226,27 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         jButton2.setText("Ver log");
 
+        nomeUsuario1.setText("Identificador");
+        nomeUsuario1.setEnabled(false);
+        nomeUsuario1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                nomeUsuario1CaretUpdate(evt);
+            }
+        });
+        nomeUsuario1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomeUsuario1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeUsuario1FocusLost(evt);
+            }
+        });
+        nomeUsuario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeUsuario1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,28 +254,30 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(voltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2))
+                    .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(horaCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(nomeUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
                         .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(permissaoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
-                        .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(voltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
                 .addGap(100, 100, 100))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -229,7 +290,8 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(permissaoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,7 +401,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
     private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
         // TODO add your handling code here:
-         if (dataCadastro.getText().isEmpty()) {
+        if (dataCadastro.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(dataCadastro);
             dataCadastro.setText("--/--/---- (Data de cadastro)");
         }
@@ -373,11 +435,74 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
     private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusLost
         // TODO add your handling code here:
-         if (emailUsuario.getText().isEmpty()) {
+        if (emailUsuario.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(emailUsuario);
             emailUsuario.setText("Email");
         }
     }//GEN-LAST:event_emailUsuarioFocusLost
+
+    private void nomeUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuarioCaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_nomeUsuarioCaretUpdate
+
+    private void permissaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permissaoUsuarioActionPerformed
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_permissaoUsuarioActionPerformed
+
+    private void dataCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dataCadastroCaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_dataCadastroCaretUpdate
+
+    private void telefoneUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_telefoneUsuarioCaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_telefoneUsuarioCaretUpdate
+
+    private void emailUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_emailUsuarioCaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_emailUsuarioCaretUpdate
+
+    private void horaCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_horaCadastroCaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_horaCadastroCaretUpdate
+
+    private void nomeUsuario1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuario1CaretUpdate
+        // TODO add your handling code here:
+        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
+    }//GEN-LAST:event_nomeUsuario1CaretUpdate
+
+    private void nomeUsuario1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuario1FocusGained
+        // TODO add your handling code here:
+        if (nomeUsuario1.getText().equals("Identificador")) {
+            nomeUsuario1.setText(null);
+            nomeUsuario1.requestFocus();
+            PlaceHolder.removePlaceHolder(nomeUsuario1);
+        }
+    }//GEN-LAST:event_nomeUsuario1FocusGained
+
+    private void nomeUsuario1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuario1FocusLost
+        // TODO add your handling code here:
+        if (nomeUsuario1.getText().isEmpty()) {
+            PlaceHolder.addPlaceHolder(nomeUsuario1);
+            nomeUsuario1.setText("Identificador");
+        }
+    }//GEN-LAST:event_nomeUsuario1FocusLost
+
+    private void nomeUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeUsuario1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,6 +539,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nomeUsuario;
+    private javax.swing.JTextField nomeUsuario1;
     private javax.swing.JComboBox<String> permissaoUsuario;
     private javax.swing.JTextField telefoneUsuario;
     private javax.swing.JButton voltar;

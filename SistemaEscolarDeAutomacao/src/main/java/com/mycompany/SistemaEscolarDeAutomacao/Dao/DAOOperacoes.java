@@ -151,18 +151,27 @@ public class DAOOperacoes {
         return usuarios;
     }
 
-    public List<User> buscarUsuariosParaTabela(String nome, String permissao, String email, String telefone, String dataCadastro, String horaCadastro) {
+    public List<User> buscarUsuariosParaTabela(String id, String nome, String permissao, String email, String telefone, String dataCadastro, String horaCadastro) {
         List<User> usuarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT u FROM User u "
                     + " WHERE (:id is null OR CAST(u.id AS String) LIKE :id) "
-                    + " AND (:nome is null OR u.nome LIKE :nome) "
-                    + " AND (:permissao is null OR u.permissao LIKE :permissao) "
-                    + " AND (:email is null OR u.email LIKE :email) "
-                    + " AND (:telefone is null OR u.telefone LIKE :telefone) "
-                    + " AND (:dataCadastro is null OR CAST(u.dataCadastro AS String) LIKE :dataCadastro) "
-                    + " AND (:horaCadastro is null OR CAST(u.horaCadastro AS String) LIKE :horaCadastro) "
+                    + " OR (:nome is null OR u.nome LIKE :nome) "
+                    + " OR (:permissao is null OR u.permissao LIKE :permissao) "
+                    + " OR (:email is null OR u.email LIKE :email) "
+                    + " OR (:telefone is null OR u.telefone LIKE :telefone) "
+                    + " OR (:dataCadastro is null OR CAST(u.dataCadastro AS String) LIKE :dataCadastro) "
+                    + " OR (:horaCadastro is null OR CAST(u.horaCadastro AS String) LIKE :horaCadastro) "
             );
+
+            consulta.setParameter("id", id.isEmpty() ? null : "%" + id + "%");
+            consulta.setParameter("nome", nome.isEmpty() ? null : "%" + nome + "%");
+            consulta.setParameter("permissao", permissao.isEmpty() ? null : "%" + permissao + "%");
+            consulta.setParameter("email", email.isEmpty() ? null : "%" + email + "%");
+            consulta.setParameter("telefone", telefone.isEmpty() ? null : "%" + telefone + "%");
+            consulta.setParameter("dataCadastro", dataCadastro.isEmpty() ? null : "%" + dataCadastro + "%");
+            consulta.setParameter("horaCadastro", horaCadastro.isEmpty() ? null : "%" + horaCadastro + "%");
+
             usuarios = consulta.getResultList();
         } catch (Exception e) {
             System.out.println(e);
@@ -205,7 +214,7 @@ public class DAOOperacoes {
         }
         return professores;
     }
-    
+
     public List<Aluno> buscarAlunos() {
         List<Aluno> alunos = new ArrayList<>();
         try {
@@ -217,7 +226,7 @@ public class DAOOperacoes {
         }
         return alunos;
     }
-    
+
     public List<Aluno> buscarAlunosParaTabela(String id, String nome, String idade, String cpf, String dataNascimento, String dataCadastro, String horaCadastro, String sala, String turno) {
         List<Aluno> alunos = new ArrayList<>();
         try {

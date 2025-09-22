@@ -36,7 +36,7 @@ public class CadastroAluno extends javax.swing.JFrame {
     }
 
     PreencherComboBox pcb = new PreencherComboBox();
-    DAOOperacoes dao = new DAOOperacoes();
+    
 
     /**
      * Creates new form CadastroAluno
@@ -238,6 +238,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeAluno.getText();
         int idade = Integer.parseInt(idadeAluno.getText());
         String cpf = cpfAluno.getText();

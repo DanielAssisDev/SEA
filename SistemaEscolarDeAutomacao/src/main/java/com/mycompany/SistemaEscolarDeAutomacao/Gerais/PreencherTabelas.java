@@ -52,7 +52,7 @@ public class PreencherTabelas {
     }
 
     public static void PreencherTabelaDeProfessores(JTable tabela, List<Professor> lista) {
-        String colunas[] = {"Identificador", "Nome", "Idade", "CPF", "Url do currículo", "formacao", "Data de nascimento", "Data de cadastro", "Hora do cadastro", "Usuário"};
+        String colunas[] = {"Identificador", "Nome", "Idade", "CPF", "Url do currículo", "formação", "Data de nascimento", "Data de cadastro", "Hora do cadastro", "Usuário"};
         String dados[][] = new String[lista.size()][colunas.length];
 
         int index = 0;

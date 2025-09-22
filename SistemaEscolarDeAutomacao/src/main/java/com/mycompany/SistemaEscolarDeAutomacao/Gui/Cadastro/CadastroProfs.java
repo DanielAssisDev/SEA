@@ -27,8 +27,6 @@ public class CadastroProfs extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroProfs.class.getName());
 
     PreencherComboBox pcb = new PreencherComboBox();
-    DAOOperacoes dao = new DAOOperacoes();
-
     private static CadastroProfs instance;
 
     public static CadastroProfs getInstance() {
@@ -411,6 +409,7 @@ public class CadastroProfs extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeProfessor.getText();
         int idade = Integer.parseInt(idadeProfessor.getText());
         String cpf = cpfProfessor.getText();

@@ -23,14 +23,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="2" attributes="0">
-                  <Group type="102" alignment="2" attributes="0">
-                      <Component id="voltar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="2" attributes="0">
                       <Component id="dataCadastro" min="-2" pref="200" max="-2" attributes="0"/>
@@ -38,22 +34,28 @@
                       <Component id="horaCadastro" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="2" attributes="0">
+                      <Component id="nomeUsuario1" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="nomeUsuario" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="permissaoUsuario" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="2" attributes="0">
                       <Component id="telefoneUsuario" min="-2" pref="100" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Component id="emailUsuario" min="-2" pref="100" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="2" attributes="0">
+                      <Component id="voltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="594" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -69,6 +71,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="permissaoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nomeUsuario1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -99,8 +102,10 @@
           <Font name="Noto Sans" size="13" style="2"/>
         </Property>
         <Property name="text" type="java.lang.String" value="HH:mm:ss (Hora do cadastro)"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="horaCadastroCaretUpdate"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horaCadastroFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="horaCadastroFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="horaCadastroActionPerformed"/>
@@ -144,8 +149,10 @@
           <Font name="Noto Sans" size="13" style="2"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Telefone"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="telefoneUsuarioCaretUpdate"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="telefoneUsuarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="telefoneUsuarioFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneUsuarioActionPerformed"/>
@@ -157,8 +164,10 @@
           <Font name="Noto Sans" size="13" style="2"/>
         </Property>
         <Property name="text" type="java.lang.String" value="--/--/---- (Data de cadastro)"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="dataCadastroCaretUpdate"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataCadastroFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="dataCadastroFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataCadastroActionPerformed"/>
@@ -177,10 +186,12 @@
             <StringItem index="3" value="Professor"/>
           </StringArray>
         </Property>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="permissaoUsuarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="permissaoUsuarioFocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="permissaoUsuarioActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -189,8 +200,10 @@
     <Component class="javax.swing.JTextField" name="nomeUsuario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="nomeUsuarioCaretUpdate"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeUsuarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeUsuarioFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeUsuarioActionPerformed"/>
@@ -202,8 +215,10 @@
           <Font name="Noto Sans" size="13" style="2"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="emailUsuarioCaretUpdate"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailUsuarioFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailUsuarioFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailUsuarioActionPerformed"/>
@@ -221,6 +236,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver log"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="nomeUsuario1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Identificador"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="nomeUsuario1CaretUpdate"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeUsuario1FocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeUsuario1FocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeUsuario1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

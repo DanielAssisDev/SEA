@@ -8,7 +8,6 @@ import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
-import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import java.util.List;
 
 /**
@@ -37,7 +36,6 @@ public class ConsultasAlunos extends javax.swing.JFrame {
      */
     public ConsultasAlunos() {
         initComponents();
-        /*
         PlaceHolder.addPlaceHolder(nomeAluno);
         PlaceHolder.addPlaceHolder(idadeAluno);
         PlaceHolder.addPlaceHolder(cpfAluno);
@@ -46,7 +44,6 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataNascimentoAluno);
         PlaceHolder.addPlaceHolder(dataCadastroAluno);
         PlaceHolder.addPlaceHolder(horaCadastroAluno);
-         */
         DAOOperacoes dao = new DAOOperacoes();
         List<Aluno> lista = dao.buscarAlunos();
         PreencherTabelas.PreencherTabelaDeAlunos(jTable1, lista);
@@ -62,14 +59,112 @@ public class ConsultasAlunos extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        cpfAluno = new javax.swing.JTextField();
+        nomeAluno = new javax.swing.JTextField();
+        idadeAluno = new javax.swing.JTextField();
+        salaAluno = new javax.swing.JComboBox<>();
+        dataCadastroAluno = new javax.swing.JTextField();
+        dataNascimentoAluno = new javax.swing.JTextField();
+        horaCadastroAluno = new javax.swing.JTextField();
+        turnoAluno = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        identificadorAluno = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(818, 542));
 
         jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
         jLabel1.setText("Alunos Cadastrados");
+
+        cpfAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        cpfAluno.setText("CPF");
+        cpfAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cpfAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cpfAlunoFocusLost(evt);
+            }
+        });
+
+        nomeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        nomeAluno.setText("Nome");
+        nomeAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                nomeAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nomeAlunoFocusLost(evt);
+            }
+        });
+
+        idadeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        idadeAluno.setText("Idade");
+        idadeAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                idadeAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                idadeAlunoFocusLost(evt);
+            }
+        });
+
+        salaAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        salaAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a sala" }));
+        salaAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                salaAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                salaAlunoFocusLost(evt);
+            }
+        });
+
+        dataCadastroAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        dataCadastroAluno.setText("--/--/---- (Data de cadastro)");
+        dataCadastroAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataCadastroAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dataCadastroAlunoFocusLost(evt);
+            }
+        });
+
+        dataNascimentoAluno.setText("--/--/---- (Data de nascimento)");
+        dataNascimentoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                dataNascimentoAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                dataNascimentoAlunoFocusLost(evt);
+            }
+        });
+
+        horaCadastroAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        horaCadastroAluno.setText("HH:mm:ss (Hora do cadastro)");
+        horaCadastroAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                horaCadastroAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                horaCadastroAlunoFocusLost(evt);
+            }
+        });
+
+        turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno" }));
+        turnoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                turnoAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                turnoAlunoFocusLost(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,6 +178,19 @@ public class ConsultasAlunos extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        identificadorAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        identificadorAluno.setText("Identificador");
+        identificadorAluno.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                identificadorAlunoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                identificadorAlunoFocusLost(evt);
+            }
+        });
+
+        jLabel2.setText("Selecione os critérios de busca:");
 
         voltar.setText("Voltar");
         voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,167 +206,230 @@ public class ConsultasAlunos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(voltar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(dataNascimentoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dataCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(horaCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
                     .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(voltar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(identificadorAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(idadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(100, 100, 100))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpfAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(identificadorAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dataCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dataNascimentoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horaCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(turnoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(voltar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        ConsultaProfessores.setInstance(null);
-        Consultas.getInstance().setVisible(true);
-    }//GEN-LAST:event_voltarActionPerformed
-
   private void nomeAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeProfessorFocusGained
       // TODO add your handling code here:
-      /*
       if (nomeAluno.getText().equals("Nome")) {
           nomeAluno.setText(null);
           nomeAluno.requestFocus();
           PlaceHolder.removePlaceHolder(nomeAluno);
       }
-       */
     }//GEN-LAST:event_nomeProfessorFocusGained
 
     private void nomeAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeProfessorFocusLost
         // TODO add your handling code here:
-        /*
         if (nomeAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(nomeAluno);
             nomeAluno.setText("Nome");
-        }*/
+        }
     }//GEN-LAST:event_nomeProfessorFocusLost
 
     private void idadeAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeProfessorFocusGained
         // TODO add your handling code here:
-        /*
         if (idadeAluno.getText().equals("Idade")) {
             idadeAluno.setText(null);
             idadeAluno.requestFocus();
             PlaceHolder.removePlaceHolder(idadeAluno);
-        }*/
+        }
     }//GEN-LAST:event_idadeProfessorFocusGained
 
     private void idadeAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeProfessorFocusLost
         // TODO add your handling code here:
-        /*
+
         if (idadeAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(idadeAluno);
             idadeAluno.setText("Idade");
-        }*/
+        }
     }//GEN-LAST:event_idadeProfessorFocusLost
 
     private void cpfAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusGained
         // TODO add your handling code here:
-        /*
+
         if (cpfAluno.getText().equals("CPF")) {
             cpfAluno.setText(null);
             cpfAluno.requestFocus();
             PlaceHolder.removePlaceHolder(cpfAluno);
-        }*/
+        }
     }//GEN-LAST:event_cpfProfessorFocusGained
 
     private void cpfAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfProfessorFocusLost
         // TODO add your handling code here:
-        /*
         if (cpfAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(cpfAluno);
             cpfAluno.setText("CPF");
-        } */
+        }
     }//GEN-LAST:event_cpfProfessorFocusLost
 
     private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoProfessorFocusGained
         // TODO add your handling code here:
-        /*
+        
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             turnoAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(turnoAluno);
-        } */
+        } 
     }//GEN-LAST:event_turnoProfessorFocusGained
 
     private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoProfessorFocusLost
         // TODO add your handling code here:
-        /*
+        
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             PlaceHolder.addPlaceHolderComboBox(turnoAluno);
-        }*/
+        }
     }//GEN-LAST:event_turnoProfessorFocusLost
 
     private void salaAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaProfessorFocusGained
         // TODO add your handling code here:
-        /*
+       
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             salaAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(salaAluno);
-        }*/
+        }
     }//GEN-LAST:event_salaProfessorFocusGained
 
     private void salaAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaProfessorFocusLost
         // TODO add your handling code here:
-        /*
+       
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             PlaceHolder.addPlaceHolderComboBox(salaAluno);
-        }*/
+        }
     }//GEN-LAST:event_salaProfessorFocusLost
 
     private void dataNascimentoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoProfessorFocusGained
         // TODO add your handling code here:
-        /*
+        
         if (dataNascimentoAluno.getText().equals("--/--/---- (Data de nascimento)")) {
             dataNascimentoAluno.setText(null);
             dataNascimentoAluno.requestFocus();
             PlaceHolder.removePlaceHolder(dataNascimentoAluno);
         }
-         */
+        
     }//GEN-LAST:event_dataNascimentoProfessorFocusGained
 
     private void dataNascimentoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoProfessorFocusLost
         // TODO add your handling code here:
-        /*
         if (dataNascimentoAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(dataNascimentoAluno);
             dataNascimentoAluno.setText("--/--/---- (Data de nascimento)");
         }
-         */
+         
     }//GEN-LAST:event_dataNascimentoProfessorFocusLost
 
     private void dataCadastroAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroProfessorFocusGained
         // TODO add your handling code here:
-        /*
         if (dataCadastroAluno.getText().equals("--/--/---- (Data de cadastro)")) {
             dataCadastroAluno.setText(null);
             dataCadastroAluno.requestFocus();
             PlaceHolder.removePlaceHolder(dataCadastroAluno);
-        }*/
+        }
     }//GEN-LAST:event_dataCadastroProfessorFocusGained
 
     private void dataCadastroAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroProfessorFocusLost
         // TODO add your handling code here:
-        /*
         if (dataCadastroAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(dataCadastroAluno);
             dataCadastroAluno.setText("--/--/---- (Data de cadastro)");
-        } */
+        }
     }//GEN-LAST:event_dataCadastroProfessorFocusLost
 
-    /**
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        ConsultasDeUsuario.setInstance(null);
+        Consultas.getInstance().setVisible(true);
+    }//GEN-LAST:event_voltarActionPerformed
+
+    private void horaCadastroAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroAlunoFocusGained
+        // TODO add your handling code here:
+        if (horaCadastroAluno.getText().equals("HH:mm:ss (Hora do cadastro)")) {
+            horaCadastroAluno.setText(null);
+            horaCadastroAluno.requestFocus();
+            PlaceHolder.removePlaceHolder(horaCadastroAluno);
+        }
+    }//GEN-LAST:event_horaCadastroAlunoFocusGained
+
+    private void horaCadastroAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroAlunoFocusLost
+        // TODO add your handling code here:
+        if (horaCadastroAluno.getText().equals("HH:mm:ss (Hora do cadastro)")) {
+            PlaceHolder.addPlaceHolder(horaCadastroAluno);
+        }
+    }//GEN-LAST:event_horaCadastroAlunoFocusLost
+    
+    private void identificadorAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_identificadorAlunoFocusGained
+        // TODO add your handling code here:
+         if (identificadorAluno.getText().equals("Identificador")) {
+            identificadorAluno.setText(null);
+            identificadorAluno.requestFocus();
+            PlaceHolder.removePlaceHolder(identificadorAluno);
+        }
+    }//GEN-LAST:event_identificadorAlunoFocusGained
+
+    private void identificadorAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_identificadorAlunoFocusLost
+        // TODO add your handling code here:
+         if (identificadorAluno.getText().equals("Identificador")) {
+            PlaceHolder.addPlaceHolder(identificadorAluno);
+        }
+    }//GEN-LAST:event_identificadorAlunoFocusLost
+
+    /*
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -284,9 +455,19 @@ public class ConsultasAlunos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField cpfAluno;
+    private javax.swing.JTextField dataCadastroAluno;
+    private javax.swing.JTextField dataNascimentoAluno;
+    private javax.swing.JTextField horaCadastroAluno;
+    private javax.swing.JTextField idadeAluno;
+    private javax.swing.JTextField identificadorAluno;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField nomeAluno;
+    private javax.swing.JComboBox<String> salaAluno;
+    private javax.swing.JComboBox<String> turnoAluno;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

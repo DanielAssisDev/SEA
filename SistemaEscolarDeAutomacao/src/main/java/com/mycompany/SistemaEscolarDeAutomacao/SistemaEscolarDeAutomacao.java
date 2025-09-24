@@ -24,10 +24,10 @@ public class SistemaEscolarDeAutomacao {
         /*É muito importante deixar claro que o que se vê a seguir é uma solução manual não oficial*/
         // Fazendo o cadastro manual das entidades: Sala, Materia e Horario
         // Sala's:
+        DAOOperacoes dao = new DAOOperacoes();
+            
         Sala sala1A = new Sala();
         sala1A.setNome("1A");
-
-        DAOOperacoes dao = new DAOOperacoes();
 
         // Cadastrando Sala:
         dao.cadastrarJPA(sala1A);
@@ -446,7 +446,7 @@ public class SistemaEscolarDeAutomacao {
         sala1A.setHorarios(listaHorarios);
 
         DAOOperacoes.closeMan();
-        
+
         Inicio.getInstance().setVisible(true);
 
     }

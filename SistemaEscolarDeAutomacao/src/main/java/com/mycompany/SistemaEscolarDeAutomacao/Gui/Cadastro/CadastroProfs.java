@@ -162,7 +162,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         Cadastrar1.setText("Confirmar horário");
-        Cadastrar1.setEnabled(false);
         Cadastrar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cadastrar1ActionPerformed(evt);
@@ -170,7 +169,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         Cadastrar2.setText("Confirmar matéria");
-        Cadastrar2.setEnabled(false);
         Cadastrar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Cadastrar2ActionPerformed(evt);
@@ -210,7 +208,6 @@ public class CadastroProfs extends javax.swing.JFrame {
         });
 
         jButton1.setText("Confirmar usuário");
-        jButton1.setEnabled(false);
 
         horarioProfessor.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         horarioProfessor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o horário" }));

@@ -126,6 +126,10 @@ public class DAOOperacoes {
         }
         return h;
     }
+    
+    public void deletarEntidades(){
+        
+    }
 
     public List<Materia> buscarMaterias() {
         List<Materia> materias = new ArrayList<>();

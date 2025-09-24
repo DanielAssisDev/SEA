@@ -212,7 +212,6 @@
     <Component class="javax.swing.JButton" name="Cadastrar1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar hor&#xe1;rio"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cadastrar1ActionPerformed"/>
@@ -221,7 +220,6 @@
     <Component class="javax.swing.JButton" name="Cadastrar2">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar mat&#xe9;ria"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cadastrar2ActionPerformed"/>
@@ -283,7 +281,6 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirmar usu&#xe1;rio"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="horarioProfessor">

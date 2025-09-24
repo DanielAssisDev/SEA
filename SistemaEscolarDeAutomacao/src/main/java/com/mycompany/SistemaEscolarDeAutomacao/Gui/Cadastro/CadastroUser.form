@@ -68,7 +68,7 @@
                   <Component id="voltar" min="-2" max="-2" attributes="0"/>
                   <Component id="Cadastrar" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

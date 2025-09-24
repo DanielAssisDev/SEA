@@ -393,7 +393,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-        ConsultasDeUsuario.setInstance(null);
+        ConsultasAlunos.setInstance(null);
         Consultas.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 

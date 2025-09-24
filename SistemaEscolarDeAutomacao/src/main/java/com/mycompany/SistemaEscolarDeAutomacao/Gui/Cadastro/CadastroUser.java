@@ -42,6 +42,12 @@ public class CadastroUser extends javax.swing.JFrame {
      */
     public CadastroUser() {
         initComponents();
+        PlaceHolder.addPlaceHolder(nomeUsuario);
+        PlaceHolder.addPlaceHolder(emailUsuario);
+        PlaceHolder.addPlaceHolder(telefoneUsuario);
+        PlaceHolder.addPlaceHolder(loginUsuario);
+        PlaceHolder.addPlaceHolder(senhaUsuario);
+        PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
     }
 
     /**
@@ -219,7 +225,7 @@ public class CadastroUser extends javax.swing.JFrame {
                     .addComponent(visualizacao)
                     .addComponent(voltar)
                     .addComponent(Cadastrar))
-                .addGap(50, 50, 50))
+                .addGap(25, 25, 25))
         );
 
         pack();

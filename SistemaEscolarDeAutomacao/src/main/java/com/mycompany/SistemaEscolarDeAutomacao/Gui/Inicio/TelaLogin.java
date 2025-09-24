@@ -171,7 +171,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(Cadastre_se))
-                .addGap(50, 50, 50))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -222,6 +222,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        if(true) {
+            
+        }
+        
         this.dispose();
         TelaLogin.setInstance(null);
         Ops.getInstance().setVisible(true);

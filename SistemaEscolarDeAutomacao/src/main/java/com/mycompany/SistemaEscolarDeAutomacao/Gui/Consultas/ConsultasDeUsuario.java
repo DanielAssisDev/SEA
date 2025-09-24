@@ -75,8 +75,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(818, 542));
-        setPreferredSize(new java.awt.Dimension(818, 542));
+        setPreferredSize(new java.awt.Dimension(818, 562));
 
         horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
         horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
@@ -273,10 +272,9 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +300,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(voltar)
                     .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();

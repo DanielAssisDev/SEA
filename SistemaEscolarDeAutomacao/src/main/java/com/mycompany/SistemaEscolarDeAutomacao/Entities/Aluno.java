@@ -43,7 +43,7 @@ public class Aluno {
     private Sala sala;
 
     private String turno;
-
+    
     public int getId() {
         return id;
     }

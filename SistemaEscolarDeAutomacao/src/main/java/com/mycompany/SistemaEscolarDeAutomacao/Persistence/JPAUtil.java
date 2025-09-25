@@ -7,10 +7,12 @@ package com.mycompany.SistemaEscolarDeAutomacao.Persistence;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.PersistenceContext;
 
 public class JPAUtil {
 
     private static String persistenceUnit = "SistemaEscolar";
+    @PersistenceContext
     private static EntityManager man;
     private static EntityManagerFactory fac;
 

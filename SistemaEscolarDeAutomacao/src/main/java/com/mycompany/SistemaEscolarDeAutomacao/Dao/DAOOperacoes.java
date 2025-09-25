@@ -14,6 +14,11 @@ import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -65,14 +70,29 @@ public class DAOOperacoes {
     public Sala buscarSalaNome(String nomeSala) {
         Sala sala = new Sala();
         try {
-            TypedQuery<Sala> consulta = man.createQuery("SELECT s from Sala s where s.nome = :nome", Sala.class);
+            TypedQuery<Sala> consulta = man.createQuery("SELECT s from Sala s WHERE s.nome = :nome", Sala.class);
             consulta.setParameter("nome", nomeSala);
             sala = consulta.getSingleResult();
+            return sala;
         } catch (Exception e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+            return null;
         }
-        return sala;
+    }
+    
+    public User Autenticacao (String login, String senha) {
+        User user = new User();
+        try {
+            TypedQuery<User> consulta = man.createQuery("SELECT u from User u WHERE u.login=: login AND u.senha =: senha", User.class);
+            consulta.setParameter("login", login);
+            consulta.setParameter("senha", senha);
+            user = consulta.getSingleResult();
+            return user;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     public List<Sala> buscarSalasNome(String nomeSala) {
@@ -125,10 +145,6 @@ public class DAOOperacoes {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return h;
-    }
-    
-    public void deletarEntidades(){
-        
     }
 
     public List<Materia> buscarMaterias() {

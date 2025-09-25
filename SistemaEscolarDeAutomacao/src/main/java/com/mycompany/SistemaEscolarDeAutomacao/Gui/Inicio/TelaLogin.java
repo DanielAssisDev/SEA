@@ -4,18 +4,22 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
+import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
 
 /**
  *
  * @author mrdaniel
  */
 public class TelaLogin extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaLogin.class.getName());
-    
+
     private static TelaLogin instance;
-    
+
     public static TelaLogin getInstance() {
         if (instance == null) {
             instance = new TelaLogin();
@@ -24,7 +28,7 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         return instance;
     }
-    
+
     public static void setInstance(TelaLogin instance) {
         TelaLogin.instance = instance;
     }
@@ -50,7 +54,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         loginUsuario = new javax.swing.JTextField();
         Apagar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Entrar = new javax.swing.JButton();
         Esqueci_a_senha = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Cadastre_se = new javax.swing.JLabel();
@@ -85,10 +89,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Entrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Entrar.setText("Entrar");
+        Entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                EntrarActionPerformed(evt);
             }
         });
 
@@ -143,7 +147,7 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(visualizacao)
                         .addGap(6, 6, 6)
-                        .addComponent(jButton2))
+                        .addComponent(Entrar))
                     .addComponent(Esqueci_a_senha)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -163,7 +167,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Apagar)
-                    .addComponent(jButton2)
+                    .addComponent(Entrar)
                     .addComponent(visualizacao))
                 .addGap(18, 18, 18)
                 .addComponent(Esqueci_a_senha)
@@ -220,17 +224,23 @@ public class TelaLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_senhaUsuarioFocusLost
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
         // TODO add your handling code here:
         
-        if(true) {
-            
+        DAOOperacoes dao = new DAOOperacoes();
+        String l = loginUsuario.getText();
+        String s = senhaUsuario.getText();
+
+        User user = dao.Autenticacao(l, s);
+        SistemaEscolarDeAutomacao.setUser(user);
+       
+        if (user != null) {
+            this.dispose();
+            TelaLogin.setInstance(null);
+            Ops.getInstance().setVisible(true);
         }
-        
-        this.dispose();
-        TelaLogin.setInstance(null);
-        Ops.getInstance().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+         
+    }//GEN-LAST:event_EntrarActionPerformed
 
     private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagarActionPerformed
         // TODO add your handling code here:
@@ -252,7 +262,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_formKeyPressed
 
     /**
@@ -283,8 +293,8 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Apagar;
     private javax.swing.JLabel Cadastre_se;
+    private javax.swing.JButton Entrar;
     private javax.swing.JLabel Esqueci_a_senha;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField loginUsuario;

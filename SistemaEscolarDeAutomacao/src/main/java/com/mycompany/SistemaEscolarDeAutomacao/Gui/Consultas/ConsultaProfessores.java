@@ -47,7 +47,7 @@ public class ConsultaProfessores extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(formacaoProfessor);
         PlaceHolder.addPlaceHolderComboBox(materiaProfessor);
         PlaceHolder.addPlaceHolderComboBox(horarioProfessor);
-
+        
         DAOOperacoes dao = new DAOOperacoes();
         List<Professor> lista = dao.buscarProfessores();
         PreencherTabelas.PreencherTabelaDeProfessores(jTable1, lista);

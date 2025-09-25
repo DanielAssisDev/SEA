@@ -6,6 +6,7 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas.Consultas;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.Cadastros;
+import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
 
 /**
  *

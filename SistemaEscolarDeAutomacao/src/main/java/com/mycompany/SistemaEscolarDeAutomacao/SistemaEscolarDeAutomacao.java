@@ -7,6 +7,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Inicio;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -19,431 +20,444 @@ import java.util.List;
  */
 public class SistemaEscolarDeAutomacao {
 
+    static User user = new User();
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        SistemaEscolarDeAutomacao.user = user;
+    }
+
     public static void main(String[] args) {
 
         /*É muito importante deixar claro que o que se vê a seguir é uma solução manual não oficial*/
         // Fazendo o cadastro manual das entidades: Sala, Materia e Horario
         // Sala's:
         DAOOperacoes dao = new DAOOperacoes();
-            
-        Sala sala1A = new Sala();
-        sala1A.setNome("1A");
 
-        // Cadastrando Sala:
-        dao.cadastrarJPA(sala1A);
+        if (dao.buscarSalaNome("1A") == null) {
 
-        // Materia's:
-        Materia matematica = new Materia();
-        matematica.setNome("Matemática");
+            Sala sala1A = new Sala();
+            sala1A.setNome("1A");
 
-        Materia portugues = new Materia();
-        portugues.setNome("Português");
+            // Cadastrando Sala:
+            dao.cadastrarJPA(sala1A);
 
-        Materia quimica = new Materia();
-        quimica.setNome("Química");
+            // Materia's:
+            Materia matematica = new Materia();
+            matematica.setNome("Matemática");
 
-        Materia biologia = new Materia();
-        biologia.setNome("Biologia");
+            Materia portugues = new Materia();
+            portugues.setNome("Português");
 
-        Materia fisica = new Materia();
-        fisica.setNome("Física");
+            Materia quimica = new Materia();
+            quimica.setNome("Química");
 
-        Materia geografia = new Materia();
-        geografia.setNome("Geografia");
+            Materia biologia = new Materia();
+            biologia.setNome("Biologia");
 
-        Materia historia = new Materia();
-        historia.setNome("História");
+            Materia fisica = new Materia();
+            fisica.setNome("Física");
 
-        // Cadastrando Materia's:
-        dao.cadastrarJPA(matematica);
-        dao.cadastrarJPA(portugues);
-        dao.cadastrarJPA(quimica);
-        dao.cadastrarJPA(biologia);
-        dao.cadastrarJPA(fisica);
-        dao.cadastrarJPA(geografia);
-        dao.cadastrarJPA(historia);
+            Materia geografia = new Materia();
+            geografia.setNome("Geografia");
 
-        // Criando os horários:
-        // Primeira hora da segunda:
-        Horario Horario11A = new Horario();
-        Horario11A.setDiaSemana("Segunda-feira");
+            Materia historia = new Materia();
+            historia.setNome("História");
 
-        DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-        LocalTime hora1 = LocalTime.parse("07:10:00", formatadorHora);
-        Horario11A.setHoras(hora1);
+            // Cadastrando Materia's:
+            dao.cadastrarJPA(matematica);
+            dao.cadastrarJPA(portugues);
+            dao.cadastrarJPA(quimica);
+            dao.cadastrarJPA(biologia);
+            dao.cadastrarJPA(fisica);
+            dao.cadastrarJPA(geografia);
+            dao.cadastrarJPA(historia);
 
-        Horario11A.setOrdem(1);
-        Horario11A.setMateriaDoHorario(matematica);
-        Horario11A.setSala(sala1A);
-        Horario11A.setTurno("M");
+            // Criando os horários:
+            // Primeira hora da segunda:
+            Horario Horario11A = new Horario();
+            Horario11A.setDiaSemana("Segunda-feira");
 
-        dao.cadastrarJPA(Horario11A);
+            DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime hora1 = LocalTime.parse("07:10:00", formatadorHora);
+            Horario11A.setHoras(hora1);
 
-        // Segunda hora da segunda:
-        Horario Horario21A = new Horario();
-        Horario21A.setDiaSemana("Segunda-feira");
+            Horario11A.setOrdem(1);
+            Horario11A.setMateriaDoHorario(matematica);
+            Horario11A.setSala(sala1A);
+            Horario11A.setTurno("M");
 
-        LocalTime hora2 = LocalTime.parse("08:00:00", formatadorHora);
-        Horario21A.setHoras(hora2);
+            dao.cadastrarJPA(Horario11A);
 
-        Horario21A.setOrdem(2);
-        Horario21A.setMateriaDoHorario(portugues);
-        Horario21A.setSala(sala1A);
-        Horario21A.setTurno("M");
+            // Segunda hora da segunda:
+            Horario Horario21A = new Horario();
+            Horario21A.setDiaSemana("Segunda-feira");
 
-        dao.cadastrarJPA(Horario21A);
+            LocalTime hora2 = LocalTime.parse("08:00:00", formatadorHora);
+            Horario21A.setHoras(hora2);
 
-        // Terceira hora da segunda:
-        Horario Horario31A = new Horario();
-        Horario31A.setDiaSemana("Segunda-feira");
+            Horario21A.setOrdem(2);
+            Horario21A.setMateriaDoHorario(portugues);
+            Horario21A.setSala(sala1A);
+            Horario21A.setTurno("M");
 
-        LocalTime hora3 = LocalTime.parse("08:50:00", formatadorHora);
-        Horario31A.setHoras(hora3);
+            dao.cadastrarJPA(Horario21A);
 
-        Horario31A.setOrdem(3);
-        Horario31A.setMateriaDoHorario(biologia);
-        Horario31A.setSala(sala1A);
-        Horario31A.setTurno("M");
+            // Terceira hora da segunda:
+            Horario Horario31A = new Horario();
+            Horario31A.setDiaSemana("Segunda-feira");
 
-        dao.cadastrarJPA(Horario31A);
+            LocalTime hora3 = LocalTime.parse("08:50:00", formatadorHora);
+            Horario31A.setHoras(hora3);
 
-        // Quarta hora da segunda:
-        Horario Horario41A = new Horario();
-        Horario41A.setDiaSemana("Segunda-feira");
+            Horario31A.setOrdem(3);
+            Horario31A.setMateriaDoHorario(biologia);
+            Horario31A.setSala(sala1A);
+            Horario31A.setTurno("M");
 
-        LocalTime hora4 = LocalTime.parse("10:10:00", formatadorHora);
-        Horario41A.setHoras(hora4);
+            dao.cadastrarJPA(Horario31A);
 
-        Horario41A.setOrdem(4);
-        Horario41A.setMateriaDoHorario(quimica);
-        Horario41A.setSala(sala1A);
-        Horario41A.setTurno("M");
+            // Quarta hora da segunda:
+            Horario Horario41A = new Horario();
+            Horario41A.setDiaSemana("Segunda-feira");
 
-        dao.cadastrarJPA(Horario41A);
+            LocalTime hora4 = LocalTime.parse("10:10:00", formatadorHora);
+            Horario41A.setHoras(hora4);
 
-        // Quinta hora da segunda:
-        Horario Horario51A = new Horario();
-        Horario51A.setDiaSemana("Segunda-feira");
+            Horario41A.setOrdem(4);
+            Horario41A.setMateriaDoHorario(quimica);
+            Horario41A.setSala(sala1A);
+            Horario41A.setTurno("M");
 
-        LocalTime hora5 = LocalTime.parse("11:00:00", formatadorHora);
-        Horario51A.setHoras(hora5);
+            dao.cadastrarJPA(Horario41A);
 
-        Horario51A.setOrdem(5);
-        Horario51A.setMateriaDoHorario(fisica);
-        Horario51A.setSala(sala1A);
-        Horario51A.setTurno("M");
+            // Quinta hora da segunda:
+            Horario Horario51A = new Horario();
+            Horario51A.setDiaSemana("Segunda-feira");
 
-        dao.cadastrarJPA(Horario51A);
+            LocalTime hora5 = LocalTime.parse("11:00:00", formatadorHora);
+            Horario51A.setHoras(hora5);
 
-        // Primeira hora da terça:
-        Horario Horario61A = new Horario();
-        Horario61A.setDiaSemana("Terça-feira");
+            Horario51A.setOrdem(5);
+            Horario51A.setMateriaDoHorario(fisica);
+            Horario51A.setSala(sala1A);
+            Horario51A.setTurno("M");
 
-        LocalTime hora6 = LocalTime.parse("07:10:00", formatadorHora);
-        Horario61A.setHoras(hora6);
+            dao.cadastrarJPA(Horario51A);
 
-        Horario61A.setOrdem(1);
-        Horario61A.setMateriaDoHorario(matematica);
-        Horario61A.setSala(sala1A);
-        Horario61A.setTurno("M");
+            // Primeira hora da terça:
+            Horario Horario61A = new Horario();
+            Horario61A.setDiaSemana("Terça-feira");
 
-        dao.cadastrarJPA(Horario61A);
+            LocalTime hora6 = LocalTime.parse("07:10:00", formatadorHora);
+            Horario61A.setHoras(hora6);
 
-        // Segunda hora da terça:
-        Horario Horario71A = new Horario();
-        Horario71A.setDiaSemana("Terça-feira");
+            Horario61A.setOrdem(1);
+            Horario61A.setMateriaDoHorario(matematica);
+            Horario61A.setSala(sala1A);
+            Horario61A.setTurno("M");
 
-        LocalTime hora7 = LocalTime.parse("08:00:00", formatadorHora);
-        Horario71A.setHoras(hora7);
+            dao.cadastrarJPA(Horario61A);
 
-        Horario71A.setOrdem(2);
-        Horario71A.setMateriaDoHorario(portugues);
-        Horario71A.setSala(sala1A);
-        Horario71A.setTurno("M");
+            // Segunda hora da terça:
+            Horario Horario71A = new Horario();
+            Horario71A.setDiaSemana("Terça-feira");
 
-        dao.cadastrarJPA(Horario71A);
+            LocalTime hora7 = LocalTime.parse("08:00:00", formatadorHora);
+            Horario71A.setHoras(hora7);
 
-        // Terceira hora da terça:
-        Horario Horario81A = new Horario();
-        Horario81A.setDiaSemana("Terça-feira");
+            Horario71A.setOrdem(2);
+            Horario71A.setMateriaDoHorario(portugues);
+            Horario71A.setSala(sala1A);
+            Horario71A.setTurno("M");
 
-        LocalTime hora8 = LocalTime.parse("08:50:00", formatadorHora);
-        Horario81A.setHoras(hora8);
+            dao.cadastrarJPA(Horario71A);
 
-        Horario81A.setOrdem(3);
-        Horario81A.setMateriaDoHorario(biologia);
-        Horario81A.setSala(sala1A);
-        Horario81A.setTurno("M");
+            // Terceira hora da terça:
+            Horario Horario81A = new Horario();
+            Horario81A.setDiaSemana("Terça-feira");
 
-        dao.cadastrarJPA(Horario81A);
+            LocalTime hora8 = LocalTime.parse("08:50:00", formatadorHora);
+            Horario81A.setHoras(hora8);
 
-        // Quarta hora da terça:
-        Horario Horario91A = new Horario();
-        Horario91A.setDiaSemana("Terça-feira");
+            Horario81A.setOrdem(3);
+            Horario81A.setMateriaDoHorario(biologia);
+            Horario81A.setSala(sala1A);
+            Horario81A.setTurno("M");
 
-        LocalTime hora9 = LocalTime.parse("10:10:00", formatadorHora);
-        Horario91A.setHoras(hora9);
+            dao.cadastrarJPA(Horario81A);
 
-        Horario91A.setOrdem(4);
-        Horario91A.setMateriaDoHorario(quimica);
-        Horario91A.setSala(sala1A);
-        Horario91A.setTurno("M");
+            // Quarta hora da terça:
+            Horario Horario91A = new Horario();
+            Horario91A.setDiaSemana("Terça-feira");
 
-        dao.cadastrarJPA(Horario91A);
+            LocalTime hora9 = LocalTime.parse("10:10:00", formatadorHora);
+            Horario91A.setHoras(hora9);
 
-        // Quinta hora da terça:
-        Horario Horario101A = new Horario();
-        Horario101A.setDiaSemana("Terça-feira");
+            Horario91A.setOrdem(4);
+            Horario91A.setMateriaDoHorario(quimica);
+            Horario91A.setSala(sala1A);
+            Horario91A.setTurno("M");
 
-        LocalTime hora10 = LocalTime.parse("11:00:00", formatadorHora);
-        Horario101A.setHoras(hora10);
+            dao.cadastrarJPA(Horario91A);
 
-        Horario101A.setOrdem(5);
-        Horario101A.setMateriaDoHorario(fisica);
-        Horario101A.setSala(sala1A);
-        Horario101A.setTurno("M");
+            // Quinta hora da terça:
+            Horario Horario101A = new Horario();
+            Horario101A.setDiaSemana("Terça-feira");
 
-        dao.cadastrarJPA(Horario101A);
+            LocalTime hora10 = LocalTime.parse("11:00:00", formatadorHora);
+            Horario101A.setHoras(hora10);
 
-        // Primeira hora da quarta:
-        Horario Horario111A = new Horario();
-        Horario111A.setDiaSemana("Quarta-feira");
+            Horario101A.setOrdem(5);
+            Horario101A.setMateriaDoHorario(fisica);
+            Horario101A.setSala(sala1A);
+            Horario101A.setTurno("M");
 
-        LocalTime hora11 = LocalTime.parse("07:10:00", formatadorHora);
-        Horario111A.setHoras(hora11);
+            dao.cadastrarJPA(Horario101A);
 
-        Horario111A.setOrdem(1);
-        Horario111A.setMateriaDoHorario(matematica);
-        Horario111A.setSala(sala1A);
-        Horario111A.setTurno("M");
+            // Primeira hora da quarta:
+            Horario Horario111A = new Horario();
+            Horario111A.setDiaSemana("Quarta-feira");
 
-        dao.cadastrarJPA(Horario111A);
+            LocalTime hora11 = LocalTime.parse("07:10:00", formatadorHora);
+            Horario111A.setHoras(hora11);
 
-        // Segunda hora da quarta:
-        Horario Horario121A = new Horario();
-        Horario121A.setDiaSemana("Quarta-feira");
+            Horario111A.setOrdem(1);
+            Horario111A.setMateriaDoHorario(matematica);
+            Horario111A.setSala(sala1A);
+            Horario111A.setTurno("M");
 
-        LocalTime hora12 = LocalTime.parse("08:00:00", formatadorHora);
-        Horario121A.setHoras(hora12);
+            dao.cadastrarJPA(Horario111A);
 
-        Horario121A.setOrdem(2);
-        Horario121A.setMateriaDoHorario(portugues);
-        Horario121A.setSala(sala1A);
-        Horario121A.setTurno("M");
+            // Segunda hora da quarta:
+            Horario Horario121A = new Horario();
+            Horario121A.setDiaSemana("Quarta-feira");
 
-        dao.cadastrarJPA(Horario121A);
+            LocalTime hora12 = LocalTime.parse("08:00:00", formatadorHora);
+            Horario121A.setHoras(hora12);
 
-        // Terceira hora da quarta:
-        Horario Horario131A = new Horario();
-        Horario131A.setDiaSemana("Quarta-feira");
+            Horario121A.setOrdem(2);
+            Horario121A.setMateriaDoHorario(portugues);
+            Horario121A.setSala(sala1A);
+            Horario121A.setTurno("M");
 
-        LocalTime hora13 = LocalTime.parse("08:50:00", formatadorHora);
-        Horario131A.setHoras(hora13);
+            dao.cadastrarJPA(Horario121A);
 
-        Horario131A.setOrdem(3);
-        Horario131A.setMateriaDoHorario(biologia);
-        Horario131A.setSala(sala1A);
-        Horario131A.setTurno("M");
+            // Terceira hora da quarta:
+            Horario Horario131A = new Horario();
+            Horario131A.setDiaSemana("Quarta-feira");
 
-        dao.cadastrarJPA(Horario131A);
+            LocalTime hora13 = LocalTime.parse("08:50:00", formatadorHora);
+            Horario131A.setHoras(hora13);
 
-        // Quarta hora da quarta:
-        Horario Horario141A = new Horario();
-        Horario141A.setDiaSemana("Quarta-feira");
+            Horario131A.setOrdem(3);
+            Horario131A.setMateriaDoHorario(biologia);
+            Horario131A.setSala(sala1A);
+            Horario131A.setTurno("M");
 
-        LocalTime hora14 = LocalTime.parse("10:10:00", formatadorHora);
-        Horario141A.setHoras(hora14);
+            dao.cadastrarJPA(Horario131A);
 
-        Horario141A.setOrdem(4);
-        Horario141A.setMateriaDoHorario(quimica);
-        Horario141A.setSala(sala1A);
-        Horario141A.setTurno("M");
+            // Quarta hora da quarta:
+            Horario Horario141A = new Horario();
+            Horario141A.setDiaSemana("Quarta-feira");
 
-        dao.cadastrarJPA(Horario141A);
+            LocalTime hora14 = LocalTime.parse("10:10:00", formatadorHora);
+            Horario141A.setHoras(hora14);
 
-        // Quinta hora da quarta:
-        Horario Horario151A = new Horario();
-        Horario151A.setDiaSemana("Quarta-feira");
+            Horario141A.setOrdem(4);
+            Horario141A.setMateriaDoHorario(quimica);
+            Horario141A.setSala(sala1A);
+            Horario141A.setTurno("M");
 
-        LocalTime hora15 = LocalTime.parse("11:00:00", formatadorHora);
-        Horario151A.setHoras(hora15);
+            dao.cadastrarJPA(Horario141A);
 
-        Horario151A.setOrdem(5);
-        Horario151A.setMateriaDoHorario(fisica);
-        Horario151A.setSala(sala1A);
-        Horario151A.setTurno("M");
+            // Quinta hora da quarta:
+            Horario Horario151A = new Horario();
+            Horario151A.setDiaSemana("Quarta-feira");
 
-        dao.cadastrarJPA(Horario151A);
+            LocalTime hora15 = LocalTime.parse("11:00:00", formatadorHora);
+            Horario151A.setHoras(hora15);
 
-        // Primeira hora da quinta:
-        Horario Horario161A = new Horario();
-        Horario161A.setDiaSemana("Quinta-feira");
+            Horario151A.setOrdem(5);
+            Horario151A.setMateriaDoHorario(fisica);
+            Horario151A.setSala(sala1A);
+            Horario151A.setTurno("M");
 
-        LocalTime hora16 = LocalTime.parse("07:10:00", formatadorHora);
-        Horario161A.setHoras(hora16);
+            dao.cadastrarJPA(Horario151A);
 
-        Horario161A.setOrdem(1);
-        Horario161A.setMateriaDoHorario(matematica);
-        Horario161A.setSala(sala1A);
-        Horario161A.setTurno("M");
+            // Primeira hora da quinta:
+            Horario Horario161A = new Horario();
+            Horario161A.setDiaSemana("Quinta-feira");
 
-        dao.cadastrarJPA(Horario161A);
+            LocalTime hora16 = LocalTime.parse("07:10:00", formatadorHora);
+            Horario161A.setHoras(hora16);
 
-        // Segunda hora da quinta:
-        Horario Horario171A = new Horario();
-        Horario171A.setDiaSemana("Quinta-feira");
+            Horario161A.setOrdem(1);
+            Horario161A.setMateriaDoHorario(matematica);
+            Horario161A.setSala(sala1A);
+            Horario161A.setTurno("M");
 
-        LocalTime hora17 = LocalTime.parse("08:00:00", formatadorHora);
-        Horario171A.setHoras(hora17);
+            dao.cadastrarJPA(Horario161A);
 
-        Horario171A.setOrdem(2);
-        Horario171A.setMateriaDoHorario(portugues);
-        Horario171A.setSala(sala1A);
-        Horario171A.setTurno("M");
+            // Segunda hora da quinta:
+            Horario Horario171A = new Horario();
+            Horario171A.setDiaSemana("Quinta-feira");
 
-        dao.cadastrarJPA(Horario171A);
+            LocalTime hora17 = LocalTime.parse("08:00:00", formatadorHora);
+            Horario171A.setHoras(hora17);
 
-        // Terceira hora da quinta:
-        Horario Horario181A = new Horario();
-        Horario181A.setDiaSemana("Quinta-feira");
+            Horario171A.setOrdem(2);
+            Horario171A.setMateriaDoHorario(portugues);
+            Horario171A.setSala(sala1A);
+            Horario171A.setTurno("M");
 
-        LocalTime hora18 = LocalTime.parse("08:50:00", formatadorHora);
-        Horario181A.setHoras(hora18);
+            dao.cadastrarJPA(Horario171A);
 
-        Horario181A.setOrdem(3);
-        Horario181A.setMateriaDoHorario(biologia);
-        Horario181A.setSala(sala1A);
-        Horario181A.setTurno("M");
+            // Terceira hora da quinta:
+            Horario Horario181A = new Horario();
+            Horario181A.setDiaSemana("Quinta-feira");
 
-        dao.cadastrarJPA(Horario181A);
+            LocalTime hora18 = LocalTime.parse("08:50:00", formatadorHora);
+            Horario181A.setHoras(hora18);
 
-        // Quarta hora da quinta:
-        Horario Horario191A = new Horario();
-        Horario191A.setDiaSemana("Quinta-feira");
+            Horario181A.setOrdem(3);
+            Horario181A.setMateriaDoHorario(biologia);
+            Horario181A.setSala(sala1A);
+            Horario181A.setTurno("M");
 
-        LocalTime hora19 = LocalTime.parse("10:10:00", formatadorHora);
-        Horario191A.setHoras(hora19);
+            dao.cadastrarJPA(Horario181A);
 
-        Horario191A.setOrdem(4);
-        Horario191A.setMateriaDoHorario(quimica);
-        Horario191A.setSala(sala1A);
-        Horario191A.setTurno("M");
+            // Quarta hora da quinta:
+            Horario Horario191A = new Horario();
+            Horario191A.setDiaSemana("Quinta-feira");
 
-        dao.cadastrarJPA(Horario191A);
+            LocalTime hora19 = LocalTime.parse("10:10:00", formatadorHora);
+            Horario191A.setHoras(hora19);
 
-        // Quinta hora da quinta:
-        Horario Horario201A = new Horario();
-        Horario201A.setDiaSemana("Quinta-feira");
+            Horario191A.setOrdem(4);
+            Horario191A.setMateriaDoHorario(quimica);
+            Horario191A.setSala(sala1A);
+            Horario191A.setTurno("M");
 
-        LocalTime hora20 = LocalTime.parse("11:00:00", formatadorHora);
-        Horario201A.setHoras(hora20);
+            dao.cadastrarJPA(Horario191A);
 
-        Horario201A.setOrdem(5);
-        Horario201A.setMateriaDoHorario(fisica);
-        Horario201A.setSala(sala1A);
-        Horario201A.setTurno("M");
+            // Quinta hora da quinta:
+            Horario Horario201A = new Horario();
+            Horario201A.setDiaSemana("Quinta-feira");
 
-        dao.cadastrarJPA(Horario201A);
+            LocalTime hora20 = LocalTime.parse("11:00:00", formatadorHora);
+            Horario201A.setHoras(hora20);
 
-        // Primeira hora da sexta:
-        Horario Horario211A = new Horario();
-        Horario211A.setDiaSemana("Sexta-feira");
+            Horario201A.setOrdem(5);
+            Horario201A.setMateriaDoHorario(fisica);
+            Horario201A.setSala(sala1A);
+            Horario201A.setTurno("M");
 
-        LocalTime hora21 = LocalTime.parse("07:10:00", formatadorHora);
-        Horario211A.setHoras(hora21);
+            dao.cadastrarJPA(Horario201A);
 
-        Horario211A.setOrdem(1);
-        Horario211A.setMateriaDoHorario(matematica);
-        Horario211A.setSala(sala1A);
-        Horario211A.setTurno("M");
+            // Primeira hora da sexta:
+            Horario Horario211A = new Horario();
+            Horario211A.setDiaSemana("Sexta-feira");
 
-        dao.cadastrarJPA(Horario211A);
+            LocalTime hora21 = LocalTime.parse("07:10:00", formatadorHora);
+            Horario211A.setHoras(hora21);
 
-        // Segunda hora da sexta:
-        Horario Horario221A = new Horario();
-        Horario221A.setDiaSemana("Sexta-feira");
+            Horario211A.setOrdem(1);
+            Horario211A.setMateriaDoHorario(matematica);
+            Horario211A.setSala(sala1A);
+            Horario211A.setTurno("M");
 
-        LocalTime hora22 = LocalTime.parse("08:00:00", formatadorHora);
-        Horario221A.setHoras(hora22);
+            dao.cadastrarJPA(Horario211A);
 
-        Horario221A.setOrdem(2);
-        Horario221A.setMateriaDoHorario(portugues);
-        Horario221A.setSala(sala1A);
-        Horario221A.setTurno("M");
+            // Segunda hora da sexta:
+            Horario Horario221A = new Horario();
+            Horario221A.setDiaSemana("Sexta-feira");
 
-        dao.cadastrarJPA(Horario221A);
+            LocalTime hora22 = LocalTime.parse("08:00:00", formatadorHora);
+            Horario221A.setHoras(hora22);
 
-        // Terceira hora da sexta:
-        Horario Horario231A = new Horario();
-        Horario231A.setDiaSemana("Sexta-feira");
+            Horario221A.setOrdem(2);
+            Horario221A.setMateriaDoHorario(portugues);
+            Horario221A.setSala(sala1A);
+            Horario221A.setTurno("M");
 
-        LocalTime hora23 = LocalTime.parse("08:50:00", formatadorHora);
-        Horario231A.setHoras(hora23);
+            dao.cadastrarJPA(Horario221A);
 
-        Horario231A.setOrdem(3);
-        Horario231A.setMateriaDoHorario(biologia);
-        Horario231A.setSala(sala1A);
-        Horario231A.setTurno("M");
+            // Terceira hora da sexta:
+            Horario Horario231A = new Horario();
+            Horario231A.setDiaSemana("Sexta-feira");
 
-        dao.cadastrarJPA(Horario231A);
+            LocalTime hora23 = LocalTime.parse("08:50:00", formatadorHora);
+            Horario231A.setHoras(hora23);
 
-        // Quarta hora da sexta:
-        Horario Horario241A = new Horario();
-        Horario241A.setDiaSemana("Sexta-feira");
+            Horario231A.setOrdem(3);
+            Horario231A.setMateriaDoHorario(biologia);
+            Horario231A.setSala(sala1A);
+            Horario231A.setTurno("M");
 
-        LocalTime hora24 = LocalTime.parse("10:10:00", formatadorHora);
-        Horario241A.setHoras(hora24);
+            dao.cadastrarJPA(Horario231A);
 
-        Horario241A.setOrdem(4);
-        Horario241A.setMateriaDoHorario(quimica);
-        Horario241A.setSala(sala1A);
-        Horario241A.setTurno("M");
+            // Quarta hora da sexta:
+            Horario Horario241A = new Horario();
+            Horario241A.setDiaSemana("Sexta-feira");
 
-        dao.cadastrarJPA(Horario241A);
+            LocalTime hora24 = LocalTime.parse("10:10:00", formatadorHora);
+            Horario241A.setHoras(hora24);
 
-        // Quinta hora da Sexta:
-        Horario Horario251A = new Horario();
-        Horario251A.setDiaSemana("Sexta-feira");
+            Horario241A.setOrdem(4);
+            Horario241A.setMateriaDoHorario(quimica);
+            Horario241A.setSala(sala1A);
+            Horario241A.setTurno("M");
 
-        LocalTime hora25 = LocalTime.parse("11:00:00", formatadorHora);
-        Horario251A.setHoras(hora25);
+            dao.cadastrarJPA(Horario241A);
 
-        Horario251A.setOrdem(5);
-        Horario251A.setMateriaDoHorario(fisica);
-        Horario251A.setSala(sala1A);
-        Horario251A.setTurno("M");
+            // Quinta hora da Sexta:
+            Horario Horario251A = new Horario();
+            Horario251A.setDiaSemana("Sexta-feira");
 
-        dao.cadastrarJPA(Horario251A);
+            LocalTime hora25 = LocalTime.parse("11:00:00", formatadorHora);
+            Horario251A.setHoras(hora25);
 
-        // Adicionando a lista de Horario's em Sala (sala1A)
-        List<Horario> listaHorarios = new ArrayList<>();
-        listaHorarios.add(Horario11A);
-        listaHorarios.add(Horario21A);
-        listaHorarios.add(Horario31A);
-        listaHorarios.add(Horario41A);
-        listaHorarios.add(Horario51A);
-        listaHorarios.add(Horario61A);
-        listaHorarios.add(Horario71A);
-        listaHorarios.add(Horario81A);
-        listaHorarios.add(Horario91A);
-        listaHorarios.add(Horario101A);
-        listaHorarios.add(Horario111A);
-        listaHorarios.add(Horario121A);
-        listaHorarios.add(Horario131A);
-        listaHorarios.add(Horario141A);
-        listaHorarios.add(Horario151A);
-        listaHorarios.add(Horario161A);
-        listaHorarios.add(Horario171A);
-        listaHorarios.add(Horario181A);
-        listaHorarios.add(Horario191A);
-        listaHorarios.add(Horario201A);
-        listaHorarios.add(Horario211A);
-        listaHorarios.add(Horario221A);
-        listaHorarios.add(Horario231A);
-        listaHorarios.add(Horario241A);
-        listaHorarios.add(Horario251A);
+            Horario251A.setOrdem(5);
+            Horario251A.setMateriaDoHorario(fisica);
+            Horario251A.setSala(sala1A);
+            Horario251A.setTurno("M");
 
-        sala1A.setHorarios(listaHorarios);
+            dao.cadastrarJPA(Horario251A);
+
+            // Adicionando a lista de Horario's em Sala (sala1A)
+            List<Horario> listaHorarios = new ArrayList<>();
+            listaHorarios.add(Horario11A);
+            listaHorarios.add(Horario21A);
+            listaHorarios.add(Horario31A);
+            listaHorarios.add(Horario41A);
+            listaHorarios.add(Horario51A);
+            listaHorarios.add(Horario61A);
+            listaHorarios.add(Horario71A);
+            listaHorarios.add(Horario81A);
+            listaHorarios.add(Horario91A);
+            listaHorarios.add(Horario101A);
+            listaHorarios.add(Horario111A);
+            listaHorarios.add(Horario121A);
+            listaHorarios.add(Horario131A);
+            listaHorarios.add(Horario141A);
+            listaHorarios.add(Horario151A);
+            listaHorarios.add(Horario161A);
+            listaHorarios.add(Horario171A);
+            listaHorarios.add(Horario181A);
+            listaHorarios.add(Horario191A);
+            listaHorarios.add(Horario201A);
+            listaHorarios.add(Horario211A);
+            listaHorarios.add(Horario221A);
+            listaHorarios.add(Horario231A);
+            listaHorarios.add(Horario241A);
+            listaHorarios.add(Horario251A);
+
+            sala1A.setHorarios(listaHorarios);
+        };
 
         DAOOperacoes.closeMan();
 

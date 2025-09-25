@@ -15,6 +15,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -80,8 +82,8 @@ public class DAOOperacoes {
             return null;
         }
     }
-    
-    public User Autenticacao (String login, String senha) {
+
+    public User Autenticacao(String login, String senha) {
         User user = new User();
         try {
             TypedQuery<User> consulta = man.createQuery("SELECT u from User u WHERE u.login=: login AND u.senha =: senha", User.class);
@@ -289,4 +291,42 @@ public class DAOOperacoes {
         JPAUtil.closeMan();
     }
 
+    public static String getMD5(String senha) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] messageDigest = md.digest(senha.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hash = no.toString(16);
+            while (hash.length() < 32) {
+                hash = "0" + hash;
+            }
+            return hash;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao encontrar sua senha.");
+            return null;
+        }
+
+    }
+
+    public static String getSHA2(String senha) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] messageDigest = md.digest(senha.getBytes());
+            BigInteger no = new BigInteger(1, messageDigest);
+
+            String hash = no.toString(16);
+            while (hash.length() < 32) {
+                hash = "0" + hash;
+            }
+            return hash;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao encontrar sua senha.");
+            return null;
+
+        }
+
+    }
 }

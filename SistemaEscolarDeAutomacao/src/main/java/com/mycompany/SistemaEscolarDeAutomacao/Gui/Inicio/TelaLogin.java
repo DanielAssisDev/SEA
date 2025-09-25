@@ -229,7 +229,7 @@ public class TelaLogin extends javax.swing.JFrame {
         
         DAOOperacoes dao = new DAOOperacoes();
         String l = loginUsuario.getText();
-        String s = senhaUsuario.getText();
+        String s = dao.getSHA2(dao.getMD5(senhaUsuario.getText()));
 
         User user = dao.Autenticacao(l, s);
         SistemaEscolarDeAutomacao.setUser(user);

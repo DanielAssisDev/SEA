@@ -367,7 +367,8 @@ public class CadastroUser extends javax.swing.JFrame {
         LocalDate data = LocalDate.now();
         LocalTime hora = LocalTime.now();
         String login = loginUsuario.getText();
-        String senha = senhaUsuario.getText();
+        
+        String senha = dao.getSHA2(dao.getMD5(senhaUsuario.getText()));
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";
 

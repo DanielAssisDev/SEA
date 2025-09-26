@@ -57,17 +57,7 @@ public class DAOOperacoes {
         }
     }
 
-    public List<Sala> buscarSalas() {
-        List<Sala> salas = new ArrayList<>();
-        try {
-            Query consulta = man.createQuery("SELECT s from Sala s");
-            salas = consulta.getResultList();
-        } catch (Exception e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
-        }
-        return salas;
-    }
+ 
 
     public Sala buscarSalaNome(String nomeSala) {
         Sala sala = new Sala();
@@ -110,18 +100,7 @@ public class DAOOperacoes {
         return salas;
     }
 
-    public Materia buscarMateriasNome(String nomeMateria) {
-        Materia m = new Materia();
-        try {
-            TypedQuery<Materia> consulta = man.createQuery("SELECT m from Materia m where m.nome = :nome", Materia.class);
-            consulta.setParameter("nome", nomeMateria);
-            m = consulta.getSingleResult();
-        } catch (Exception e) {
-            System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
-        }
-        return m;
-    }
+
 
     public User buscarUsuarioNome(String nomeUser) {
         User u = new User();

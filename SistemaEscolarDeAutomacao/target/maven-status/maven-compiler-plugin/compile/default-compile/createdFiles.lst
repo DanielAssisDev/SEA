@@ -95,6 +95,7 @@ com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/Consultas.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$21.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasAlunos$2.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/Cadastros$1.class
+com/mycompany/SistemaEscolarDeAutomacao/Dao/UserDAO.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Consultas/ConsultasDeUsuario$6.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$4.class
 com/mycompany/SistemaEscolarDeAutomacao/Gui/Cadastro/CadastroAluno$1.class

@@ -321,16 +321,16 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoProfessorFocusGained
         // TODO add your handling code here:
-        
+
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             turnoAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(turnoAluno);
-        } 
+        }
     }//GEN-LAST:event_turnoProfessorFocusGained
 
     private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoProfessorFocusLost
         // TODO add your handling code here:
-        
+
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             PlaceHolder.addPlaceHolderComboBox(turnoAluno);
         }
@@ -338,7 +338,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void salaAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaProfessorFocusGained
         // TODO add your handling code here:
-       
+
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             salaAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(salaAluno);
@@ -347,7 +347,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void salaAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaProfessorFocusLost
         // TODO add your handling code here:
-       
+
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             PlaceHolder.addPlaceHolderComboBox(salaAluno);
         }
@@ -355,13 +355,13 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void dataNascimentoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoProfessorFocusGained
         // TODO add your handling code here:
-        
+
         if (dataNascimentoAluno.getText().equals("--/--/---- (Data de nascimento)")) {
             dataNascimentoAluno.setText(null);
             dataNascimentoAluno.requestFocus();
             PlaceHolder.removePlaceHolder(dataNascimentoAluno);
         }
-        
+
     }//GEN-LAST:event_dataNascimentoProfessorFocusGained
 
     private void dataNascimentoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoProfessorFocusLost
@@ -370,7 +370,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
             PlaceHolder.addPlaceHolder(dataNascimentoAluno);
             dataNascimentoAluno.setText("--/--/---- (Data de nascimento)");
         }
-         
+
     }//GEN-LAST:event_dataNascimentoProfessorFocusLost
 
     private void dataCadastroAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroProfessorFocusGained
@@ -408,14 +408,15 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void horaCadastroAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroAlunoFocusLost
         // TODO add your handling code here:
-        if (horaCadastroAluno.getText().equals("HH:mm:ss (Hora do cadastro)")) {
+        if (horaCadastroAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(horaCadastroAluno);
+            horaCadastroAluno.setText("HH:mm:ss (Hora do cadastro)");
         }
     }//GEN-LAST:event_horaCadastroAlunoFocusLost
-    
+
     private void identificadorAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_identificadorAlunoFocusGained
         // TODO add your handling code here:
-         if (identificadorAluno.getText().equals("Identificador")) {
+        if (identificadorAluno.getText().equals("Identificador")) {
             identificadorAluno.setText(null);
             identificadorAluno.requestFocus();
             PlaceHolder.removePlaceHolder(identificadorAluno);
@@ -424,8 +425,9 @@ public class ConsultasAlunos extends javax.swing.JFrame {
 
     private void identificadorAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_identificadorAlunoFocusLost
         // TODO add your handling code here:
-         if (identificadorAluno.getText().equals("Identificador")) {
+        if (identificadorAluno.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(identificadorAluno);
+            identificadorAluno.setText("Identificador");
         }
     }//GEN-LAST:event_identificadorAlunoFocusLost
 

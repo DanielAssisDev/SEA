@@ -4,7 +4,10 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.HorarioDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.MateriaDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
@@ -399,14 +402,14 @@ public class CadastroProfs extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
+        DAO.setInstance(null);
         CadastroProfs.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeProfessor.getText();
         int idade = Integer.parseInt(idadeProfessor.getText());
         String cpf = cpfProfessor.getText();
@@ -422,10 +425,10 @@ public class CadastroProfs extends javax.swing.JFrame {
         Double salario = Double.parseDouble(salarioProfessor.getText());
 
         List<Materia> listaMaterias = new ArrayList<>();
-        listaMaterias.add(dao.buscarMateriasNome(materiaProfessor.getSelectedItem().toString()));
+        listaMaterias.add(MateriaDAO.buscarMateriasNome(materiaProfessor.getSelectedItem().toString()));
         List<Horario> listaHorarios = new ArrayList<>();
-        listaHorarios.add(dao.buscarHorarioID(Integer.parseInt(horarioProfessor.getSelectedItem().toString())));
-        User u = dao.buscarUsuarioNome(usuarioProfessor.getSelectedItem().toString());
+        listaHorarios.add(HorarioDAO.buscarHorarioID(Integer.parseInt(horarioProfessor.getSelectedItem().toString())));
+        User u = UserDAO.buscarUsuarioNome(usuarioProfessor.getSelectedItem().toString());
 
         boolean camposPreenchidos = !nome.equals("Nome") && !idadeProfessor.getText().equals("Idade") && !cpf.equals("CPF") && !dataNascimento.getText().equals("") && !url.isEmpty() && !formacao.isEmpty() && !salarioProfessor.getText().isEmpty();
         boolean comboBoxesSelecionadas = !materiaProfessor.getSelectedItem().toString().equals("Selecione a matéria") && !salaHorario.getSelectedItem().toString().equals("Selecione a sala") && !horarioProfessor.getSelectedItem().toString().equals("Selecione o horário") && !usuarioProfessor.getSelectedItem().toString().equals("Selecione o usuário correspodente");
@@ -441,7 +444,7 @@ public class CadastroProfs extends javax.swing.JFrame {
 
             if (camposPreenchidos && comboBoxesSelecionadas) {
                 Professor p = new Professor(nome, idade, cpf, url, listaMaterias, listaHorarios, salario, formacao, data, dataCad, hora, u);
-                dao.cadastrarJPA(p);
+                DAO.cadastrarJPA(p);
                 JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
                 nomeProfessor.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeProfessor);
@@ -470,7 +473,8 @@ public class CadastroProfs extends javax.swing.JFrame {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e.getMessage());
         }
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
+        DAO.setInstance(null);
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void Cadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar1ActionPerformed

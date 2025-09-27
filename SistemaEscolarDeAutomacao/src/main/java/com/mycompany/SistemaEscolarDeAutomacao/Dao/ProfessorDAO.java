@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Professor;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -68,4 +69,12 @@ public class ProfessorDAO {
         return professores;
     }
 
+        
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
+    }
 }

@@ -4,7 +4,8 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
@@ -238,7 +239,6 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeAluno.getText();
         int idade = Integer.parseInt(idadeAluno.getText());
         String cpf = cpfAluno.getText();
@@ -250,7 +250,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         DateTimeFormatter formatadorData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate dataNas = LocalDate.parse(dataNascimento.getText(), formatadorData);
 
-        Sala sala = dao.buscarSalaNome(salaAluno.getSelectedItem().toString());
+        Sala sala = SalaDAO.buscarSalaNome(salaAluno.getSelectedItem().toString());
 
         boolean camposPreenchidos = !nome.equals("Nome") && !idadeAluno.getText().equals("Idade") && !cpf.equals("CPF") && !dataNascimento.getText().equals("--/--/---- (Data de nascimento)");
         boolean comboBoxesSelecionadas = !salaAluno.getSelectedItem().toString().equals("Selecione a sala") && !turno.equals("Selecione o turno");
@@ -266,7 +266,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
             if (camposPreenchidos && comboBoxesSelecionadas) {
                 Aluno aluno = new Aluno(nome, idade, cpf, dataNas, dataCad, hora, sala, turno);
-                dao.cadastrarJPA(aluno);
+                DAO.cadastrarJPA(aluno);
                 JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
                 nomeAluno.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeAluno);
@@ -285,7 +285,8 @@ public class CadastroAluno extends javax.swing.JFrame {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e.getMessage());
         }
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
+        DAO.setInstance(null);
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
@@ -354,7 +355,8 @@ public class CadastroAluno extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
+        DAO.setInstance(null);
         CadastroAluno.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed

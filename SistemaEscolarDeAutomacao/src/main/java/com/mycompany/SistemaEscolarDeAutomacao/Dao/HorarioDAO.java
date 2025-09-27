@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -45,7 +46,7 @@ public class HorarioDAO {
         }
     }
 
-    public Horario buscarHorarioID(int id) {
+    public static Horario buscarHorarioID(int id) {
         Horario h = new Horario();
         try {
             TypedQuery<Horario> consulta = man.createQuery("SELECT h from Horario h where h.id = :id", Horario.class);
@@ -69,5 +70,16 @@ public class HorarioDAO {
         }
         return horarios;
     }
+    
+        
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
 
+    public static void closeMan() {
+        JPAUtil.closeMan();
+    }
+
+    
+    
 }

@@ -4,7 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
@@ -30,9 +30,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     public static void setInstance(ConsultasDeUsuario instance) {
         ConsultasDeUsuario.instance = instance;
     }
-
-    DAOOperacoes dao = new DAOOperacoes();
-
+    
     /**
      * Creates new form ConsultasDeUsuario
      */
@@ -46,7 +44,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataCadastro);
         PlaceHolder.addPlaceHolder(horaCadastro);
 
-        List<User> lista = dao.buscarUsuarios();
+        List<User> lista = UserDAO.buscarUsuarios();
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
 
     }
@@ -350,6 +348,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         ConsultasDeUsuario.setInstance(null);
+        UserDAO.setInstance(null);
         Consultas.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
@@ -438,43 +437,43 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
     private void nomeUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_nomeUsuarioCaretUpdate
 
     private void permissaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permissaoUsuarioActionPerformed
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_permissaoUsuarioActionPerformed
 
     private void dataCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dataCadastroCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_dataCadastroCaretUpdate
 
     private void telefoneUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_telefoneUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_telefoneUsuarioCaretUpdate
 
     private void emailUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_emailUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_emailUsuarioCaretUpdate
 
     private void horaCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_horaCadastroCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_horaCadastroCaretUpdate
 
     private void nomeUsuario1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuario1CaretUpdate
         // TODO add your handling code here:
-        List<User> lista = dao.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_nomeUsuario1CaretUpdate
 

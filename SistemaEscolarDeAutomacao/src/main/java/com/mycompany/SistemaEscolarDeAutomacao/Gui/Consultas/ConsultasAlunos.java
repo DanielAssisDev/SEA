@@ -4,7 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
@@ -44,8 +44,7 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolder(dataNascimentoAluno);
         PlaceHolder.addPlaceHolder(dataCadastroAluno);
         PlaceHolder.addPlaceHolder(horaCadastroAluno);
-        DAOOperacoes dao = new DAOOperacoes();
-        List<Aluno> lista = dao.buscarAlunos();
+        List<Aluno> lista = AlunoDAO.buscarAlunos();
         PreencherTabelas.PreencherTabelaDeAlunos(jTable1, lista);
     }
 

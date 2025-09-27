@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -19,7 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class SalaDAO {
 
-      private static SalaDAO instance;
+    private static SalaDAO instance;
 
     public static SalaDAO getInstance() {
         if (instance == null) {
@@ -31,10 +32,10 @@ public class SalaDAO {
     public static void setInstance(SalaDAO instance) {
         SalaDAO.instance = instance;
     }
-    
-    EntityManager man = JPAUtil.getman();
 
-    public List<Sala> buscarSalas() {
+   static EntityManager man = JPAUtil.getman();
+
+    public static List<Sala> buscarSalas() {
         List<Sala> salas = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT s from Sala s");
@@ -45,8 +46,8 @@ public class SalaDAO {
         }
         return salas;
     }
-    
-        public Sala buscarSalaNome(String nomeSala) {
+
+    public static Sala buscarSalaNome(String nomeSala) {
         Sala sala = new Sala();
         try {
             TypedQuery<Sala> consulta = man.createQuery("SELECT s from Sala s WHERE s.nome = :nome", Sala.class);
@@ -60,9 +61,7 @@ public class SalaDAO {
         }
     }
 
- 
-
-    public List<Sala> buscarSalasNome(String nomeSala) {
+    public static List<Sala> buscarSalasNome(String nomeSala) {
         List<Sala> salas = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT s from Sala s where s.nome LIKE :nome", Sala.class);
@@ -73,6 +72,14 @@ public class SalaDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return salas;
+    }
+
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
     }
 
 }

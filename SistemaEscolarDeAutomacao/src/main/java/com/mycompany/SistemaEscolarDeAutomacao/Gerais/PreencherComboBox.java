@@ -4,7 +4,9 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gerais;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.MateriaDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
@@ -27,29 +29,27 @@ public class PreencherComboBox {
         } 
         return instance;
     }
-
-    DAOOperacoes dao = new DAOOperacoes();
     
     public static void setInstance(PreencherComboBox instance) {
         PreencherComboBox.instance = instance;
     }
     
-    public void PreencherComboBoxSalas(JComboBox caixa) {
-        List<Sala> lista = dao.buscarSalas();
+    public static void PreencherComboBoxSalas(JComboBox caixa) {
+        List<Sala> lista = SalaDAO.buscarSalas();
         for(Sala s : lista) {
             caixa.addItem(s.getNome());
         }
     }
     
-    public void PreencherComboBoxMaterias(JComboBox caixa) {
-        List<Materia> lista = dao.buscarMaterias();
+    public static void PreencherComboBoxMaterias(JComboBox caixa) {
+        List<Materia> lista = MateriaDAO.buscarMaterias();
         for(Materia m : lista) {
             caixa.addItem(m.getNome());
         }
     }
    
-    public void PreencherComboBoxHorarios(String nomeSala, JComboBox caixa) {
-        List<Sala> lista = dao.buscarSalasNome(nomeSala);
+    public static void PreencherComboBoxHorarios(String nomeSala, JComboBox caixa) {
+        List<Sala> lista = SalaDAO.buscarSalasNome(nomeSala);
         for(Sala s : lista) {
             for(Horario h : s.getHorarios()) {
                 caixa.addItem(h.getId()/* + "Ordem: " + h.getOrdem() + "° - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome()*/);
@@ -58,7 +58,7 @@ public class PreencherComboBox {
     }
     
     public void PreencherComboUsuarios(JComboBox caixa) {
-        List<User> lista = dao.buscarUsuarios();
+        List<User> lista = UserDAO.buscarUsuarios();
         for(User u : lista) {
             caixa.addItem(u.getNome() /* + " " + u.getPermissao() */);
         }

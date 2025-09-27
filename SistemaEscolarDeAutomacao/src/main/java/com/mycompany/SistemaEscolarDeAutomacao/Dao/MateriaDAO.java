@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -32,9 +33,9 @@ public class MateriaDAO {
         MateriaDAO.instance = instance;
     }
 
-    EntityManager man = JPAUtil.getman();
+   static EntityManager man = JPAUtil.getman();
 
-    public Materia buscarMateriasNome(String nomeMateria) {
+    public static Materia buscarMateriasNome(String nomeMateria) {
         Materia m = new Materia();
         try {
             TypedQuery<Materia> consulta = man.createQuery("SELECT m from Materia m where m.nome = :nome", Materia.class);
@@ -47,7 +48,7 @@ public class MateriaDAO {
         return m;
     }
 
-    public List<Materia> buscarMaterias() {
+    public static List<Materia> buscarMaterias() {
         List<Materia> materias = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT m from Materia m");
@@ -57,5 +58,13 @@ public class MateriaDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return materias;
+    }
+
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
     }
 }

@@ -4,17 +4,12 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JFrame;
-import java.awt.Dimension;
 
 /**
  *
@@ -239,7 +234,8 @@ public class CadastroUser extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         // TODO add your handling code here:
         dispose();
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
+        DAO.setInstance(null);
         CadastroUser.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
@@ -359,7 +355,6 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-        DAOOperacoes dao = new DAOOperacoes();
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
@@ -368,7 +363,7 @@ public class CadastroUser extends javax.swing.JFrame {
         LocalTime hora = LocalTime.now();
         String login = loginUsuario.getText();
         
-        String senha = dao.getSHA2(dao.getMD5(senhaUsuario.getText()));
+        String senha = DAO.getSHA2(DAO.getMD5(senhaUsuario.getText()));
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";
 
@@ -387,7 +382,7 @@ public class CadastroUser extends javax.swing.JFrame {
             if (camposPreenchidos && comboBoxSelecionada) {
                 User u = new User(nome, permissao, email, telefone, data, hora, login, senha, log);
 
-                dao.cadastrarJPA(u);
+                DAO.cadastrarJPA(u);
 
                 nomeUsuario.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeUsuario);
@@ -407,7 +402,7 @@ public class CadastroUser extends javax.swing.JFrame {
             System.out.println("Ocorreu um erro, preencha todos os campos e tente novamente!");
             System.out.println(e);
         }
-        DAOOperacoes.closeMan();
+        DAO.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed

@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import java.time.LocalDate;
@@ -235,6 +236,7 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         DAO.closeMan();
+        UserDAO.closeMan();
         CadastroUser.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
@@ -355,6 +357,7 @@ public class CadastroUser extends javax.swing.JFrame {
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
         DAO.setMan();
+        UserDAO.setMan();
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();
@@ -362,7 +365,7 @@ public class CadastroUser extends javax.swing.JFrame {
         LocalDate data = LocalDate.now();
         LocalTime hora = LocalTime.now();
         String login = loginUsuario.getText();
-        
+
         String senha = DAO.getSHA2(DAO.getMD5(senhaUsuario.getText()));
 
         String log = "Início do log de: " + nome + " (" + permissao + ").";

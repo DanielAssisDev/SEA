@@ -87,4 +87,10 @@ public class AlunoDAO {
     public static void closeMan() {
         JPAUtil.closeMan();
     }
+
+    public static EntityManager getMan() {
+        return man;
+    }
+    
+    
 }

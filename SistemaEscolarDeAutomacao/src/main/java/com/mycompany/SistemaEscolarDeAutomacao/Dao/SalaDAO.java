@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
 import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.ProfessorDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -33,7 +34,7 @@ public class SalaDAO {
         SalaDAO.instance = instance;
     }
 
-   static EntityManager man = JPAUtil.getman();
+    static EntityManager man = JPAUtil.getman();
 
     public static List<Sala> buscarSalas() {
         List<Sala> salas = new ArrayList<>();
@@ -81,5 +82,11 @@ public class SalaDAO {
     public static void closeMan() {
         JPAUtil.closeMan();
     }
+
+    public static EntityManager getMan() {
+        return man;
+    }
+    
+    
 
 }

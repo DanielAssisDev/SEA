@@ -111,4 +111,8 @@ public class UserDAO {
         JPAUtil.closeMan();
     }
 
+    public static EntityManager getMan() {
+        return man;
+    }
+
 }

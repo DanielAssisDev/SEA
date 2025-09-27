@@ -42,14 +42,6 @@ public class DAO {
         }
     }
 
-    public static void setMan() {
-        man = JPAUtil.getman();
-    }
-
-    public static void closeMan() {
-        JPAUtil.closeMan();
-    }
-
     public static String getMD5(String senha) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -88,4 +80,17 @@ public class DAO {
         }
 
     }
+
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
+    }
+
+    public static EntityManager getMan() {
+        return man;
+    }
+
 }

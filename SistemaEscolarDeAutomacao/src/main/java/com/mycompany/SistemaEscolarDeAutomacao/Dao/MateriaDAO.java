@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
 import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -33,7 +34,7 @@ public class MateriaDAO {
         MateriaDAO.instance = instance;
     }
 
-   static EntityManager man = JPAUtil.getman();
+    static EntityManager man = JPAUtil.getman();
 
     public static Materia buscarMateriasNome(String nomeMateria) {
         Materia m = new Materia();
@@ -66,5 +67,9 @@ public class MateriaDAO {
 
     public static void closeMan() {
         JPAUtil.closeMan();
+    }
+
+    public static EntityManager getMan() {
+        return man;
     }
 }

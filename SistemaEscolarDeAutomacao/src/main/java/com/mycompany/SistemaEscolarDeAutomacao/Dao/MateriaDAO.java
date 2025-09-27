@@ -7,7 +7,10 @@ package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,8 +18,8 @@ import javax.swing.JOptionPane;
  * @author mrdaniel
  */
 public class MateriaDAO {
-    
-     private static MateriaDAO instance;
+
+    private static MateriaDAO instance;
 
     public static MateriaDAO getInstance() {
         if (instance == null) {
@@ -30,8 +33,8 @@ public class MateriaDAO {
     }
 
     EntityManager man = JPAUtil.getman();
-    
-        public Materia buscarMateriasNome(String nomeMateria) {
+
+    public Materia buscarMateriasNome(String nomeMateria) {
         Materia m = new Materia();
         try {
             TypedQuery<Materia> consulta = man.createQuery("SELECT m from Materia m where m.nome = :nome", Materia.class);
@@ -42,5 +45,17 @@ public class MateriaDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return m;
+    }
+
+    public List<Materia> buscarMaterias() {
+        List<Materia> materias = new ArrayList<>();
+        try {
+            Query consulta = man.createQuery("SELECT m from Materia m");
+            materias = consulta.getResultList();
+        } catch (Exception e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+        }
+        return materias;
     }
 }

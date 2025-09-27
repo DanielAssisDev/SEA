@@ -4,6 +4,11 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
+import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
+import jakarta.persistence.EntityManager;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mrdaniel
@@ -23,5 +28,17 @@ public class AlunoDAO {
         AlunoDAO.instance = instance;
     }
 
-    
+    EntityManager man = JPAUtil.getman();
+
+    public void cadastrarAluno(Aluno a) {
+        try {
+            man.getTransaction().begin();
+            man.persist(a);
+            man.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "Não foi possível cadastrar o aluno, tente novamente.");
+        }
+    }
+
 }

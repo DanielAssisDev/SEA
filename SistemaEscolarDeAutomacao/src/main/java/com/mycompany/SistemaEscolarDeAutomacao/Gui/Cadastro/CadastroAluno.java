@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
@@ -37,7 +38,6 @@ public class CadastroAluno extends javax.swing.JFrame {
     }
 
     PreencherComboBox pcb = new PreencherComboBox();
-    
 
     /**
      * Creates new form CadastroAluno
@@ -239,6 +239,13 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        if (!DAO.getMan().isOpen()) {
+            DAO.setMan();
+        }
+        if (!SalaDAO.getMan().isOpen()) {
+            SalaDAO.setMan();
+        }
+
         String nome = nomeAluno.getText();
         int idade = Integer.parseInt(idadeAluno.getText());
         String cpf = cpfAluno.getText();
@@ -286,7 +293,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
         DAO.closeMan();
-        DAO.setInstance(null);
+        SalaDAO.closeMan();
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
@@ -356,7 +363,7 @@ public class CadastroAluno extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         DAO.closeMan();
-        DAO.setInstance(null);
+        SalaDAO.closeMan();
         CadastroAluno.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed

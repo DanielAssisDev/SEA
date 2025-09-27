@@ -45,7 +45,7 @@ public class AlunoDAO {
         }
     }
 
-    public List<Aluno> buscarAlunosParaTabela(String id, String nome, String idade, String cpf, String dataNascimento, String dataCadastro, String horaCadastro, String sala, String turno) {
+    public static List<Aluno> buscarAlunosParaTabela(String id, String nome, String idade, String cpf, String dataNascimento, String dataCadastro, String horaCadastro, String sala, String turno) {
         List<Aluno> alunos = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT a from Aluno a"
@@ -78,8 +78,7 @@ public class AlunoDAO {
         }
         return alunos;
     }
-    
-    
+
     public static void setMan() {
         man = JPAUtil.getman();
     }
@@ -91,6 +90,5 @@ public class AlunoDAO {
     public static EntityManager getMan() {
         return man;
     }
-    
-    
+
 }

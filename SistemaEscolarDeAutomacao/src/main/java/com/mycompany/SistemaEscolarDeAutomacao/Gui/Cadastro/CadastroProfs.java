@@ -7,6 +7,7 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.HorarioDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.MateriaDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
@@ -403,13 +404,24 @@ public class CadastroProfs extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         DAO.closeMan();
-        DAO.setInstance(null);
+        HorarioDAO.closeMan();
+        MateriaDAO.closeMan();
         CadastroProfs.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        if (!DAO.getMan().isOpen()) {
+            DAO.setMan();
+        }
+        if (!HorarioDAO.getMan().isOpen()) {
+            HorarioDAO.setMan();
+        }
+        if (!MateriaDAO.getMan().isOpen()) {
+            MateriaDAO.setMan();
+        }
+
         String nome = nomeProfessor.getText();
         int idade = Integer.parseInt(idadeProfessor.getText());
         String cpf = cpfProfessor.getText();
@@ -474,6 +486,8 @@ public class CadastroProfs extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
         DAO.closeMan();
+        HorarioDAO.closeMan();
+        MateriaDAO.closeMan();
         DAO.setInstance(null);
     }//GEN-LAST:event_CadastrarActionPerformed
 

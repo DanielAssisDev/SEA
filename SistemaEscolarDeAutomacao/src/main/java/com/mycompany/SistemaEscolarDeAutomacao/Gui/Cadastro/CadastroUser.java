@@ -235,7 +235,6 @@ public class CadastroUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         DAO.closeMan();
-        DAO.setInstance(null);
         CadastroUser.setInstance(null);
         Cadastros.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
@@ -355,6 +354,7 @@ public class CadastroUser extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+        DAO.setMan();
         String nome = nomeUsuario.getText();
         String permissao = comboPermissoes.getSelectedItem().toString();
         String email = emailUsuario.getText();

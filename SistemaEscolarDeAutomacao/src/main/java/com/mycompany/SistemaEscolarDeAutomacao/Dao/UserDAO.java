@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
+import static com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;
@@ -34,7 +35,7 @@ public class UserDAO {
 
     static EntityManager man = JPAUtil.getman();
 
-    public User Autenticacao(String login, String senha) {
+    public static User Autenticacao(String login, String senha) {
         User user = new User();
         try {
             TypedQuery<User> consulta = man.createQuery("SELECT u from User u WHERE u.login=: login AND u.senha =: senha", User.class);
@@ -100,6 +101,14 @@ public class UserDAO {
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return usuarios;
+    }
+
+    public static void setMan() {
+        man = JPAUtil.getman();
+    }
+
+    public static void closeMan() {
+        JPAUtil.closeMan();
     }
 
 }

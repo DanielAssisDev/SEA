@@ -4,7 +4,8 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio;
 
-import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAOOperacoes;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
@@ -226,20 +227,21 @@ public class TelaLogin extends javax.swing.JFrame {
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
         // TODO add your handling code here:
-        
-        DAOOperacoes dao = new DAOOperacoes();
+        DAO.setMan();
+        UserDAO.setMan();
         String l = loginUsuario.getText();
-        String s = dao.getSHA2(dao.getMD5(senhaUsuario.getText()));
+        String s = DAO.getSHA2(DAO.getMD5(senhaUsuario.getText()));
 
-        User user = dao.Autenticacao(l, s);
+        User user = UserDAO.Autenticacao(l, s);
         SistemaEscolarDeAutomacao.setUser(user);
        
         if (user != null) {
             this.dispose();
             TelaLogin.setInstance(null);
+            DAO.closeMan();
+            UserDAO.closeMan();
             Ops.getInstance().setVisible(true);
         }
-         
     }//GEN-LAST:event_EntrarActionPerformed
 
     private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagarActionPerformed

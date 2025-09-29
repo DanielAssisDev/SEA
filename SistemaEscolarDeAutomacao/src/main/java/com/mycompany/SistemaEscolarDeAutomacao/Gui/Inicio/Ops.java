@@ -139,9 +139,8 @@ public class Ops extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         Ops.setInstance(null);
+        SistemaEscolarDeAutomacao.setUser(null);
         TelaLogin.getInstance().setVisible(true);
-        
-        
     }//GEN-LAST:event_logoutActionPerformed
 
     /**

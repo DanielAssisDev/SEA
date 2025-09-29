@@ -67,7 +67,7 @@ public class PreencherComboBox {
         }
     }
 
-    public void PreencherComboUsuarios(JComboBox caixa) {
+    public static void PreencherComboUsuarios(JComboBox caixa) {
         
         if (!UserDAO.getMan().isOpen()) {
             UserDAO.setMan();

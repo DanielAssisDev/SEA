@@ -4,8 +4,6 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
-import static com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO.man;
-import static com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO.man;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
 import com.mycompany.SistemaEscolarDeAutomacao.Persistence.JPAUtil;
 import jakarta.persistence.EntityManager;

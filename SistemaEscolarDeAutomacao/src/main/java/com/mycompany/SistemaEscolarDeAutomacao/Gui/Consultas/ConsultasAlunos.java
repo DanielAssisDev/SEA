@@ -5,6 +5,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PreencherTabelas;
@@ -393,6 +394,8 @@ public class ConsultasAlunos extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         ConsultasAlunos.setInstance(null);
+        AlunoDAO.closeMan();
+        DAO.closeMan();
         Consultas.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 

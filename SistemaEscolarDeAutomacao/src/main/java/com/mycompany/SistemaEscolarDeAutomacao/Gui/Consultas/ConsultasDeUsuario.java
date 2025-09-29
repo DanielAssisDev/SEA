@@ -4,6 +4,7 @@
  */
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
@@ -36,7 +37,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
      */
     public ConsultasDeUsuario() {
         initComponents();
-        PlaceHolder.addPlaceHolder(nomeUsuario1);
+        PlaceHolder.addPlaceHolder(Identificador);
         PlaceHolder.addPlaceHolder(nomeUsuario);
         PlaceHolder.addPlaceHolderComboBox(permissaoUsuario);
         PlaceHolder.addPlaceHolder(emailUsuario);
@@ -68,7 +69,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         emailUsuario = new javax.swing.JTextField();
         voltar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        nomeUsuario1 = new javax.swing.JTextField();
+        Identificador = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -209,23 +210,23 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         jButton2.setText("Ver log");
 
-        nomeUsuario1.setText("Identificador");
-        nomeUsuario1.addCaretListener(new javax.swing.event.CaretListener() {
+        Identificador.setText("Identificador");
+        Identificador.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                nomeUsuario1CaretUpdate(evt);
+                IdentificadorCaretUpdate(evt);
             }
         });
-        nomeUsuario1.addFocusListener(new java.awt.event.FocusAdapter() {
+        Identificador.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                nomeUsuario1FocusGained(evt);
+                IdentificadorFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                nomeUsuario1FocusLost(evt);
+                IdentificadorFocusLost(evt);
             }
         });
-        nomeUsuario1.addActionListener(new java.awt.event.ActionListener() {
+        Identificador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeUsuario1ActionPerformed(evt);
+                IdentificadorActionPerformed(evt);
             }
         });
 
@@ -262,7 +263,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                         .addComponent(jButton2))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(nomeUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Identificador, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
@@ -285,7 +286,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Identificador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -348,7 +349,8 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         ConsultasDeUsuario.setInstance(null);
-        UserDAO.setInstance(null);
+        UserDAO.closeMan();
+        DAO.closeMan();
         Consultas.getInstance().setVisible(true);
     }//GEN-LAST:event_voltarActionPerformed
 
@@ -437,66 +439,66 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
     private void nomeUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_nomeUsuarioCaretUpdate
 
     private void permissaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permissaoUsuarioActionPerformed
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_permissaoUsuarioActionPerformed
 
     private void dataCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dataCadastroCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_dataCadastroCaretUpdate
 
     private void telefoneUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_telefoneUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_telefoneUsuarioCaretUpdate
 
     private void emailUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_emailUsuarioCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_emailUsuarioCaretUpdate
 
     private void horaCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_horaCadastroCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
     }//GEN-LAST:event_horaCadastroCaretUpdate
 
-    private void nomeUsuario1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuario1CaretUpdate
+    private void IdentificadorCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_IdentificadorCaretUpdate
         // TODO add your handling code here:
-        List<User> lista = UserDAO.buscarUsuariosParaTabela(nomeUsuario1.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
+        List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_nomeUsuario1CaretUpdate
+    }//GEN-LAST:event_IdentificadorCaretUpdate
 
-    private void nomeUsuario1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuario1FocusGained
+    private void IdentificadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentificadorFocusGained
         // TODO add your handling code here:
-        if (nomeUsuario1.getText().equals("Identificador")) {
-            nomeUsuario1.setText(null);
-            nomeUsuario1.requestFocus();
-            PlaceHolder.removePlaceHolder(nomeUsuario1);
+        if (Identificador.getText().equals("Identificador")) {
+            Identificador.setText(null);
+            Identificador.requestFocus();
+            PlaceHolder.removePlaceHolder(Identificador);
         }
-    }//GEN-LAST:event_nomeUsuario1FocusGained
+    }//GEN-LAST:event_IdentificadorFocusGained
 
-    private void nomeUsuario1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuario1FocusLost
+    private void IdentificadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentificadorFocusLost
         // TODO add your handling code here:
-        if (nomeUsuario1.getText().isEmpty()) {
-            PlaceHolder.addPlaceHolder(nomeUsuario1);
-            nomeUsuario1.setText("Identificador");
+        if (Identificador.getText().isEmpty()) {
+            PlaceHolder.addPlaceHolder(Identificador);
+            Identificador.setText("Identificador");
         }
-    }//GEN-LAST:event_nomeUsuario1FocusLost
+    }//GEN-LAST:event_IdentificadorFocusLost
 
-    private void nomeUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuario1ActionPerformed
+    private void IdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nomeUsuario1ActionPerformed
+    }//GEN-LAST:event_IdentificadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -524,6 +526,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Identificador;
     private javax.swing.JTextField dataCadastro;
     private javax.swing.JTextField emailUsuario;
     private javax.swing.JTextField horaCadastro;
@@ -533,7 +536,6 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nomeUsuario;
-    private javax.swing.JTextField nomeUsuario1;
     private javax.swing.JComboBox<String> permissaoUsuario;
     private javax.swing.JTextField telefoneUsuario;
     private javax.swing.JButton voltar;

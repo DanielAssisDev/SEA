@@ -63,6 +63,14 @@ public class UserDAO {
     }
 
     public static List<User> buscarUsuarios() {
+        if (!UserDAO.getMan().isOpen()) {
+            UserDAO.setMan();
+        }
+
+        if (!DAO.getMan().isOpen()) {
+            DAO.setMan();
+        }
+
         List<User> usuarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT u FROM User u");
@@ -75,6 +83,12 @@ public class UserDAO {
     }
 
     public static List<User> buscarUsuariosParaTabela(String id, String nome, String permissao, String email, String telefone, String dataCadastro, String horaCadastro) {
+        if (!DAO.getMan().isOpen()) {
+            DAO.setMan();
+        }
+        if (!UserDAO.getMan().isOpen()) {
+            UserDAO.setMan();
+        }
         List<User> usuarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT u FROM User u "
@@ -89,18 +103,19 @@ public class UserDAO {
 
             consulta.setParameter("id", (id.equals("Identificador") || id.isEmpty()) ? null : "%" + id + "%");
             consulta.setParameter("nome", (nome.equals("Nome") || nome.isEmpty()) ? null : "%" + nome + "%");
-            consulta.setParameter("permissao", (permissao.equals("Selecione a permissão") || permissao.isEmpty()) ? null : "%" + permissao + "%");
-            consulta.setParameter("email", (email.equals("email") || email.isEmpty()) ? null : "%" + email + "%");
+            consulta.setParameter("permissao", (permissao.equals("Selecione a permissão")) ? null : "%" + permissao + "%");
+            consulta.setParameter("email", (email.equals("Email") || email.isEmpty()) ? null : "%" + email + "%");
             consulta.setParameter("telefone", (telefone.equals("Telefone") || telefone.isEmpty()) ? null : "%" + telefone + "%");
             consulta.setParameter("dataCadastro", (dataCadastro.equals("--/--/---- (Data de cadastro)") || dataCadastro.isEmpty()) ? null : "%" + dataCadastro + "%");
             consulta.setParameter("horaCadastro", (horaCadastro.equals("HH:mm:ss (Hora do cadastro)") || horaCadastro.isEmpty()) ? null : "%" + horaCadastro + "%");
 
             usuarios = consulta.getResultList();
+            return usuarios;
         } catch (Exception e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
+            return null;
         }
-        return usuarios;
     }
 
     public static void setMan() {

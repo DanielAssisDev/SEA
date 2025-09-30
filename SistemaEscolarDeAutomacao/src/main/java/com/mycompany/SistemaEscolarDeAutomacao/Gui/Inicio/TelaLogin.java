@@ -4,6 +4,7 @@ import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
 import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
 
 public class TelaLogin extends javax.swing.JFrame {
@@ -15,9 +16,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public static TelaLogin getInstance() {
         if (instance == null) {
             instance = new TelaLogin();
-        } else {
-            TelaLogin.setInstance(null);
-        }
+        } 
         return instance;
     }
 
@@ -39,9 +38,9 @@ public class TelaLogin extends javax.swing.JFrame {
         loginUsuario = new javax.swing.JTextField();
         Apagar = new javax.swing.JButton();
         Entrar = new javax.swing.JButton();
-        Esqueci_a_senha = new javax.swing.JLabel();
+        senhaEsquecida = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Cadastre_se = new javax.swing.JLabel();
+        cadastroInicial = new javax.swing.JLabel();
         senhaUsuario = new javax.swing.JPasswordField();
         visualizacao = new javax.swing.JButton();
 
@@ -80,21 +79,21 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        Esqueci_a_senha.setForeground(new java.awt.Color(28, 213, 255));
-        Esqueci_a_senha.setText("Esqueci a senha");
-        Esqueci_a_senha.addMouseListener(new java.awt.event.MouseAdapter() {
+        senhaEsquecida.setForeground(new java.awt.Color(28, 213, 255));
+        senhaEsquecida.setText("Esqueci a senha");
+        senhaEsquecida.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Esqueci_a_senhaMouseClicked(evt);
+                senhaEsquecidaMouseClicked(evt);
             }
         });
 
         jLabel3.setText("Não possui conta?");
 
-        Cadastre_se.setForeground(new java.awt.Color(28, 213, 255));
-        Cadastre_se.setText("Cadastre-se");
-        Cadastre_se.addMouseListener(new java.awt.event.MouseAdapter() {
+        cadastroInicial.setForeground(new java.awt.Color(28, 213, 255));
+        cadastroInicial.setText("Cadastre-se");
+        cadastroInicial.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Cadastre_seMouseClicked(evt);
+                cadastroInicialMouseClicked(evt);
             }
         });
 
@@ -132,11 +131,11 @@ public class TelaLogin extends javax.swing.JFrame {
                         .addComponent(visualizacao)
                         .addGap(6, 6, 6)
                         .addComponent(Entrar))
-                    .addComponent(Esqueci_a_senha)
+                    .addComponent(senhaEsquecida)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Cadastre_se)))
+                        .addComponent(cadastroInicial)))
                 .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
@@ -154,11 +153,11 @@ public class TelaLogin extends javax.swing.JFrame {
                     .addComponent(Entrar)
                     .addComponent(visualizacao))
                 .addGap(18, 18, 18)
-                .addComponent(Esqueci_a_senha)
+                .addComponent(senhaEsquecida)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(Cadastre_se))
+                    .addComponent(cadastroInicial))
                 .addGap(25, 25, 25))
         );
 
@@ -166,13 +165,17 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Esqueci_a_senhaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Esqueci_a_senhaMouseClicked
+    private void senhaEsquecidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_senhaEsquecidaMouseClicked
 
-    }//GEN-LAST:event_Esqueci_a_senhaMouseClicked
+    }//GEN-LAST:event_senhaEsquecidaMouseClicked
 
-    private void Cadastre_seMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cadastre_seMouseClicked
-
-    }//GEN-LAST:event_Cadastre_seMouseClicked
+    private void cadastroInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastroInicialMouseClicked
+        dispose();
+        DAO.closeMan();
+        UserDAO.closeMan();
+        TelaLogin.setInstance(null);
+        CadastroUser.getInstance().setVisible(true);
+    }//GEN-LAST:event_cadastroInicialMouseClicked
 
     private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusGained
         if (loginUsuario.getText().equals("Log-in")) {
@@ -244,7 +247,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -260,12 +263,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Apagar;
-    private javax.swing.JLabel Cadastre_se;
     private javax.swing.JButton Entrar;
-    private javax.swing.JLabel Esqueci_a_senha;
+    private javax.swing.JLabel cadastroInicial;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField loginUsuario;
+    private javax.swing.JLabel senhaEsquecida;
     private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JButton visualizacao;
     // End of variables declaration//GEN-END:variables

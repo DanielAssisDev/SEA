@@ -1,14 +1,14 @@
-
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.TelaLogin;
+import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.swing.JOptionPane;
-
 
 public class CadastroUser extends javax.swing.JFrame {
 
@@ -27,7 +27,6 @@ public class CadastroUser extends javax.swing.JFrame {
         CadastroUser.instance = instance;
     }
 
-    
     public CadastroUser() {
         initComponents();
         PlaceHolder.addPlaceHolder(nomeUsuario);
@@ -38,7 +37,6 @@ public class CadastroUser extends javax.swing.JFrame {
         PlaceHolder.addPlaceHolderComboBox(comboPermissoes);
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -226,7 +224,11 @@ public class CadastroUser extends javax.swing.JFrame {
         DAO.closeMan();
         UserDAO.closeMan();
         CadastroUser.setInstance(null);
-        Cadastros.getInstance().setVisible(true);
+        if (SistemaEscolarDeAutomacao.getUser() == null) {
+            TelaLogin.getInstance().setVisible(true);
+        } else {
+            Cadastros.getInstance().setVisible(true);
+        }
     }//GEN-LAST:event_voltarActionPerformed
 
     private void telefoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneUsuarioActionPerformed
@@ -412,14 +414,12 @@ public class CadastroUser extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_visualizacaoActionPerformed
 
-    
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -429,7 +429,6 @@ public class CadastroUser extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
         java.awt.EventQueue.invokeLater(() -> new CadastroUser().setVisible(true));
     }
 

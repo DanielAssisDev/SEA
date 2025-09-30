@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SistemaEscolarDeAutomacao {
 
-    static User user = new User();
+    static User user = null;
 
     public static User getUser() {
         return user;

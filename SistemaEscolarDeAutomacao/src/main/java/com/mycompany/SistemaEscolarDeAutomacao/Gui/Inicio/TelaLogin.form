@@ -39,11 +39,11 @@
                       <EmptySpace min="6" pref="6" max="6" attributes="0"/>
                       <Component id="Entrar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Esqueci_a_senha" alignment="2" min="-2" max="-2" attributes="0"/>
+                  <Component id="senhaEsquecida" alignment="2" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="2" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="Cadastre_se" min="-2" max="-2" attributes="0"/>
+                      <Component id="cadastroInicial" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
@@ -66,11 +66,11 @@
                   <Component id="visualizacao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="Esqueci_a_senha" min="-2" max="-2" attributes="0"/>
+              <Component id="senhaEsquecida" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Cadastre_se" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cadastroInicial" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
@@ -114,7 +114,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntrarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="Esqueci_a_senha">
+    <Component class="javax.swing.JLabel" name="senhaEsquecida">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="d5" red="1c" type="rgb"/>
@@ -122,7 +122,7 @@
         <Property name="text" type="java.lang.String" value="Esqueci a senha"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Esqueci_a_senhaMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="senhaEsquecidaMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -130,7 +130,7 @@
         <Property name="text" type="java.lang.String" value="N&#xe3;o possui conta?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Cadastre_se">
+    <Component class="javax.swing.JLabel" name="cadastroInicial">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="d5" red="1c" type="rgb"/>
@@ -138,7 +138,7 @@
         <Property name="text" type="java.lang.String" value="Cadastre-se"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Cadastre_seMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cadastroInicialMouseClicked"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaUsuario">

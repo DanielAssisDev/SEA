@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Entities;
 
 import jakarta.persistence.Column;
@@ -15,10 +11,6 @@ import java.time.LocalTime;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-/**
- *
- * @author daniel
- */
 @Entity
 public class Horario {
 
@@ -134,9 +126,5 @@ public class Horario {
         this.materia = materia;
         this.horas = horas;
         this.turno = turno;
-    }
-    
-
-    
-    
+    } 
 }

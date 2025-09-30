@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Entities;
 
 import jakarta.persistence.CascadeType;
@@ -10,13 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import java.util.List;
 
-/**
- *
- * @author daniel
- */
 @Entity
 public class Sala {
 
@@ -79,5 +70,4 @@ public class Sala {
         this.alunos = alunos;
         this.horarios = horarios;
     }
-
 }

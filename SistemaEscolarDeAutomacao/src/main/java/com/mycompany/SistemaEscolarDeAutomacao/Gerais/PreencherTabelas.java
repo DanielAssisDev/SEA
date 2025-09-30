@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Gerais;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Aluno;
@@ -11,10 +7,6 @@ import java.util.List;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author mrdaniel
- */
 public class PreencherTabelas {
 
     private static PreencherTabelas instance;
@@ -97,6 +89,4 @@ public class PreencherTabelas {
         DefaultTableModel modeloTabela = new DefaultTableModel(dados, colunas);
         tabela.setModel(modeloTabela);
     }
-
-
 }

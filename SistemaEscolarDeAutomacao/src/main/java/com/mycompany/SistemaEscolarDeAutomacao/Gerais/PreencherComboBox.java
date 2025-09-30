@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Gerais;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.MateriaDAO;
@@ -16,10 +12,6 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
-/**
- *
- * @author mrdaniel
- */
 public class PreencherComboBox {
 
     private static PreencherComboBox instance;
@@ -62,20 +54,19 @@ public class PreencherComboBox {
         List<Sala> lista = SalaDAO.buscarSalasNome(nomeSala);
         for (Sala s : lista) {
             for (Horario h : s.getHorarios()) {
-                caixa.addItem(h.getId()/* + "Ordem: " + h.getOrdem() + "° - " + h.getDiaSemana() + " - " + h.getTurno() + " - " + h.getSala().getNome() + " - " + h.getMateriaDoHorario().getNome()*/);
+                caixa.addItem(h.getId());
             }
         }
     }
 
-    public static void PreencherComboUsuarios(JComboBox caixa) {
-        
+    public static void PreencherComboUsuarios(JComboBox caixa) {       
         if (!UserDAO.getMan().isOpen()) {
             UserDAO.setMan();
         }
 
         List<User> lista = UserDAO.buscarUsuarios();
         for (User u : lista) {
-            caixa.addItem(u.getNome() /* + " " + u.getPermissao() */);
+            caixa.addItem(u.getNome());
         }
     }
 

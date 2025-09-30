@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Gerais;
 
 import java.awt.Color;
@@ -9,10 +5,6 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
-/**
- *
- * @author mrdaniel
- */
 public class PlaceHolder {
 
     private static PlaceHolder instance;
@@ -45,7 +37,6 @@ public class PlaceHolder {
     }
 
     public static void addPlaceHolderComboBox(JComboBox caixa) {
-
         Font font = caixa.getFont();
         font = font.deriveFont(Font.ITALIC);
         caixa.setFont(font);
@@ -59,5 +50,4 @@ public class PlaceHolder {
         caixa.setFont(font);
         caixa.setForeground(Color.BLACK);
     }
-
 }

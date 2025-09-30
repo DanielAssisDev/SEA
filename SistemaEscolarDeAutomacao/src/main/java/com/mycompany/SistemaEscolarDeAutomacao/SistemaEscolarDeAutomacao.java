@@ -1,6 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package com.mycompany.SistemaEscolarDeAutomacao;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
@@ -15,10 +12,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author daniel
- */
 public class SistemaEscolarDeAutomacao {
 
     static User user = new User();
@@ -31,9 +24,7 @@ public class SistemaEscolarDeAutomacao {
         SistemaEscolarDeAutomacao.user = user;
     }
 
-    public static void main(String[] args) {
-
-        /*É muito importante deixar claro que o que se vê a seguir é uma solução manual não oficial*/
+    public static void main(String[] args) {    
         // Fazendo o cadastro manual das entidades: Sala, Materia e Horario
         // Sala's:
 

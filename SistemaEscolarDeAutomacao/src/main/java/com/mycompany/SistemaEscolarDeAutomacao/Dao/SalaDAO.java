@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Dao;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
@@ -13,10 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author mrdaniel
- */
 public class SalaDAO {
 
     private static SalaDAO instance;

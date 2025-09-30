@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.SistemaEscolarDeAutomacao.Entities;
 
 import jakarta.persistence.CascadeType;
@@ -21,10 +17,6 @@ import java.util.List;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-/**
- *
- * @author daniel
- */
 @Entity
 public class Professor {
 
@@ -183,8 +175,6 @@ public class Professor {
         this.horaCadastro = horaCadastro;
         this.usuario = usuario;
     }
-
-    
     
     public Professor() {
     }

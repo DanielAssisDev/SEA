@@ -10,19 +10,6 @@ import javax.swing.JOptionPane;
 
 public class ProfessorDAO {
 
-    private static ProfessorDAO instance;
-
-    public static ProfessorDAO getInstance() {
-        if (instance == null) {
-            instance = new ProfessorDAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(ProfessorDAO instance) {
-        ProfessorDAO.instance = instance;
-    }
-
     static EntityManager man = JPAUtil.getman();
 
     public static List<Professor> buscarProfessores() {

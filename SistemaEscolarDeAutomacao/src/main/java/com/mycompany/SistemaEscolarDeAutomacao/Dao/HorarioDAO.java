@@ -11,19 +11,6 @@ import javax.swing.JOptionPane;
 
 public class HorarioDAO {
 
-    private static HorarioDAO instance;
-
-    public static HorarioDAO getInstance() {
-        if (instance == null) {
-            instance = new HorarioDAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(HorarioDAO instance) {
-        HorarioDAO.instance = instance;
-    }
-
     static EntityManager man = JPAUtil.getman();
 
     public static void confirmarHorario(Horario h) {

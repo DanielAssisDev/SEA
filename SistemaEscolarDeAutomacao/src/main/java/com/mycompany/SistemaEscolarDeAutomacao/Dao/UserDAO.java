@@ -11,19 +11,6 @@ import javax.swing.JOptionPane;
 
 public class UserDAO {
 
-    private static UserDAO instance;
-
-    public static UserDAO getInstance() {
-        if (instance == null) {
-            instance = new UserDAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(UserDAO instance) {
-        UserDAO.instance = instance;
-    }
-
     static EntityManager man = JPAUtil.getman();
 
     public static User Autenticacao(String login, String senha) {

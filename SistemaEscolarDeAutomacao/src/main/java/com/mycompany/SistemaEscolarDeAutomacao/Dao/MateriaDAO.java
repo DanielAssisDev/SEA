@@ -10,20 +10,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class MateriaDAO {
-
-    private static MateriaDAO instance;
-
-    public static MateriaDAO getInstance() {
-        if (instance == null) {
-            instance = new MateriaDAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(MateriaDAO instance) {
-        MateriaDAO.instance = instance;
-    }
-
+	
     static EntityManager man = JPAUtil.getman();
 
     public static Materia buscarMateriasNome(String nomeMateria) {

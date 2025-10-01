@@ -8,19 +8,6 @@ import javax.swing.JOptionPane;
 
 public class DAO {
 
-    private static DAO instance;
-
-    public static DAO getInstance() {
-        if (instance == null) {
-            instance = new DAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(DAO instance) {
-        DAO.instance = instance;
-    }
-
     static EntityManager man = JPAUtil.getman();
 
     public static void cadastrarJPA(Object obj) {

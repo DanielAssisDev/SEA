@@ -11,19 +11,6 @@ import javax.swing.JOptionPane;
 
 public class SalaDAO {
 
-    private static SalaDAO instance;
-
-    public static SalaDAO getInstance() {
-        if (instance == null) {
-            instance = new SalaDAO();
-        }
-        return instance;
-    }
-
-    public static void setInstance(SalaDAO instance) {
-        SalaDAO.instance = instance;
-    }
-
     static EntityManager man = JPAUtil.getman();
 
     public static List<Sala> buscarSalas() {

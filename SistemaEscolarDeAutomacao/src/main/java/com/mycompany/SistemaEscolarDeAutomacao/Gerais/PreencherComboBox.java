@@ -70,7 +70,7 @@ public class PreencherComboBox {
         }
     }
 
-    public void EsvaziarComboBoxes(JComboBox caixa) {
+    public static void EsvaziarComboBoxes(JComboBox caixa) {
         List<String> listaVazia = new ArrayList<>();
         listaVazia.add("Selecione o horário");
         PlaceHolder.addPlaceHolderComboBox(caixa);

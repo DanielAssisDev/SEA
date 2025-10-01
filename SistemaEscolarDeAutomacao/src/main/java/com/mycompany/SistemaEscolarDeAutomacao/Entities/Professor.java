@@ -46,7 +46,7 @@ public class Professor {
     private Double salario;
     private String formacao;
 
-    //   private User usuario;
+    
     @Column(name = "data_nascimento")
     @JdbcTypeCode(SqlTypes.DATE)
     private LocalDate dataNascimento;

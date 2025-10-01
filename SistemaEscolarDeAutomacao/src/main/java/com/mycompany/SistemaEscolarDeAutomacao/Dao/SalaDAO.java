@@ -47,7 +47,6 @@ public class SalaDAO {
             return sala;
         } catch (Exception e) {
             System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
             return null;
         }
     }
@@ -60,7 +59,6 @@ public class SalaDAO {
             salas = consulta.getResultList();
         } catch (Exception e) {
             System.out.println(e);
-            JOptionPane.showMessageDialog(null, "Algo deu errado, tente novamente mais tarde, ou entre em contato com o suporte.");
         }
         return salas;
     }
@@ -76,7 +74,4 @@ public class SalaDAO {
     public static EntityManager getMan() {
         return man;
     }
-    
-    
-
 }

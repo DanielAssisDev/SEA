@@ -1,0 +1,458 @@
+package com.mycompany.SistemaEscolarDeAutomacao;
+
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Horario;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Materia;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.Sala;
+import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Inicio;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SEA {
+
+    static User user = null;
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        SEA.user = user;
+    }
+
+    public static void main(String[] args) {
+        
+        
+        try {
+            if (SalaDAO.buscarSalaNome("1A") == null) {
+
+                Sala sala1A = new Sala();
+                sala1A.setNome("1A");
+
+                
+                DAO.cadastrarJPA(sala1A);
+
+                
+                Materia matematica = new Materia();
+                matematica.setNome("Matemática");
+
+                Materia portugues = new Materia();
+                portugues.setNome("Português");
+
+                Materia quimica = new Materia();
+                quimica.setNome("Química");
+
+                Materia biologia = new Materia();
+                biologia.setNome("Biologia");
+
+                Materia fisica = new Materia();
+                fisica.setNome("Física");
+
+                Materia geografia = new Materia();
+                geografia.setNome("Geografia");
+
+                Materia historia = new Materia();
+                historia.setNome("História");
+
+                
+                DAO.cadastrarJPA(matematica);
+                DAO.cadastrarJPA(portugues);
+                DAO.cadastrarJPA(quimica);
+                DAO.cadastrarJPA(biologia);
+                DAO.cadastrarJPA(fisica);
+                DAO.cadastrarJPA(geografia);
+                DAO.cadastrarJPA(historia);
+
+                
+                
+                Horario Horario11A = new Horario();
+                Horario11A.setDiaSemana("Segunda-feira");
+
+                DateTimeFormatter formatadorHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+                LocalTime hora1 = LocalTime.parse("07:10:00", formatadorHora);
+                Horario11A.setHoras(hora1);
+
+                Horario11A.setOrdem(1);
+                Horario11A.setMateriaDoHorario(matematica);
+                Horario11A.setSala(sala1A);
+                Horario11A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario11A);
+
+                
+                Horario Horario21A = new Horario();
+                Horario21A.setDiaSemana("Segunda-feira");
+
+                LocalTime hora2 = LocalTime.parse("08:00:00", formatadorHora);
+                Horario21A.setHoras(hora2);
+
+                Horario21A.setOrdem(2);
+                Horario21A.setMateriaDoHorario(portugues);
+                Horario21A.setSala(sala1A);
+                Horario21A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario21A);
+
+                
+                Horario Horario31A = new Horario();
+                Horario31A.setDiaSemana("Segunda-feira");
+
+                LocalTime hora3 = LocalTime.parse("08:50:00", formatadorHora);
+                Horario31A.setHoras(hora3);
+
+                Horario31A.setOrdem(3);
+                Horario31A.setMateriaDoHorario(biologia);
+                Horario31A.setSala(sala1A);
+                Horario31A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario31A);
+
+                
+                Horario Horario41A = new Horario();
+                Horario41A.setDiaSemana("Segunda-feira");
+
+                LocalTime hora4 = LocalTime.parse("10:10:00", formatadorHora);
+                Horario41A.setHoras(hora4);
+
+                Horario41A.setOrdem(4);
+                Horario41A.setMateriaDoHorario(quimica);
+                Horario41A.setSala(sala1A);
+                Horario41A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario41A);
+
+                
+                Horario Horario51A = new Horario();
+                Horario51A.setDiaSemana("Segunda-feira");
+
+                LocalTime hora5 = LocalTime.parse("11:00:00", formatadorHora);
+                Horario51A.setHoras(hora5);
+
+                Horario51A.setOrdem(5);
+                Horario51A.setMateriaDoHorario(fisica);
+                Horario51A.setSala(sala1A);
+                Horario51A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario51A);
+
+                
+                Horario Horario61A = new Horario();
+                Horario61A.setDiaSemana("Terça-feira");
+
+                LocalTime hora6 = LocalTime.parse("07:10:00", formatadorHora);
+                Horario61A.setHoras(hora6);
+
+                Horario61A.setOrdem(1);
+                Horario61A.setMateriaDoHorario(matematica);
+                Horario61A.setSala(sala1A);
+                Horario61A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario61A);
+
+                
+                Horario Horario71A = new Horario();
+                Horario71A.setDiaSemana("Terça-feira");
+
+                LocalTime hora7 = LocalTime.parse("08:00:00", formatadorHora);
+                Horario71A.setHoras(hora7);
+
+                Horario71A.setOrdem(2);
+                Horario71A.setMateriaDoHorario(portugues);
+                Horario71A.setSala(sala1A);
+                Horario71A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario71A);
+
+                
+                Horario Horario81A = new Horario();
+                Horario81A.setDiaSemana("Terça-feira");
+
+                LocalTime hora8 = LocalTime.parse("08:50:00", formatadorHora);
+                Horario81A.setHoras(hora8);
+
+                Horario81A.setOrdem(3);
+                Horario81A.setMateriaDoHorario(biologia);
+                Horario81A.setSala(sala1A);
+                Horario81A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario81A);
+
+                
+                Horario Horario91A = new Horario();
+                Horario91A.setDiaSemana("Terça-feira");
+
+                LocalTime hora9 = LocalTime.parse("10:10:00", formatadorHora);
+                Horario91A.setHoras(hora9);
+
+                Horario91A.setOrdem(4);
+                Horario91A.setMateriaDoHorario(quimica);
+                Horario91A.setSala(sala1A);
+                Horario91A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario91A);
+
+                
+                Horario Horario101A = new Horario();
+                Horario101A.setDiaSemana("Terça-feira");
+
+                LocalTime hora10 = LocalTime.parse("11:00:00", formatadorHora);
+                Horario101A.setHoras(hora10);
+
+                Horario101A.setOrdem(5);
+                Horario101A.setMateriaDoHorario(fisica);
+                Horario101A.setSala(sala1A);
+                Horario101A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario101A);
+
+                
+                Horario Horario111A = new Horario();
+                Horario111A.setDiaSemana("Quarta-feira");
+
+                LocalTime hora11 = LocalTime.parse("07:10:00", formatadorHora);
+                Horario111A.setHoras(hora11);
+
+                Horario111A.setOrdem(1);
+                Horario111A.setMateriaDoHorario(matematica);
+                Horario111A.setSala(sala1A);
+                Horario111A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario111A);
+
+                
+                Horario Horario121A = new Horario();
+                Horario121A.setDiaSemana("Quarta-feira");
+
+                LocalTime hora12 = LocalTime.parse("08:00:00", formatadorHora);
+                Horario121A.setHoras(hora12);
+
+                Horario121A.setOrdem(2);
+                Horario121A.setMateriaDoHorario(portugues);
+                Horario121A.setSala(sala1A);
+                Horario121A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario121A);
+
+                
+                Horario Horario131A = new Horario();
+                Horario131A.setDiaSemana("Quarta-feira");
+
+                LocalTime hora13 = LocalTime.parse("08:50:00", formatadorHora);
+                Horario131A.setHoras(hora13);
+
+                Horario131A.setOrdem(3);
+                Horario131A.setMateriaDoHorario(biologia);
+                Horario131A.setSala(sala1A);
+                Horario131A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario131A);
+
+                
+                Horario Horario141A = new Horario();
+                Horario141A.setDiaSemana("Quarta-feira");
+
+                LocalTime hora14 = LocalTime.parse("10:10:00", formatadorHora);
+                Horario141A.setHoras(hora14);
+
+                Horario141A.setOrdem(4);
+                Horario141A.setMateriaDoHorario(quimica);
+                Horario141A.setSala(sala1A);
+                Horario141A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario141A);
+
+                
+                Horario Horario151A = new Horario();
+                Horario151A.setDiaSemana("Quarta-feira");
+
+                LocalTime hora15 = LocalTime.parse("11:00:00", formatadorHora);
+                Horario151A.setHoras(hora15);
+
+                Horario151A.setOrdem(5);
+                Horario151A.setMateriaDoHorario(fisica);
+                Horario151A.setSala(sala1A);
+                Horario151A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario151A);
+
+                
+                Horario Horario161A = new Horario();
+                Horario161A.setDiaSemana("Quinta-feira");
+
+                LocalTime hora16 = LocalTime.parse("07:10:00", formatadorHora);
+                Horario161A.setHoras(hora16);
+
+                Horario161A.setOrdem(1);
+                Horario161A.setMateriaDoHorario(matematica);
+                Horario161A.setSala(sala1A);
+                Horario161A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario161A);
+
+                
+                Horario Horario171A = new Horario();
+                Horario171A.setDiaSemana("Quinta-feira");
+
+                LocalTime hora17 = LocalTime.parse("08:00:00", formatadorHora);
+                Horario171A.setHoras(hora17);
+
+                Horario171A.setOrdem(2);
+                Horario171A.setMateriaDoHorario(portugues);
+                Horario171A.setSala(sala1A);
+                Horario171A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario171A);
+
+                
+                Horario Horario181A = new Horario();
+                Horario181A.setDiaSemana("Quinta-feira");
+
+                LocalTime hora18 = LocalTime.parse("08:50:00", formatadorHora);
+                Horario181A.setHoras(hora18);
+
+                Horario181A.setOrdem(3);
+                Horario181A.setMateriaDoHorario(biologia);
+                Horario181A.setSala(sala1A);
+                Horario181A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario181A);
+
+                
+                Horario Horario191A = new Horario();
+                Horario191A.setDiaSemana("Quinta-feira");
+
+                LocalTime hora19 = LocalTime.parse("10:10:00", formatadorHora);
+                Horario191A.setHoras(hora19);
+
+                Horario191A.setOrdem(4);
+                Horario191A.setMateriaDoHorario(quimica);
+                Horario191A.setSala(sala1A);
+                Horario191A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario191A);
+
+                
+                Horario Horario201A = new Horario();
+                Horario201A.setDiaSemana("Quinta-feira");
+
+                LocalTime hora20 = LocalTime.parse("11:00:00", formatadorHora);
+                Horario201A.setHoras(hora20);
+
+                Horario201A.setOrdem(5);
+                Horario201A.setMateriaDoHorario(fisica);
+                Horario201A.setSala(sala1A);
+                Horario201A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario201A);
+
+                
+                Horario Horario211A = new Horario();
+                Horario211A.setDiaSemana("Sexta-feira");
+
+                LocalTime hora21 = LocalTime.parse("07:10:00", formatadorHora);
+                Horario211A.setHoras(hora21);
+
+                Horario211A.setOrdem(1);
+                Horario211A.setMateriaDoHorario(matematica);
+                Horario211A.setSala(sala1A);
+                Horario211A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario211A);
+
+                
+                Horario Horario221A = new Horario();
+                Horario221A.setDiaSemana("Sexta-feira");
+
+                LocalTime hora22 = LocalTime.parse("08:00:00", formatadorHora);
+                Horario221A.setHoras(hora22);
+
+                Horario221A.setOrdem(2);
+                Horario221A.setMateriaDoHorario(portugues);
+                Horario221A.setSala(sala1A);
+                Horario221A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario221A);
+
+                
+                Horario Horario231A = new Horario();
+                Horario231A.setDiaSemana("Sexta-feira");
+
+                LocalTime hora23 = LocalTime.parse("08:50:00", formatadorHora);
+                Horario231A.setHoras(hora23);
+
+                Horario231A.setOrdem(3);
+                Horario231A.setMateriaDoHorario(biologia);
+                Horario231A.setSala(sala1A);
+                Horario231A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario231A);
+
+                
+                Horario Horario241A = new Horario();
+                Horario241A.setDiaSemana("Sexta-feira");
+
+                LocalTime hora24 = LocalTime.parse("10:10:00", formatadorHora);
+                Horario241A.setHoras(hora24);
+
+                Horario241A.setOrdem(4);
+                Horario241A.setMateriaDoHorario(quimica);
+                Horario241A.setSala(sala1A);
+                Horario241A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario241A);
+
+                
+                Horario Horario251A = new Horario();
+                Horario251A.setDiaSemana("Sexta-feira");
+
+                LocalTime hora25 = LocalTime.parse("11:00:00", formatadorHora);
+                Horario251A.setHoras(hora25);
+
+                Horario251A.setOrdem(5);
+                Horario251A.setMateriaDoHorario(fisica);
+                Horario251A.setSala(sala1A);
+                Horario251A.setTurno("M");
+
+                DAO.cadastrarJPA(Horario251A);
+
+                
+                List<Horario> listaHorarios = new ArrayList<>();
+                listaHorarios.add(Horario11A);
+                listaHorarios.add(Horario21A);
+                listaHorarios.add(Horario31A);
+                listaHorarios.add(Horario41A);
+                listaHorarios.add(Horario51A);
+                listaHorarios.add(Horario61A);
+                listaHorarios.add(Horario71A);
+                listaHorarios.add(Horario81A);
+                listaHorarios.add(Horario91A);
+                listaHorarios.add(Horario101A);
+                listaHorarios.add(Horario111A);
+                listaHorarios.add(Horario121A);
+                listaHorarios.add(Horario131A);
+                listaHorarios.add(Horario141A);
+                listaHorarios.add(Horario151A);
+                listaHorarios.add(Horario161A);
+                listaHorarios.add(Horario171A);
+                listaHorarios.add(Horario181A);
+                listaHorarios.add(Horario191A);
+                listaHorarios.add(Horario201A);
+                listaHorarios.add(Horario211A);
+                listaHorarios.add(Horario221A);
+                listaHorarios.add(Horario231A);
+                listaHorarios.add(Horario241A);
+                listaHorarios.add(Horario251A);
+
+                sala1A.setHorarios(listaHorarios);
+            };
+            DAO.closeMan();
+            Inicio.main(args);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}

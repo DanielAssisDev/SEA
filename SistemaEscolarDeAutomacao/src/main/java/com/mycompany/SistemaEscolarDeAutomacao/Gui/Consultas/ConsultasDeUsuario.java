@@ -1,5 +1,6 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
@@ -38,7 +39,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         horaCadastro = new javax.swing.JTextField();
@@ -58,7 +59,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(818, 562));
 
-        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        horaCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
         horaCadastro.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -79,12 +80,12 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); 
         jLabel1.setText("Usuários Cadastrados");
 
         jLabel2.setText("Selecione os critérios de busca:");
 
-        telefoneUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        telefoneUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         telefoneUsuario.setText("Telefone");
         telefoneUsuario.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -105,7 +106,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        dataCadastro.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         dataCadastro.setText("--/--/---- (Data de cadastro)");
         dataCadastro.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -126,7 +127,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        permissaoUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        permissaoUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         permissaoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a permissão", "Diretor", "Secretário", "Professor" }));
         permissaoUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -162,7 +163,7 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        emailUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        emailUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         emailUsuario.setText("Email");
         emailUsuario.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -287,188 +288,182 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusGained
+    private void horaCadastroFocusGained(java.awt.event.FocusEvent evt) {
         if (horaCadastro.getText().equals("HH:mm:ss (Hora do cadastro)")) {
             horaCadastro.setText(null);
             horaCadastro.requestFocus();
             PlaceHolder.removePlaceHolder(horaCadastro);
         }
-    }//GEN-LAST:event_horaCadastroFocusGained
+    }
 
-    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_horaCadastroFocusLost
+    private void horaCadastroFocusLost(java.awt.event.FocusEvent evt) {
         if (horaCadastro.getText().isEmpty()) {
             horaCadastro.setText("HH:mm:ss (Hora do cadastro)");
             PlaceHolder.addPlaceHolder(horaCadastro);
         }
-    }//GEN-LAST:event_horaCadastroFocusLost
+    }
 
-    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_horaCadastroActionPerformed
-    }//GEN-LAST:event_horaCadastroActionPerformed
+    private void horaCadastroActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void telefoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneUsuarioActionPerformed
-    }//GEN-LAST:event_telefoneUsuarioActionPerformed
+    private void telefoneUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void dataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataCadastroActionPerformed
-    }//GEN-LAST:event_dataCadastroActionPerformed
+    private void dataCadastroActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void nomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeUsuarioActionPerformed
-    }//GEN-LAST:event_nomeUsuarioActionPerformed
+    private void nomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailUsuarioActionPerformed
-    }//GEN-LAST:event_emailUsuarioActionPerformed
+    private void emailUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
+    }
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
         ConsultasDeUsuario.setInstance(null);
         UserDAO.closeMan();
         DAO.closeMan();
         Consultas.getInstance().setVisible(true);
-    }//GEN-LAST:event_voltarActionPerformed
+    }
 
-    private void nomeUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusGained
+    private void nomeUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (nomeUsuario.getText().equals("Nome")) {
             nomeUsuario.setText(null);
             nomeUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(nomeUsuario);
         }
-    }//GEN-LAST:event_nomeUsuarioFocusGained
+    }
 
-    private void nomeUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeUsuarioFocusLost
+    private void nomeUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (nomeUsuario.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(nomeUsuario);
             nomeUsuario.setText("Nome");
         }
-    }//GEN-LAST:event_nomeUsuarioFocusLost
+    }
 
-    private void permissaoUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_permissaoUsuarioFocusGained
+    private void permissaoUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (permissaoUsuario.getSelectedItem().toString().equals("Selecione a permissão")) {
             permissaoUsuario.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(permissaoUsuario);
         }
-    }//GEN-LAST:event_permissaoUsuarioFocusGained
+    }
 
-    private void permissaoUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_permissaoUsuarioFocusLost
+    private void permissaoUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (permissaoUsuario.getSelectedItem().toString().equals("Selecione a permissão")) {
             PlaceHolder.addPlaceHolderComboBox(permissaoUsuario);
         }
-    }//GEN-LAST:event_permissaoUsuarioFocusLost
+    }
 
-    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusGained
+    private void dataCadastroFocusGained(java.awt.event.FocusEvent evt) {
         if (dataCadastro.getText().equals("--/--/---- (Data de cadastro)")) {
             dataCadastro.setText(null);
             dataCadastro.requestFocus();
             PlaceHolder.removePlaceHolder(dataCadastro);
         }
-    }//GEN-LAST:event_dataCadastroFocusGained
+    }
 
-    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataCadastroFocusLost
+    private void dataCadastroFocusLost(java.awt.event.FocusEvent evt) {
         if (dataCadastro.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(dataCadastro);
             dataCadastro.setText("--/--/---- (Data de cadastro)");
         }
-    }//GEN-LAST:event_dataCadastroFocusLost
+    }
 
-    private void telefoneUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusGained
+    private void telefoneUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (telefoneUsuario.getText().equals("Telefone")) {
             telefoneUsuario.setText(null);
             telefoneUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(telefoneUsuario);
         }
-    }//GEN-LAST:event_telefoneUsuarioFocusGained
+    }
 
-    private void telefoneUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_telefoneUsuarioFocusLost
+    private void telefoneUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (telefoneUsuario.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(telefoneUsuario);
             telefoneUsuario.setText("Telefone");
         }
-    }//GEN-LAST:event_telefoneUsuarioFocusLost
+    }
 
-    private void emailUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusGained
+    private void emailUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (emailUsuario.getText().equals("Email")) {
             emailUsuario.setText(null);
             emailUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(emailUsuario);
         }
-    }//GEN-LAST:event_emailUsuarioFocusGained
+    }
 
-    private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailUsuarioFocusLost
+    private void emailUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (emailUsuario.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(emailUsuario);
             emailUsuario.setText("Email");
         }
-    }//GEN-LAST:event_emailUsuarioFocusLost
+    }
 
-    private void nomeUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_nomeUsuarioCaretUpdate
+    private void nomeUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_nomeUsuarioCaretUpdate
+    }
 
-    private void permissaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_permissaoUsuarioActionPerformed
+    private void permissaoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_permissaoUsuarioActionPerformed
+    }
 
-    private void dataCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_dataCadastroCaretUpdate
+    private void dataCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_dataCadastroCaretUpdate
+    }
 
-    private void telefoneUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_telefoneUsuarioCaretUpdate
+    private void telefoneUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_telefoneUsuarioCaretUpdate
+    }
 
-    private void emailUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_emailUsuarioCaretUpdate
+    private void emailUsuarioCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_emailUsuarioCaretUpdate
+    }
 
-    private void horaCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_horaCadastroCaretUpdate
+    private void horaCadastroCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_horaCadastroCaretUpdate
+    }
 
-    private void IdentificadorCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_IdentificadorCaretUpdate
+    private void IdentificadorCaretUpdate(javax.swing.event.CaretEvent evt) {
         List<User> lista = UserDAO.buscarUsuariosParaTabela(Identificador.getText(), nomeUsuario.getText(), permissaoUsuario.getSelectedItem().toString(), emailUsuario.getText(), telefoneUsuario.getText(), dataCadastro.getText(), horaCadastro.getText());
         PreencherTabelas.PreencherTabelaDeUsuarios(jTable1, lista);
-    }//GEN-LAST:event_IdentificadorCaretUpdate
+    }
 
-    private void IdentificadorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentificadorFocusGained
+    private void IdentificadorFocusGained(java.awt.event.FocusEvent evt) {
         if (Identificador.getText().equals("Identificador")) {
             Identificador.setText(null);
             Identificador.requestFocus();
             PlaceHolder.removePlaceHolder(Identificador);
         }
-    }//GEN-LAST:event_IdentificadorFocusGained
+    }
 
-    private void IdentificadorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdentificadorFocusLost
+    private void IdentificadorFocusLost(java.awt.event.FocusEvent evt) {
         if (Identificador.getText().isEmpty()) {
             PlaceHolder.addPlaceHolder(Identificador);
             Identificador.setText("Identificador");
         }
-    }//GEN-LAST:event_IdentificadorFocusLost
-
-    private void IdentificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdentificadorActionPerformed
-    }//GEN-LAST:event_IdentificadorActionPerformed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(() -> new ConsultasDeUsuario().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private void IdentificadorActionPerformed(java.awt.event.ActionEvent evt) {
+    }
+
+    public static void main(String args[]) {
+    	try {
+			FlatDarkLaf.setup();
+			new ConsultasDeUsuario().setVisible(true);
+		} catch (Exception ex) {
+			logger.log(java.util.logging.Level.SEVERE, null, ex);
+		}
+    }
+
+    
     private javax.swing.JTextField Identificador;
     private javax.swing.JTextField dataCadastro;
     private javax.swing.JTextField emailUsuario;
@@ -482,5 +477,5 @@ public class ConsultasDeUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> permissaoUsuario;
     private javax.swing.JTextField telefoneUsuario;
     private javax.swing.JButton voltar;
-    // End of variables declaration//GEN-END:variables
+    
 }

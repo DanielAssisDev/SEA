@@ -2,7 +2,8 @@ package com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio;
 
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas.Consultas;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.Cadastros;
-import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.mycompany.SistemaEscolarDeAutomacao.SEA;
 
 public class Ops extends javax.swing.JFrame {
 
@@ -28,7 +29,7 @@ public class Ops extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -38,15 +39,15 @@ public class Ops extends javax.swing.JFrame {
         consultas = new javax.swing.JButton();
         logout = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel1.setText("Quem somos");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); 
         jLabel2.setText("Sistema Escolar De Automação");
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel3.setText("Selecione uma das seguintes operações para prosseguir");
 
         cadastros.setText("Cadastrar");
@@ -103,48 +104,42 @@ public class Ops extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void cadastrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrosActionPerformed
+    private void cadastrosActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         Ops.setInstance(null);
         Cadastros.getInstance().setVisible(true);
-    }//GEN-LAST:event_cadastrosActionPerformed
+    }
 
-    private void consultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultasActionPerformed
+    private void consultasActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         Ops.setInstance(null);
         Consultas.getInstance().setVisible(true);
-    }//GEN-LAST:event_consultasActionPerformed
-
-    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        dispose();
-        Ops.setInstance(null);
-        SistemaEscolarDeAutomacao.setUser(null);
-        TelaLogin.getInstance().setVisible(true);
-    }//GEN-LAST:event_logoutActionPerformed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        java.awt.EventQueue.invokeLater(() -> new Ops().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {
+        dispose();
+        Ops.setInstance(null);
+        SEA.setUser(null);
+        TelaLogin.getInstance().setVisible(true);
+    }
+
+    public static void main(String args[]) {
+    	try {
+        	FlatDarkLaf.setup();
+            new Ops().setVisible(true);
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }
+
+    
     private javax.swing.JButton cadastros;
     private javax.swing.JButton consultas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logout;
-    // End of variables declaration//GEN-END:variables
+    
 }

@@ -33,7 +33,7 @@ public class PlaceHolder {
         Font font = campo.getFont();
         font = font.deriveFont(Font.PLAIN);
         campo.setFont(font);
-        campo.setForeground(Color.BLACK);
+        campo.setForeground(Color.WHITE);
     }
 
     public static void addPlaceHolderComboBox(JComboBox caixa) {
@@ -48,6 +48,6 @@ public class PlaceHolder {
         Font font = caixa.getFont();
         font = font.deriveFont(Font.PLAIN);
         caixa.setFont(font);
-        caixa.setForeground(Color.BLACK);
+        caixa.setForeground(Color.WHITE);
     }
 }

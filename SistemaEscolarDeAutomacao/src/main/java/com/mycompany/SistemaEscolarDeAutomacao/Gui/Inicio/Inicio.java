@@ -1,6 +1,10 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroProfs;
+
 import javax.swing.JOptionPane;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Inicio extends javax.swing.JFrame {
 
@@ -26,7 +30,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -51,10 +55,10 @@ public class Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(27, 40, 56));
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel1.setText("Quem somos");
 
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); 
         jLabel2.setText("Sistema Escolar De Automação");
 
         jTextArea1.setEditable(false);
@@ -65,7 +69,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea1.setFocusable(false);
         jScrollPane2.setViewportView(jTextArea1);
 
-        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel4.setText("Nosso objetivo com este projeto?");
 
         jTextArea2.setEditable(false);
@@ -76,7 +80,7 @@ public class Inicio extends javax.swing.JFrame {
         jTextArea2.setFocusable(false);
         jScrollPane3.setViewportView(jTextArea2);
 
-        jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel5.setText("Por onde começar?");
 
         jTextArea5.setEditable(false);
@@ -143,31 +147,25 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
         Inicio.setInstance(null);
         TelaLogin.getInstance().setVisible(true);
         JOptionPane.showMessageDialog(null, "Pressione Alt+F4 caso deseje sair.");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        java.awt.EventQueue.invokeLater(() -> new Inicio().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static void main(String args[]) {    
+        try {
+        	FlatDarkLaf.setup();
+            new Inicio().setVisible(true);
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }
+
+    
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -182,5 +180,5 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
-    // End of variables declaration//GEN-END:variables
+    
 }

@@ -50,7 +50,7 @@ public class HorarioDAO {
         return h;
     }
 
-    public List<Horario> buscarHorarios() {
+    public static List<Horario> buscarHorarios() {
         List<Horario> horarios = new ArrayList<>();
         try {
             Query consulta = man.createQuery("SELECT h from Horario h");

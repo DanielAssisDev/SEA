@@ -1,6 +1,7 @@
 
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.AlunoDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.DAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Dao.SalaDAO;
@@ -47,7 +48,7 @@ public class CadastroAluno extends javax.swing.JFrame {
 
     
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -62,10 +63,10 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Adwaita Sans", 0, 36)); 
         jLabel1.setText("Cadastro de alunos");
 
-        nomeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        nomeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         nomeAluno.setText("Nome");
         nomeAluno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -83,7 +84,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        dataNascimento.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         dataNascimento.setText("--/--/---- (Data de nascimento)");
         dataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -99,7 +100,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        cpfAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        cpfAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         cpfAluno.setText("CPF");
         cpfAluno.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -120,7 +121,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        idadeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        idadeAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         idadeAluno.setText("Idade");
         idadeAluno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -131,7 +132,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        turnoAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         turnoAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o turno", "M", "V", "N" }));
         turnoAluno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -142,7 +143,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             }
         });
 
-        salaAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        salaAluno.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         salaAluno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a sala" }));
         salaAluno.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -206,27 +207,27 @@ public class CadastroAluno extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void nomeAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeAlunoFocusGained
-        // TODO add your handling code here:
+    private void nomeAlunoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (nomeAluno.getText().equals("Nome")) {
             nomeAluno.setText(null);
             nomeAluno.requestFocus();
             PlaceHolder.removePlaceHolder(nomeAluno);
         }
-    }//GEN-LAST:event_nomeAlunoFocusGained
+    }
 
-    private void nomeAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeAlunoFocusLost
-        // TODO add your handling code here:
+    private void nomeAlunoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (nomeAluno.getText().isEmpty()) {
             nomeAluno.setText("Nome");
             PlaceHolder.addPlaceHolder(nomeAluno);
         }
-    }//GEN-LAST:event_nomeAlunoFocusLost
+    }
 
-    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-        // TODO add your handling code here:
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {
+        
         if (!DAO.getMan().isOpen()) {
             DAO.setMan();
         }
@@ -262,7 +263,7 @@ public class CadastroAluno extends javax.swing.JFrame {
             if (camposPreenchidos && comboBoxesSelecionadas) {
                 Aluno aluno = new Aluno(nome, idade, cpf, dataNas, dataCad, hora, sala, turno);
                 DAO.cadastrarJPA(aluno);
-                JOptionPane.showMessageDialog(null, "Cadastro bem sucedido");
+                JOptionPane.showMessageDialog(null, "Cadastro bem sucedido.");
                 nomeAluno.setText("Nome");
                 PlaceHolder.addPlaceHolder(nomeAluno);
                 idadeAluno.setText("Idade");
@@ -282,132 +283,121 @@ public class CadastroAluno extends javax.swing.JFrame {
         }
         DAO.closeMan();
         SalaDAO.closeMan();
-    }//GEN-LAST:event_CadastrarActionPerformed
+    }
 
-    private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusGained
-        // TODO add your handling code here:
+    private void dataNascimentoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (dataNascimento.getText().equals("--/--/---- (Data de nascimento)")) {
             dataNascimento.setText(null);
             dataNascimento.requestFocus();
             PlaceHolder.removePlaceHolder(dataNascimento);
         }
-    }//GEN-LAST:event_dataNascimentoFocusGained
+    }
 
-    private void dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_dataNascimentoFocusLost
-        // TODO add your handling code here:
+    private void dataNascimentoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (dataNascimento.getText().isEmpty()) {
             dataNascimento.setText("--/--/---- (Data de nascimento)");
             PlaceHolder.addPlaceHolder(dataNascimento);
         }
-    }//GEN-LAST:event_dataNascimentoFocusLost
+    }
 
-    private void dataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dataNascimentoActionPerformed
+    private void dataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void cpfAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfAlunoFocusGained
-        // TODO add your handling code here:
+    private void cpfAlunoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (cpfAluno.getText().equals("CPF")) {
             cpfAluno.setText(null);
             cpfAluno.requestFocus();
             PlaceHolder.removePlaceHolder(cpfAluno);
         }
-    }//GEN-LAST:event_cpfAlunoFocusGained
+    }
 
-    private void cpfAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfAlunoFocusLost
-        // TODO add your handling code here:
+    private void cpfAlunoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (cpfAluno.getText().isEmpty()) {
             cpfAluno.setText("CPF");
             PlaceHolder.addPlaceHolder(cpfAluno);
         }
-    }//GEN-LAST:event_cpfAlunoFocusLost
+    }
 
-    private void cpfAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfAlunoActionPerformed
+    private void cpfAlunoActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
 
-    private void cpfAlunoComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cpfAlunoComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfAlunoComponentRemoved
+    private void cpfAlunoComponentRemoved(java.awt.event.ContainerEvent evt) {
+        
+    }
 
-    private void idadeAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeAlunoFocusGained
-        // TODO add your handling code here:
+    private void idadeAlunoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (idadeAluno.getText().equals("Idade")) {
             idadeAluno.setText(null);
             idadeAluno.requestFocus();
             PlaceHolder.removePlaceHolder(idadeAluno);
         }
-    }//GEN-LAST:event_idadeAlunoFocusGained
+    }
 
-    private void idadeAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_idadeAlunoFocusLost
-        // TODO add your handling code here:
+    private void idadeAlunoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (idadeAluno.getText().isEmpty()) {
             idadeAluno.setText("Idade");
             PlaceHolder.addPlaceHolder(idadeAluno);
         }
-    }//GEN-LAST:event_idadeAlunoFocusLost
+    }
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        // TODO add your handling code here:
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
+        
         dispose();
         DAO.closeMan();
         SalaDAO.closeMan();
         CadastroAluno.setInstance(null);
         Cadastros.getInstance().setVisible(true);
-    }//GEN-LAST:event_voltarActionPerformed
+    }
 
-    private void salaAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaAlunoFocusGained
-        // TODO add your handling code here:
+    private void salaAlunoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             salaAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(salaAluno);
         }
-    }//GEN-LAST:event_salaAlunoFocusGained
+    }
 
-    private void salaAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_salaAlunoFocusLost
-        // TODO add your handling code here:
+    private void salaAlunoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (salaAluno.getSelectedItem().toString().equals("Selecione a sala")) {
             PlaceHolder.addPlaceHolderComboBox(salaAluno);
         }
-    }//GEN-LAST:event_salaAlunoFocusLost
+    }
 
-    private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusLost
-        // TODO add your handling code here:
+    private void turnoAlunoFocusLost(java.awt.event.FocusEvent evt) {
+        
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             PlaceHolder.addPlaceHolderComboBox(turnoAluno);
         }
-    }//GEN-LAST:event_turnoAlunoFocusLost
+    }
 
-    private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_turnoAlunoFocusGained
-        // TODO add your handling code here:
+    private void turnoAlunoFocusGained(java.awt.event.FocusEvent evt) {
+        
         if (turnoAluno.getSelectedItem().toString().equals("Selecione o turno")) {
             turnoAluno.requestFocus();
             PlaceHolder.removePlaceHolderComboBox(turnoAluno);
         }
-    }//GEN-LAST:event_turnoAlunoFocusGained
+    }
 
     
     public static void main(String args[]) {
-        
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        
-        java.awt.EventQueue.invokeLater(() -> new CadastroAluno().setVisible(true));
+    	try {
+			FlatDarkLaf.setup();
+			new CadastroAluno().setVisible(true);
+		} catch (Exception ex) {
+			logger.log(java.util.logging.Level.SEVERE, null, ex);
+		}
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField cpfAluno;
     private javax.swing.JTextField dataNascimento;
@@ -417,5 +407,5 @@ public class CadastroAluno extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> salaAluno;
     private javax.swing.JComboBox<String> turnoAluno;
     private javax.swing.JButton voltar;
-    // End of variables declaration//GEN-END:variables
+    
 }

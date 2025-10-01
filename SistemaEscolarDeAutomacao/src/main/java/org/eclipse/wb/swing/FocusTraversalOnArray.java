@@ -8,19 +8,19 @@ import java.awt.FocusTraversalPolicy;
 
 public class FocusTraversalOnArray extends FocusTraversalPolicy {
 	private final Component m_Components[];
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Constructor
-	//
-	////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
 	public FocusTraversalOnArray(Component components[]) {
 		m_Components = components;
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// Utilities
-	//
-	////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
 	private int indexCycle(int index, int delta) {
 		int size = m_Components.length;
 		int next = (index + delta + size) % size;
@@ -37,7 +37,7 @@ public class FocusTraversalOnArray extends FocusTraversalPolicy {
 				}
 			}
 		}
-		// try to find enabled component in "delta" direction
+		
 		int initialIndex = index;
 		while (true) {
 			int newIndex = indexCycle(index, delta);
@@ -45,20 +45,20 @@ public class FocusTraversalOnArray extends FocusTraversalPolicy {
 				break;
 			}
 			index = newIndex;
-			//
+			
 			Component component = m_Components[newIndex];
 			if (component.isEnabled() && component.isVisible() && component.isFocusable()) {
 				return component;
 			}
 		}
-		// not found
+		
 		return currentComponent;
 	}
-	////////////////////////////////////////////////////////////////////////////
-	//
-	// FocusTraversalPolicy
-	//
-	////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
 	public Component getComponentAfter(Container container, Component component) {
 		return cycle(component, 1);
 	}

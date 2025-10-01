@@ -5,7 +5,8 @@ import com.mycompany.SistemaEscolarDeAutomacao.Dao.UserDAO;
 import com.mycompany.SistemaEscolarDeAutomacao.Entities.User;
 import com.mycompany.SistemaEscolarDeAutomacao.Gerais.PlaceHolder;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
-import com.mycompany.SistemaEscolarDeAutomacao.SistemaEscolarDeAutomacao;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.mycompany.SistemaEscolarDeAutomacao.SEA;
 
 public class TelaLogin extends javax.swing.JFrame {
 
@@ -31,7 +32,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -51,10 +52,10 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 0, 36)); 
         jLabel1.setText("Faça log-in em sua conta");
 
-        loginUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        loginUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         loginUsuario.setText("Log-in");
         loginUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -97,7 +98,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        senhaUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); // NOI18N
+        senhaUsuario.setFont(new java.awt.Font("Noto Sans", 2, 13)); 
         senhaUsuario.setText("Senha");
         senhaUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -163,58 +164,58 @@ public class TelaLogin extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void senhaEsquecidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_senhaEsquecidaMouseClicked
+    private void senhaEsquecidaMouseClicked(java.awt.event.MouseEvent evt) {
 
-    }//GEN-LAST:event_senhaEsquecidaMouseClicked
+    }
 
-    private void cadastroInicialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastroInicialMouseClicked
+    private void cadastroInicialMouseClicked(java.awt.event.MouseEvent evt) {
         dispose();
         DAO.closeMan();
         UserDAO.closeMan();
         TelaLogin.setInstance(null);
         CadastroUser.getInstance().setVisible(true);
-    }//GEN-LAST:event_cadastroInicialMouseClicked
+    }
 
-    private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusGained
+    private void loginUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (loginUsuario.getText().equals("Log-in")) {
             loginUsuario.setText(null);
             loginUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(loginUsuario);
         }
-    }//GEN-LAST:event_loginUsuarioFocusGained
+    }
 
-    private void loginUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_loginUsuarioFocusLost
+    private void loginUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (loginUsuario.getText().isEmpty()) {
             loginUsuario.setText("Log-in");
             PlaceHolder.addPlaceHolder(loginUsuario);
         }
-    }//GEN-LAST:event_loginUsuarioFocusLost
+    }
 
-    private void senhaUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusGained
+    private void senhaUsuarioFocusGained(java.awt.event.FocusEvent evt) {
         if (senhaUsuario.getText().equals("Senha")) {
             senhaUsuario.setText(null);
             senhaUsuario.requestFocus();
             PlaceHolder.removePlaceHolder(senhaUsuario);
         }
-    }//GEN-LAST:event_senhaUsuarioFocusGained
+    }
 
-    private void senhaUsuarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_senhaUsuarioFocusLost
+    private void senhaUsuarioFocusLost(java.awt.event.FocusEvent evt) {
         if (senhaUsuario.getText().isEmpty()) {
             senhaUsuario.setText("Senha");
             PlaceHolder.addPlaceHolder(senhaUsuario);
         }
-    }//GEN-LAST:event_senhaUsuarioFocusLost
+    }
 
-    private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
+    private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {
         DAO.setMan();
         UserDAO.setMan();
         String l = loginUsuario.getText();
         String s = DAO.getSHA2(DAO.getMD5(senhaUsuario.getText()));
 
         User user = UserDAO.Autenticacao(l, s);
-        SistemaEscolarDeAutomacao.setUser(user);
+        SEA.setUser(user);
 
         if (user != null) {
             this.dispose();
@@ -223,45 +224,37 @@ public class TelaLogin extends javax.swing.JFrame {
             UserDAO.closeMan();
             Ops.getInstance().setVisible(true);
         }
-    }//GEN-LAST:event_EntrarActionPerformed
+    }
 
-    private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagarActionPerformed
+    private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {
         loginUsuario.setText("Log-in");
         PlaceHolder.addPlaceHolder(loginUsuario);
         senhaUsuario.setText("Senha");
         PlaceHolder.addPlaceHolder(senhaUsuario);
 
-    }//GEN-LAST:event_ApagarActionPerformed
+    }
 
-    private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizacaoActionPerformed
+    private void visualizacaoActionPerformed(java.awt.event.ActionEvent evt) {
         if (senhaUsuario.getEchoChar() == '\u2022') {
             senhaUsuario.setEchoChar((char) 0);
         } else {
             senhaUsuario.setEchoChar('\u2022');
         }
-    }//GEN-LAST:event_visualizacaoActionPerformed
-
-    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-    }//GEN-LAST:event_formKeyPressed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        
-        java.awt.EventQueue.invokeLater(() -> new TelaLogin().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {
+    }
+
+    public static void main(String args[]) {
+    	try {
+        	FlatDarkLaf.setup();
+            new TelaLogin().setVisible(true);
+        } catch (Exception ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }
+
+    
     private javax.swing.JButton Apagar;
     private javax.swing.JButton Entrar;
     private javax.swing.JLabel cadastroInicial;
@@ -271,6 +264,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel senhaEsquecida;
     private javax.swing.JPasswordField senhaUsuario;
     private javax.swing.JButton visualizacao;
-    // End of variables declaration//GEN-END:variables
+    
 
 }

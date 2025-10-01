@@ -1,5 +1,7 @@
 package com.mycompany.SistemaEscolarDeAutomacao.Gui.Consultas;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.mycompany.SistemaEscolarDeAutomacao.Gui.Cadastro.CadastroUser;
 import com.mycompany.SistemaEscolarDeAutomacao.Gui.Inicio.Ops;
 
 public class Consultas extends javax.swing.JFrame {
@@ -24,7 +26,7 @@ public class Consultas extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    
     private void initComponents() {
 
         voltar = new javax.swing.JButton();
@@ -45,10 +47,10 @@ public class Consultas extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 36)); 
         jLabel2.setText("Sistema Escolar De Automação");
 
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 0, 24)); 
         jLabel3.setText("Selecione uma das seguintes operações para prosseguir");
 
         consultaProfessores.setText("Consulta de professores");
@@ -111,54 +113,49 @@ public class Consultas extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
-    private void consultaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaUsuariosActionPerformed
+    private void consultaUsuariosActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
         Consultas.setInstance(null);
         ConsultasDeUsuario.getInstance().setVisible(true);
-    }//GEN-LAST:event_consultaUsuariosActionPerformed
+    }
 
-    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {
         dispose();
         Consultas.setInstance(null);
         Ops.getInstance().setVisible(true);
-    }//GEN-LAST:event_voltarActionPerformed
+    }
 
-    private void consultaProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaProfessoresActionPerformed
-        // TODO add your handling code here:
+    private void consultaProfessoresActionPerformed(java.awt.event.ActionEvent evt) {
+        
         dispose();
         Consultas.setInstance(null);
         ConsultaProfessores.getInstance().setVisible(true);
-    }//GEN-LAST:event_consultaProfessoresActionPerformed
+    }
 
-    private void consultaAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaAlunosActionPerformed
-        // TODO add your handling code here:
+    private void consultaAlunosActionPerformed(java.awt.event.ActionEvent evt) {
+        
         dispose();
         Consultas.setInstance(null);
         ConsultasAlunos.getInstance().setVisible(true);
-    }//GEN-LAST:event_consultaAlunosActionPerformed
-
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        java.awt.EventQueue.invokeLater(() -> new Consultas().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static void main(String args[]) {
+    	try {
+			FlatDarkLaf.setup();
+			new Consultas().setVisible(true);
+		} catch (Exception ex) {
+			logger.log(java.util.logging.Level.SEVERE, null, ex);
+		}
+    }
+
+    
     private javax.swing.JButton consultaAlunos;
     private javax.swing.JButton consultaProfessores;
     private javax.swing.JButton consultaUsuarios;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton voltar;
-    // End of variables declaration//GEN-END:variables
+    
 }
